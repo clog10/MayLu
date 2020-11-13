@@ -1,51 +1,38 @@
 <!DOCTYPE html>
+
 <html>
+    <head>
+        <title>Login del Sistema </title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="styles/estilos-login.css">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&display=swap" rel="stylesheet">
+    </head>
 
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Login del Sistema</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='styles/estilos-login.css'>
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <div class="container">
-        <div id="left" style="width: 50%; float:left">
-            <img src="img/maylu.png" alt="Gerberas" width="530" height="592" />
-
-        </div>
-        <div id="right" style="width: 50%; float:right">
-            <h1>
-                Hola! <br />Bienvenido
-            </h1>
-            <div class="container2">
-                <h3>
-                    Ingresa a tu cuenta
-                </h3>
-                <label for="usuario" class="colocar_usuario">Usuario
-                </label>
-                <input type="text" name="introducir_usuario" id="usuario" required="obligatorio"
-                    placeholder="__________________________">
-
-                <label for="pass" class="colocar_pass">Contraseña
-                </label>
-                <input type="password" pattern="[A-Za-z0-9@#$%]{8,20}" minlength="8" maxlength="20"
-                    name="introducir_pass" id="pass" required="obligatorio" placeholder="__________________________">
-
-                <a href="" class="olvido">¿Olvidó su contraseña?</a>
-
-                <button type="submit" name="enviar_formulario" id="enviar"><label class="tipo">Entrar</label></button>
-
+    <body> 
+        <div class="container">
+            <div id="left" style="width: 50%; float:left">
+                <img src="img/maylu.png" alt="Gerberas" width="530" height="510" />
             </div>
 
+            <div id="right" style="width: 50%; float:right">
+                <h1>Bienvenido al sistema</h1>        		
+
+                <div class="container2">
+                    <h3>Ingresa a tu cuenta</h3>
+
+                    <label for="usuario" class="colocar_usuario">Usuario:</label>
+                    <input type="text" name="introducir_usuario" id="usuario" required="obligatorio" placeholder="_____________________">
+                    <label for="pass" class="colocar_pass">Contraseña:</label>
+                    <input type="password" pattern="[A-Za-z0-9@#$%]{8,20}" minlength="8" maxlength="20"
+                           name="introducir_pass" id="pass" required="obligatorio" placeholder="__________________________">
+
+                    <button type="submit" name="enviar_formulario" id="enviar"><label class="tipo">Entrar</label></button>
+
+                </div>
+            </div>
         </div>
 
-    </div>
-</body>
-
-
-</html>
+    </body>
+</hmtl>
