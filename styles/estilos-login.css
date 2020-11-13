@@ -1,53 +1,53 @@
-body {
-    margin: 10px;
-    height: 80vh;
-    background-color: rgba(0, 0, 0, 0.815);
-}
+body{
+	background-image: url(img/zapato-1.jpg); 
+	background-size: 100% 120%;
 
+	margin: 10px;
+    height: 80vh;
+}
 img {
     line-height: 0;
     border-top-left-radius: 15px;
 }
-
 .container {
     display: inline-flexbox;
     background-color: white;
-    width: 60em;
-    height: 37em;
+    width: 55em;
+    height: 32em;
     margin: auto;
     padding: 0px;
-    margin-top: 40px;
+    margin-top: 70px;
     border-radius: 20px 0px 20px 0px;
     margin-bottom: 20px;
-    box-shadow: -2px 8px 20px rgb(0, 0, 0);
+    box-shadow: -2px 8px 20px rgb(183, 134, 60);
 }
-
 .container2 {
     font-family: 'Lobster', cursive;
     background-color: white;
-    width: 20em;
-    height: 26em;
+    width: 21em;
+    height: 23em;
     margin: auto;
-    margin-top: 15px;
+    margin-top: 65px;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 29px;
     margin-left: 100px;
-    box-shadow: 1px 1px 0px rgb(211, 203, 205);
+    box-shadow: -1px 1px 1px rgb(211, 203, 205);
 }
 
 h1 {
-    font-size: 50px;
-    color: rgb(0, 0, 0);
-    font-family: 'Tangerine', cursive;
-    padding-left: 90px;
-    margin-top: 10px;
+	font-size: 50px;
+	font-family: "Tangerine";
+    color:black;
+    padding-left: 150px;
+    margin-top: 18px;
     margin-bottom: 10px;
-    /*font-variant: small-caps;*/
+    
 }
 
 h3 {
+	font-size: 50px;
     margin-top: 20px;
-    padding-left: 60px;
+    padding-left: 80px;
     font-size: 25px;
     font-family: 'Lobster', cursive;
     font-weight: lighter;
@@ -57,7 +57,7 @@ label {
     padding-left: 10px;
     font-size: 20px;
     font-family: 'Lobster', cursive;
-    font-family: 'Lobster Two', cursive;
+    font-family: 'Lobster', cursive;
 }
 
 span {
@@ -75,11 +75,6 @@ input {
     padding-left: 10px;
     margin-bottom: 20px;
     margin-left: 20px;
-}
-
-.olvido {
-    margin-left: 150px;
-    margin-top: 2px;
 }
 
 .tipo {
