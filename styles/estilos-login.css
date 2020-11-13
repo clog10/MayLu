@@ -1,0 +1,111 @@
+body {
+    margin: 10px;
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.815);
+}
+
+img {
+    line-height: 0;
+    border-top-left-radius: 15px;
+}
+
+.container {
+    display: inline-flexbox;
+    background-color: white;
+    width: 60em;
+    height: 37em;
+    margin: auto;
+    padding: 0px;
+    margin-top: 40px;
+    border-radius: 20px 0px 20px 0px;
+    margin-bottom: 20px;
+    box-shadow: -2px 8px 20px rgb(0, 0, 0);
+}
+
+.container2 {
+    font-family: 'Lobster', cursive;
+    background-color: white;
+    width: 20em;
+    height: 26em;
+    margin: auto;
+    margin-top: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    box-shadow: 1px 1px 0px rgb(211, 203, 205);
+}
+
+h1 {
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+    font-family: 'Tangerine', cursive;
+    padding-left: 90px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /*font-variant: small-caps;*/
+}
+
+h3 {
+    margin-top: 20px;
+    padding-left: 60px;
+    font-size: 25px;
+    font-family: 'Lobster', cursive;
+    font-weight: lighter;
+}
+
+label {
+    padding-left: 10px;
+    font-size: 20px;
+    font-family: 'Lobster', cursive;
+    font-family: 'Lobster Two', cursive;
+}
+
+span {
+    color: #000000;
+}
+
+input {
+    font-size: 20px;
+    background-color: #fbfbfb;
+    width: 80%;
+    height: 40px;
+    border-radius: 5px;
+    border-style: none;
+    margin-top: 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.olvido {
+    margin-left: 150px;
+    margin-top: 2px;
+}
+
+.tipo {
+    font-family: 'Lobster', cursive;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+p {
+    margin-left: 120px;
+}
+
+button {
+    height: 45px;
+    padding-left: 0px;
+    padding-right: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    background-color: #000000;
+    border-color: #030103;
+    border-style: solid;
+    border-radius: 10px;
+    width: 50%;
+    cursor: pointer;
+    margin-left: 80px;
+    padding-top: 0px;
+    color: white;
+}
