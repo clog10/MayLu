@@ -139,6 +139,8 @@ button {
     .container .left>img {
         width: 400px;
         align-items: center;
+        display: block;
+        margin: auto;
     }
 
     .right {
