@@ -1,14 +1,16 @@
-body{
-	background-image: url(img/zapato-1.jpg); 
-	background-size: 100% 120%;
+body {
+    /*background-image: url(img/zapato-1.jpg); */
+    background-size: 100% 120%;
 
-	margin: 10px;
+    margin: 10px;
     height: 80vh;
 }
+
 img {
     line-height: 0;
     border-top-left-radius: 15px;
 }
+
 .container {
     display: inline-flexbox;
     background-color: white;
@@ -19,8 +21,9 @@ img {
     margin-top: 70px;
     border-radius: 20px 0px 20px 0px;
     margin-bottom: 20px;
-    box-shadow: -2px 8px 20px rgb(183, 134, 60);
+    box-shadow: 2px 8px 20px rgb(183, 134, 60);
 }
+
 .container2 {
     font-family: 'Lobster', cursive;
     background-color: white;
@@ -34,18 +37,29 @@ img {
     box-shadow: -1px 1px 1px rgb(211, 203, 205);
 }
 
+.left {
+    width: 50%;
+    float: left;
+}
+
+.right {
+    width: 50%;
+     float:right;
+}
+
+
 h1 {
-	font-size: 50px;
-	font-family: "Tangerine";
-    color:black;
+    font-size: 50px;
+    font-family: "Tangerine";
+    color: black;
     padding-left: 150px;
     margin-top: 18px;
     margin-bottom: 10px;
-    
+
 }
 
 h3 {
-	font-size: 50px;
+    font-size: 50px;
     margin-top: 20px;
     padding-left: 80px;
     font-size: 25px;
@@ -103,4 +117,34 @@ button {
     margin-left: 80px;
     padding-top: 0px;
     color: white;
+}
+
+@media screen and (max-width:910px) {
+
+    .container {
+        width: 100%;
+        justify-content: space-evenly;
+        flex-direction: column;
+        display: inline-block;
+        height: 850px;
+        align-items: center ;
+    }
+
+     .left {
+        width: 100%;
+        height: 280px;
+        vertical-align: top;
+    }
+
+    .container .left>img {
+        width: 400px;
+        align-items: center;
+    }
+
+    .right {
+        width: 100%;
+        vertical-align: bottom;
+        margin-top: 50px;
+    }
+
 }
