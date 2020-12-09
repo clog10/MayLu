@@ -168,7 +168,7 @@
   font-size: 35px;
 }
 
-.sidebar-wrapper .sidebar-brand>p {
+.sidebar-wrapper .sidebar-brand>span {
   text-transform: uppercase;
   font-weight: bold;
   -webkit-box-flex: 1;
@@ -177,6 +177,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  color: white;
 }
 
 .sidebar-wrapper .sidebar-header {
@@ -443,6 +444,7 @@ body {
   color: rgb(3, 7, 53);
   margin:auto;
   text-align:center;
+  text-decoration: none;
 } 
 
 .article:hover {
