@@ -429,6 +429,26 @@ body {
   left: 0px;
 }
 
+.article {
+  width: 100%;
+  background: rgb(164, 171, 255);
+  margin-bottom: 40px;
+  border-radius: 10px;
+  padding: 10px 10px 10px 10px;
+  transition: 0.5s;
+}
+
+.page-content .container .row .form-group .article > a {
+  font-size: 28px;
+  color: rgb(3, 7, 53);
+  margin:auto;
+  text-align:center;
+} 
+
+.article:hover {
+  box-shadow: 6px 8px 6px rgba(10, 17, 29, 0.26);
+}
+
 @media screen and (min-width: 768px) {
   .page-wrapper.toggled .page-content {
     padding-left: 280px;
