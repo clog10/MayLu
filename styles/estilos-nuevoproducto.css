@@ -1,0 +1,116 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #666;
+	background: #f2f2f2; 
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+#divnombre {
+    width: 98%;
+    text-align: right;
+}
+
+#divcerrar {
+    width: 98%;
+    text-align: right;
+}
+
+
+#main-content {
+    background: white;
+    width: 90%;
+    max-width: 1000px;
+    margin: 7px auto;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+}
+
+#main-content h1 {
+    text-align: left;
+}
+
+#img-inventario {
+    margin-right: 15px;
+    float: left;
+}
+
+#main-content header,
+#main-content .content {
+        padding: 20px;
+}
+
+#container {
+    padding: 50px;
+}
+
+.flexsearch--input {
+  width: 30%;
+}
+
+.flexsearch--input {
+  -webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+ 	height: 20px;
+  padding: 0 26px 0 10px;
+	border-color: #888;
+  border-radius: 35px; /* (height/2) + border-width */
+  border-style: solid;
+	border-width: 3px;
+  margin-top: 15px;
+  margin-left: 250px;
+  color: #333;
+  font-family: 'Helvetica', sans-serif;
+	font-size: 15px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.flexsearch--input:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.field {
+    margin-left: 0px;
+    margin-right: 50px;
+    float: right;
+  display:flex;
+  width:70%;
+  flex-direction:row;
+  box-shadow:
+   1px 1px 0 rgb(3, 7, 53),
+   2px 2px 0 rgb(3, 7, 53),
+   3px 3px 0 rgb(3, 7, 53),
+   4px 4px 0 rgb(3, 7, 53),
+   5px 5px 0 rgb(3, 7, 53),
+   6px 6px 0 rgb(3, 7, 53),
+   7px 7px 0 rgb(3, 7, 53)
+  ;
+}
+
+.field>input[type=text],
+.field>button {
+  display:block;
+  font:1.2em 'Montserrat Alternates';
+}
+
+.field>input[type=text] {
+  flex:1;
+  padding:0.6em;
+  border:0.2em solid  #1310d3;
+}
+
+.field>button {
+  padding:0.6em 0.8em;
+  background-color: #1310d3;
+  color:white;
+  border:none;
+}
+
+#tablee {
+    margin: 50px;
+    width: 90%;
+}
