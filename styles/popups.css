@@ -408,3 +408,13 @@
 	from { opacity: 0; }
 	to { opacity: 1; }
 }
+
+table th,
+td {
+    text-align: center;
+}
+
+th {
+    background-color: #030249;
+    color: white;
+} 
