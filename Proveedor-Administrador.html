@@ -38,44 +38,28 @@
 
             <div class="popup" id="popup">
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-                <h3>Agregar Producto</h3>
+                <h3>Agregar Proveedor</h3>
                 <h4>Ingresa los datos</h4>
-                <form action="BD/inserZap.php" method="POST">
+                <form action="BD/inserProveedor.php" method="POST">
                     <div class="contenedor-etiquetas">
-                        <h4>Codigo P</h4>
-                        <h4>Proveedor</h4>
-                        <h4>Talla</h4>
-                        <h4>Color</h4>
-                        <h4>Precio Compra</h4>
-                        <h4>Precio Venta</h4>
-                        <h4>Stock</h4>
+                        <h4>Nombre</h4>
+                        <h4>Agente</h4>
+                        <h4>Direccion</h4>
+                        <h4>Telefono</h4>
+                        <h4>Correo</h4>
                     </div>
                     <div class="contenedor-inputs">
 
-                        <input type="text" name="modelo" placeholder="Codigo P">
+                        <input type="text" name="nombre_empresa" placeholder="Nombre de la empresa">
 
-                        <select name="proveedor" class="select">
-                            <option selected value="0"> Elige una opción </option>
-                            <option value="1">Windows Vista</option>
-                            <option value="2">Windows 7</option>
-                            <option value="3">Windows XP</option>
-                            <option value="10">Fedora</option>
-                            <option value="11">Debian</option>
-                            <option value="12">Suse</option>
-                        </select>
+                        <input type="text" name="nombre_agente" placeholder="Nombre del agente">
 
-                        <input type="text" name="talla" placeholder="Talla">
+                        <input type="text" name="direccion" placeholder="Direccion">
 
-                        <input type="text" name="color" placeholder="Color">
+                        <input type="text" name="tel" placeholder="Telefono">
 
-                        <input type="text" name="precio_compra" placeholder="Precio Compra">
+                        <input type="text" name="email" placeholder="Correo electrónico">
 
-                        <input type="text" name="precio_venta" placeholder="Precio Venta">
-
-                        <input type="text" name="stock" placeholder="Stock">
-                    </div>
-                    <div class="contenedor-imagen">
-                        <input type="file" placeholder="Cargar">
                     </div>
                     <br>
                     <input type="submit" class="btn-submit btn-block" name="guardar" value="Guardar">
@@ -89,9 +73,10 @@
             <div class="sidebar-content">
                 <!-- sidebar-brand  -->
                 <div class="sidebar-item sidebar-brand">
-                    <a href="#" align="center">
-                        <i class="fa fa-shoe-prints"></i>
-                        MayLú</a>
+                        <span align="center">
+                            <i class="fa fa-shoe-prints"></i>
+                            MayLú
+                        </span>
                 </div>
                 <!-- sidebar-header  -->
                 <div class="sidebar-item sidebar-header d-flex flex-nowrap">
@@ -102,14 +87,13 @@
                         <span class="user-name"><strong>Carlos
                                 Loaeza</strong>
                         </span>
-                        <span class="user-role">Almacén</span>
+                        <span class="user-role">Administrador</span>
                         <span class="user-status">
                             <i class="fa fa-circle"></i>
                             <span>Online</span>
                         </span>
                     </div>
                 </div>
-
                 <!-- sidebar-menu  -->
                 <div class=" sidebar-item sidebar-menu">
                     <ul>
@@ -128,75 +112,41 @@
                                 <span class="menu-text">Punto de Venta</span>
                             </a>
                         </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
+                        <li >
+                            <a href="Inventario-Administrador.html">
                                 <i class="fa fa-warehouse"></i>
                                 <span class="menu-text">Inventario</span>
                             </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="AdminNProducto.php">
-                                            <i class="fa fa-plus"></i>
-                                            Nuevo producto
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
-
                         <li>
-                            <a href="#">
+                            <a href="reportes.html">
                                 <i class="fa fa-chart-line"></i>
                                 <span class="menu-text">Reportes</span>
                             </a>
                         </li>
                         <li>
-                            <a href="AdminCaja.php">
+                            <a href="AdminCaja.html">
                                 <i class="fa fa-cash-register"></i>
-                                Caja
+                                <span class="menu-text">Caja</span>
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <i class="fa fa-sync-alt"></i>
-                                Devoluciones
+                                <span class="menu-text">Devoluciones</span>
                             </a>
                         </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
+                        <li>
+                            <a href="Usuario-Administrador.html">
                                 <i class="fa fa-users"></i>
                                 <span class="menu-text">Usuarios</span>
                             </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="AdminUsuario.php">
-                                            <i class="fa fa-plus"></i>Nuevo Usuario</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-list"></i>Listar usuarios</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
+                        <li>
+                            <a href="Proveedor-Administrador.html">
                                 <i class="fa fa-truck"></i>
                                 <span class="menu-text">Proveedores</span>
                             </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-
-                                        <a href="AdminProveedor.php"><i class="fa fa-plus"></i>Nuevo Proveedor</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-list"></i>Listar proveedores</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
                         <li class="header-menu">
                             <span>Extra</span>
@@ -216,7 +166,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="login.html">
+                            <a href="#">
                                 <i class="fa fa-power-off"></i>
                                 <span class="menu-text">Cerrar sesión</span>
                             </a>
@@ -262,20 +212,20 @@
                         </a>
                     </div>
                     <header id="encabezado">
-                        <img id="img-inventario" class="img-responsive img-rounded" src="img/inventario.png"
-                            height="150" width="150" alt="Inventario picture">
+                        <img id="img-inventario" class="img-responsive img-rounded" src="img/prove.png" height="150"
+                            width="150" alt="Proveedor picture">
                         <br>
                         <br>
-                        <h1>Inventario</h1>
+                        <h1>Proveedores</h1>
                     </header>
 
                     <div id="container1">
                         <div>
                             <br>
                             <a href="#" id="btn-abrir-popup" class="btn btn-success" data-toggle="modal">Agregar
-                                zapato</a>
+                                proveedor</a>
                             <div class="field" id="searchform">
-                                <input type="text" id="searchterm" placeholder="Ingresar Modelo" />
+                                <input type="text" id="searchterm" placeholder="Ingresar nombre del proveedor" />
                                 <button type="button" id="search">Buscar</button>
                             </div>
                         </div>
@@ -287,13 +237,11 @@
                         <table border="1" class="table table-hover table-bordered" id="tablee">
                             <thead>
                                 <tr>
-                                    <th>Codigo P</th>
-                                    <th>Proveedor</th>
-                                    <th>Talla</th>
-                                    <th>Color</th>
-                                    <th>Precio Compra</th>
-                                    <th>Precio Venta</th>
-                                    <th>Stock</th>
+                                    <th>Nombre empresa</th>
+                                    <th>Nombre agente</th>
+                                    <th>Direccion</th>
+                                    <th>Telefono</th>
+                                    <th>Correo</th>
                                     <th>Opciones</th>
                                 </tr>
                             </thead>
@@ -304,23 +252,21 @@
                                 <?php $conexion = mysqli_connect('localhost', 'root', '', 'bdmaylu'); ?>
 
                             <?php 
-                            $consulta = "SELECT * FROM zapato";
+                            $consulta = "SELECT * FROM proveedor";
                             $result = mysqli_query($conexion, $consulta);
 
                             while($row = mysqli_fetch_array($result)) { ?>
                                 <tr>
-                                    <td><?php echo $row['modelo'] ?></td>
-                                    <td><?php echo $row['proveedor'] ?></td>
-                                    <td><?php echo $row['talla'] ?></td>
-                                    <td><?php echo $row['color'] ?></td>
-                                    <td><?php echo $row['precio_compra'] ?></td>
-                                    <td><?php echo $row['precio_venta'] ?></td>
-                                    <td><?php echo $row['stock'] ?></td>                           
+                                    <td><?php echo $row['nombre_empresa'] ?></td>
+                                    <td><?php echo $row['nombre_agente'] ?></td>
+                                    <td><?php echo $row['direccion'] ?></td>
+                                    <td><?php echo $row['tel'] ?></td>
+                                    <td><?php echo $row['email'] ?></td>                      
 
     
                                     <td>
                                     
-                                    <a href= "BD/editZap.php?id_zapato=<?php echo $row['id_zapato']?>">
+                                    <a href= "BD/editProveedor.php?id_proveedor=<?php echo $row['id_proveedor']?>">
                                     <button class="btn btn-warning">
                                     <button id="btn-abrir-popup2" class=" btn-abrir-popup2 btn btn-warning">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -333,7 +279,7 @@
                                 </button>
 
                              </a>   
-                            <a href= "BD/deleteZap.php?id_zapato=<?php echo $row['id_zapato']?>">
+                            <a href= "BD/deleteProveedor.php?id_proveedor=<?php echo $row['id_proveedor']?>">
                                 <button class="btn btn-danger">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
@@ -346,8 +292,10 @@
                             </td>
 
                             <?php } ?>
-                           -->
+                            -->
+
                                 </tr>
+
                             </tbody>
                         </table>
                         <br>
