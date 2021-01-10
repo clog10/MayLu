@@ -1,3 +1,4 @@
+
 jQuery(function ($) {
   // Dropdown menu
   $('.sidebar-dropdown > a').click(function () {
@@ -79,3 +80,19 @@ jQuery(function ($) {
   actualizarHora();
   var intervalo = setInterval(actualizarHora, 1000);
 }())
+
+function cierra() {
+  document.getElementById("btnabrir").addEventListener("click", function () {
+    document.getElementsByClassName("fondo_transparente")[0].style.display = "block";
+    return false;
+  });
+}
+
+function NO() {
+  document.getElementById("btn-no").addEventListener("click", function () {
+    document.getElementsByClassName("fondo_transparente")[0].style.display = "none";
+  });
+}
+
+
+

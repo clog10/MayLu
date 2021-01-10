@@ -180,9 +180,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#" id="btnabrir" >
                                 <i class="fa fa-power-off"></i>
-                                <span class="menu-text">Cerrar sesión</span>
+                                <span class="menu-text" onclick="cierra()">Cerrar sesión</span>
                             </a>
                         </li>
                     </ul>
@@ -201,6 +201,18 @@
         </nav>
         <!-- contenido  -->
         <main class="page-content pt-2">
+            <div class="fondo_transparente">
+                <div class="modal">
+                    <div class="modal_titulo">ADVERTENCIA</div>
+                    <div class="modal_mensaje">
+                        <p>¿Seguro que desea salir?</p>
+                    </div>
+                    <div class="modal_botones">
+                        <a href="login.html" class="boton" id="btn-yes">SI</a>
+                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
+                    </div>
+                </div>
+            </div>
             <div id="overlay" class="overlay"></div>
             <section id="main-content">
 

@@ -421,11 +421,11 @@ body {
   transition: 0.3s;
 }
 
-.page-content .container .row .form-group .article > a {
+.page-content .container .row .form-group .article>a {
   font-size: 28px;
   color: rgb(3, 7, 53);
-  margin:auto;
-  text-align:center;
+  margin: auto;
+  text-align: center;
   text-decoration: none;
 }
 
@@ -454,7 +454,97 @@ body {
   }
 }
 
-.pdf{
+.pdf {
   margin-top: 30px;
   margin-left: 100px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.fondo_transparente {
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.226);
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  display: none;
+}
+
+.modal {
+  background: linear-gradient(0deg, white 70%,  rgb(164, 171, 255) 30%);
+  width: 200px;
+  height: 180px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.modal_titulo {
+  color:  #030249;
+  font-size: 18px;
+}
+
+.modal_mensaje {
+  padding: 0px 5px;
+  text-align: center;
+  color: #030249;
+}
+
+.modal_botones {
+  width: 100%;
+  background: whitesmoke;
+  border-top: whitesmoke 1px;
+  /* padding-top: 10px; */
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: space-evenly;
+}
+
+.boton {
+  background: white;
+  padding: 8px 30px;
+  color: crimson;
+  text-decoration: none;
+  border-radius: 25px;
+  border: 1px solid  rgb(164, 171, 255);
+}
+
+#btn-yes:hover {
+  background: #5cb85c;
+  color: white;
+}
+
+#btn-no:hover {
+  background-color: crimson;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  p {
+    --margin-bottom: 5px;
+  }
+
+  .modal {
+    font-size: 18px;
+    text-align: center;
+    height: 40vh;
+    width: 45%;
+  }
+
+  .modal .boton {
+    width: 40%;
+    padding: 5px 0px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+  }
+
 }
