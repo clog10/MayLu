@@ -467,7 +467,7 @@ th {
 
 .detalles{
 	border-style: solid;
-	width: 100%;
+    width: 100%;
 }
 
 .detalles >h1{
@@ -478,7 +478,7 @@ th {
 .detalles >h3{
 	color: #030249;
 	font-size: larger;
-	padding-left: 10px;
+    padding-left: 10px;
 }
 
 #HoraActual{
@@ -524,7 +524,7 @@ th {
 
 .reloj {
 	width: 100%;
-	font-size: 2em;
+	font-size: 1em;
 	text-align: center;
 }
 
@@ -542,3 +542,4 @@ th {
     margin-bottom: 5px;
     color: #ffffff;
 }
+

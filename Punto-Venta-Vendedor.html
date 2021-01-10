@@ -64,19 +64,19 @@
                             <span>General</span>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="principal-vendedor.html">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span class="menu-text">Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="Punto-Venta-Vendedor.html">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span class="menu-text">Punto de Venta</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="Almacen-Vendedor.html">
                                 <i class="fa fa-warehouse"></i>
                                 <span class="menu-text">Inventario</span>
                             </a>
@@ -141,60 +141,100 @@
                             </svg></button>
                     </div>
                     <header id="encabezado">
-                        <img id="img-inventario" class="img-responsive img-rounded" src="img/inventario.png"
-                            height="150" width="150" alt="Inventario picture">
+                        <img id="img-inventario" class="img-responsive img-rounded" src="img/punto.png" height="150"
+                            width="150" alt="Inventario picture">
                         <br>
                         <br>
-                        <h1>Productos de Almacén</h1>
+                        <h1>Punto de Venta</h1>
                     </header>
 
-                    <div id="container1">
-                        <div>                           
-                            <div class="field" id="searchform">
-                                <input type="text" id="searchterm" placeholder="Ingresar Modelo" />
-                                <button type="button" id="search">Buscar</button>
+                    <div class="row ventas">
+                        <div class="col-md-8">
+                            <div class="datos">
+                                <div id="container1">
+                                    <div class="field" id="searchform">
+                                        <input type="text" id="searchterm" placeholder="Ingresar Modelo" />
+                                        <button type="button" id="search">Buscar</button>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-bordered" id="tablee">
+                                            <thead>
+                                                <tr>
+                                                    <th>Codigo</th>
+                                                    <th>Foto</th>
+                                                    <th>Cantidad</th>
+                                                    <th>Talla</th>
+                                                    <th>Color</th>
+                                                    <th>Precio</th>
+                                                    <th>Quitar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>4500MX</td>
+                                                    <td></td>
+                                                    <td>$250</td>
+                                                    <td>22</td>
+                                                    <td>Rojo</td>
+                                                    <td>7</td>
+                                                    <td><button class="quitar" onclick="borraElemento(this);"><i
+                                                        class="fas fa-trash-alt"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4500MX</td>
+                                                    <td></td>
+                                                    <td>$280</td>
+                                                    <td>24</td>
+                                                    <td>Rosa</td>
+                                                    <td>10</td>
+                                                    <td><button class="quitar" onclick="borraElemento(this);"><i
+                                                        class="fas fa-trash-alt"></i></button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <br>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="detalles">
+                                <h1>Detalles</h1>
+                                <h3>Fecha y hora: </h3>
+                                <div class="wrap">
+                                        <div class="fecha">
+                                            <p id="diaSemana" class="diaSemana"></p>
+                                            <p id="dia" class="dia"></p>
+                                            <p>de </p>
+                                            <p id="mes" class="mes"></p>
+                                            <p>del </p>
+                                            <p id="year" class="year"></p>
+                                            <div class="reloj">
+                                                <p id="horas" class="horas"></p>
+                                                <p>:</p>
+                                                <p id="minutos" class="minutos"></p>
+                                                <p>:</p>                                   
+                                                    <p id="segundos" class="segundos"></p>
+                                                    <p id="ampm" class="ampm"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <h3>Vendedor: </h3>
+                                <h3>Total:</h3>
+                                <h3>Recibido:</h3>
+                                <h3>Cambio:</h3>
 
-
+                                <div class="botones">
+                                    <button id="hecho" class="btn btn-success">
+                                        <i class="fas fa-check"></i> Concretar Venta
+                                    </button>
+                                    <button id="cancel" class="btn btn-success">
+                                        <i class="fas fa-times"></i> Cancelar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="table-responsive">
-                        <table border="1" class="table table-hover table-bordered" id="tablee">
-                            <thead>
-                                <tr>
-                                    <th>Codigo P</th>
-                                    <th>Foto</th>
-                                    <th>Precio</th>
-                                    <th>Talla</th>
-                                    <th>Color</th>
-                                    <th>Existencia</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>4500MX</td>
-                                    <td></td>
-                                    <td>$250</td>
-                                    <td>22</td>
-                                    <td>Rojo</td>
-                                    <td>7</td>                                   
-                                </tr>
-                                <tr>
-                                    <td>4500MX</td>
-                                    <td></td>
-                                    <td>$280</td>
-                                    <td>24</td>
-                                    <td>Rosa</td>
-                                    <td>10</td>
-                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                        <br>
-                    </div>
-
                 </article>
             </section>
 
@@ -223,7 +263,7 @@
     <script src="../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script> -->
 
     <script src="js/popups.js"></script>
-    <script src="js/almacen/principal-almacen.js"></script>
+    <script src="js/vendedor/principal-vendedor.js"></script>
 
 </body>
 
