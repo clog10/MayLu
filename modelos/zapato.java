@@ -28,7 +28,8 @@ public class zapato {
         this.setStock(stock);
         this.setImg(img);
     }
-    public zapato(){
+
+    public zapato() {
 
     }
 
@@ -111,8 +112,9 @@ public class zapato {
     public void setImg(Blob img) {
         this.img = img;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return modelo;
     }
 

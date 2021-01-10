@@ -20,8 +20,9 @@ public class venta {
         this.setModelo(modelo);
         this.setId_usuario(id_usuario);
     }
-    public venta(){
-        
+
+    public venta() {
+
     }
 
     public Date getFecha() {
@@ -71,5 +72,5 @@ public class venta {
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
     }
-    
+
 }

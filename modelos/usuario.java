@@ -25,8 +25,9 @@ public class usuario {
         this.setUsuario(usuario);
         this.setContraseña(contraseña);
     }
-    public usuario(){
-        
+
+    public usuario() {
+
     }
 
     public int getId_usuario() {
@@ -108,5 +109,5 @@ public class usuario {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-    
+
 }

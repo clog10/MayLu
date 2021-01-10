@@ -18,8 +18,9 @@ public class proveedor {
         this.setTel(tel);
         this.setEmail(email);
     }
-    public proveedor(){
-        
+
+    public proveedor() {
+
     }
 
     public int getId_proveedor() {
@@ -69,5 +70,5 @@ public class proveedor {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
 }
