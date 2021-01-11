@@ -34,7 +34,7 @@
 
 <body>
 
-    <div id="container">
+   <div id="container">
         <div class="overlay" id="overlay">
             <div class="popup" id="popup">
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
@@ -64,6 +64,7 @@
                             <option value="12">Suse</option>
                         </select>
 
+<<<<<<< HEAD:Inventario-Administrador.jsp
                         <input type="text" name="talla" placeholder="Número">
 
                         <input type="text" name="color" placeholder="Color">
@@ -73,6 +74,17 @@
                         <input type="text" name="precio_venta" placeholder="Precio Venta">
 
                         <input type="text"  name="stock"  placeholder="Stock">
+=======
+                        <input type="text" placeholder="Número" onkeypress="return solonumeros(event)">
+
+                        <input type="text" placeholder="Color" onkeypress="return sololetras(event)">
+
+                        <input type="text" placeholder="Precio Compra" onkeypress="return solonumeros(event)">
+
+                        <input type="text" placeholder="Precio Venta" onkeypress="return solonumeros(event)">
+
+                        <input type="text" placeholder="Stock" onkeypress="return solonumeros(event)">
+>>>>>>> e0a6c6bde361107f64bb201dc8af9922eb58ebdb:Inventario-Administrador.html
                     </div>
                     <div class="contenedor-imagen">
                         <input type="file" placeholder="Cargar">
@@ -146,15 +158,15 @@
                             <option value="12">Suse</option>
                         </select>
 
-                        <input type="text" placeholder="Talla">
+                        <input type="text" placeholder="Talla" onkeypress="return solonumeros(event)">
 
-                        <input type="text" placeholder="Color">
+                        <input type="text" placeholder="Color" onkeypress="return sololetras(event)">
 
-                        <input type="text" placeholder="Precio Compra">
+                        <input type="text" placeholder="Precio Compra" onkeypress="return solonumeros(event)">
 
-                        <input type="text" placeholder="Precio Venta">
+                        <input type="text" placeholder="Precio Venta" onkeypress="return solonumeros(event)">
 
-                        <input type="text" placeholder="Stock">
+                        <input type="text" placeholder="Stock" onkeypress="return solonumeros(event)">
                     </div>
                     <div class="contenedor-imagen">
                         <input type="file" placeholder="Cargar">
@@ -170,14 +182,20 @@
 
 
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
-        <nav id="sidebar" class="sidebar-wrapper">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    
+     </button>
+     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                 <!-- sidebar-brand  -->
                 <div class="sidebar-item sidebar-brand">
-                        <span align="center">
-                            <i class="fa fa-shoe-prints"></i>
-                            MayLú
-                        </span>
+                    <span align="center">
+                        <i class="fa fa-shoe-prints"></i>
+                        MayLú
+                    </span>
                 </div>
                 <!-- sidebar-header  -->
                 <div class="sidebar-item sidebar-header d-flex flex-nowrap">
@@ -196,7 +214,7 @@
                     </div>
                 </div>
                 <!-- sidebar-menu  -->
-                <div class=" sidebar-item sidebar-menu">
+                 <div class=" sidebar-item sidebar-menu">
                     <ul>
                         <li class="header-menu">
                             <span>General</span>
@@ -267,9 +285,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" id="btnabrir" >
+                            <a href="#">
                                 <i class="fa fa-power-off"></i>
-                                <span class="menu-text" onclick="cierra()">Cerrar sesión</span>
+                                <span class="menu-text">Cerrar sesión</span>
                             </a>
                         </li>
                     </ul>
@@ -285,21 +303,12 @@
                     </a>
                 </div>
             </div>
+          
         </nav>
-        <!-- contenido  -->
+        </div>
+         
+        </nav>
         <main class="page-content pt-2">
-            <div class="fondo_transparente">
-                <div class="modal">
-                    <div class="modal_titulo">ADVERTENCIA</div>
-                    <div class="modal_mensaje">
-                        <p>¿Seguro que desea salir?</p>
-                    </div>
-                    <div class="modal_botones">
-                        <a href="login.html" class="boton" id="btn-yes">SI</a>
-                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
-                    </div>
-                </div>
-            </div>
             <div id="overlay" class="overlay"></div>
             <section id="main-content">
 
@@ -424,7 +433,6 @@
 
         </main>
 
-        <!-- page-content" -->
     </div>
 
     <!-- page-wrapper -->
@@ -447,6 +455,7 @@
 
     <script src="js/popups.js"></script>
     <script src="js/almacen/principal-almacen.js"></script>
+    <script src="js/administrador/validacion.js"></script>
 
 </body>
 

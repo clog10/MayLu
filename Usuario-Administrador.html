@@ -32,14 +32,14 @@
 
 <body>
 
-    <div id="container">
+     <div id="container">
         <div class="overlay" id="overlay">
 
 
             <div class="popup" id="popup">
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                 <h3>Agregar Usuario</h3>
-                <h2>Ingresa los datos</h4>
+                <h2>Ingresa los datos</h2>
                     <form action="BD/inserUsuario.php" method="POST">
                         <div class="contenedor-etiquetas">
                             <h4>Nombre comp.</h4>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="contenedor-inputs">
 
-                            <input type="text" name="nombre_com" placeholder="Nombre completo">
+                            <input type="text" name="nombre_com" placeholder="Nombre completo" onkeypress="return sololetras(event)">
                             <select name="puesto" class="select">
                                 <option selected value="0"> Elige una opción </option>
                                 <option value="1">Admistrador</option>
@@ -71,7 +71,7 @@
                                 <option value="2">Femenino</option>
                             </select>
                             <input type="text" name="direccion" placeholder="Dirección">
-                            <input type="text" name="tel" placeholder="Teléfono">
+                            <input type="text" name="tel" placeholder="Teléfono" onkeypress="return solonumeros(event)">
                             <input type="text" name="email" placeholder="Correo electrónico">
                             <input type="text" name="usuario" placeholder="Usuario">
                             <input type="text" name="contra" placeholder="Contraseña">
@@ -181,9 +181,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" id="btnabrir" >
+                            <a href="#">
                                 <i class="fa fa-power-off"></i>
-                                <span class="menu-text" onclick="cierra()">Cerrar sesión</span>
+                                <span class="menu-text">Cerrar sesión</span>
                             </a>
                         </li>
                     </ul>
@@ -202,18 +202,6 @@
         </nav>
         <!-- contenido  -->
         <main class="page-content pt-2">
-            <div class="fondo_transparente">
-                <div class="modal">
-                    <div class="modal_titulo">ADVERTENCIA</div>
-                    <div class="modal_mensaje">
-                        <p>¿Seguro que desea salir?</p>
-                    </div>
-                    <div class="modal_botones">
-                        <a href="login.html" class="boton" id="btn-yes">SI</a>
-                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
-                    </div>
-                </div>
-            </div>
             <div id="overlay" class="overlay"></div>
             <section id="main-content">
 
@@ -326,7 +314,7 @@
 
                             <?php } ?>
                                 -->
-                                </tr>
+                                
 
                             </tbody>
                         </table>
@@ -341,6 +329,7 @@
 
         <!-- page-content" -->
     </div>
+
 
     <!-- page-wrapper -->
 
@@ -362,6 +351,7 @@
 
     <script src="js/popups.js"></script>
     <script src="js/almacen/principal-almacen.js"></script>
+    <script src="js/administrador/validacion.js"></script>
 
 </body>
 
