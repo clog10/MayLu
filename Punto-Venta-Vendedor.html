@@ -32,16 +32,22 @@
 
 <body>
 
-    <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
-        <nav id="sidebar" class="sidebar-wrapper">
+     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    
+     </button>
+     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                 <!-- sidebar-brand  -->
                 <div class="sidebar-item sidebar-brand">
-                    <a href="#" align="center">
+                    <span align="center">
                         <i class="fa fa-shoe-prints"></i>
-                        MayLú</a>
+                        MayLú
+                    </span>
                 </div>
-                <!-- sidebar-header  -->
                 <div class="sidebar-item sidebar-header d-flex flex-nowrap">
                     <div class="user-pic">
                         <img class="img-responsive img-rounded" src="img/user.png" alt="User picture">
@@ -50,15 +56,15 @@
                         <span class="user-name"><strong>Carlos
                                 Loaeza</strong>
                         </span>
-                        <span class="user-role">Vendedor</span>
+                        <span class="user-role">Almacén</span>
                         <span class="user-status">
                             <i class="fa fa-circle"></i>
                             <span>Online</span>
                         </span>
                     </div>
                 </div>
-                <!-- sidebar-menu  -->
-                <div class=" sidebar-item sidebar-menu">
+                 <!-- sidebar-menu  -->
+              <div class=" sidebar-item sidebar-menu">
                     <ul>
                         <li class="header-menu">
                             <span>General</span>
@@ -99,9 +105,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" id="btnabrir" >
+                            <a href="#">
                                 <i class="fa fa-power-off"></i>
-                                <span class="menu-text" onclick="cierra()">Cerrar sesión</span>
+                                <span class="menu-text">Cerrar sesión</span>
                             </a>
                         </li>
                     </ul>
@@ -117,21 +123,11 @@
                     </a>
                 </div>
             </div>
+          
         </nav>
-        <!-- contenido  -->
+        </div>
+            <!-- contenido  -->
         <main class="page-content pt-2">
-            <div class="fondo_transparente">
-                <div class="modal">
-                    <div class="modal_titulo">ADVERTENCIA</div>
-                    <div class="modal_mensaje">
-                        <p>¿Seguro que desea salir?</p>
-                    </div>
-                    <div class="modal_botones">
-                        <a href="login.html" class="boton" id="btn-yes">SI</a>
-                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
-                    </div>
-                </div>
-            </div>
             <div id="overlay" class="overlay"></div>
             <section id="main-content">
 
@@ -252,10 +248,8 @@
 
 
         </main>
-
-        <!-- page-content" -->
+        </nav>
     </div>
-
     <!-- page-wrapper -->
 
     <!-- using online scripts -->
