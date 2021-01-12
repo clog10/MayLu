@@ -494,7 +494,10 @@ body {
 .modal_mensaje {
   padding: 0px 5px;
   text-align: center;
-  color: #030249;
+}
+
+.modal_mensaje > p{
+  color:#030249; 
 }
 
 .modal_botones {

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>MayLu - Almacén</title>
+    <title>MayLu - Administrador</title>
 
     <!-- using online links -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
@@ -172,9 +172,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#" id="btnabrir">
                                 <i class="fa fa-power-off"></i>
-                                <span class="menu-text">Cerrar sesión</span>
+                                <span class="menu-text" onclick="cierra()">Cerrar sesión</span>
                             </a>
                         </li>
                     </ul>
@@ -197,6 +197,20 @@
         </nav>
         <!-- contenido  -->
         <main class="page-content pt-2">
+
+            <div class="fondo_transparente">
+                <div class="modal">
+                    <div class="modal_titulo">ADVERTENCIA</div>
+                    <div class="modal_mensaje">
+                        <p>¿Seguro que desea salir?</p>
+                    </div>
+                    <div class="modal_botones">
+                        <a href="login.html" class="boton" id="btn-yes">SI</a>
+                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
+                    </div>
+                </div>
+            </div>
+
             <div id="overlay" class="overlay"></div>
             <section id="main-content">
 
@@ -334,7 +348,7 @@
     <script src="../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script> -->
 
     <script src="js/popups.js"></script>
-    <script src="js/almacen/principal-almacen.js"></script>
+    <script src="js/administrador/principal-admin.js"></script>
     <script src="js/administrador/validacion.js"></script>
 
 </body>

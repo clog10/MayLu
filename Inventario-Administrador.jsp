@@ -285,9 +285,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#" id="btnabrir">
                                 <i class="fa fa-power-off"></i>
-                                <span class="menu-text">Cerrar sesión</span>
+                                <span class="menu-text" onclick="cierra()">Cerrar sesión</span>
                             </a>
                         </li>
                     </ul>
