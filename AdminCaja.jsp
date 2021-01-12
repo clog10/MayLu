@@ -1,3 +1,5 @@
+<%@page import="java.sql.*"%>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -247,47 +249,63 @@
                             </thead>
 
                             <tbody>
-
-                                <!--
-                                <?php $conexion = mysqli_connect('localhost', 'root', '', 'bdmaylu'); ?>
-
-                            <?php 
-                            $consulta = "SELECT * FROM caja";
-                            $result = mysqli_query($conexion, $consulta);
-
-                            while($row = mysqli_fetch_array($result)) { ?>
                                 <tr>
-                                    <td><?php echo $row['nombre_codigo'] ?></td>
-                                    <td><?php echo $row['efectivo'] ?></td>                        
-                                    <td>
-                                    
-                                    <a href= "BD/editCaja.php?id_caja=<?php echo $row['id_caja']?>">
-                                    <button class="btn btn-warning">
-                                    <button id="btn-abrir-popup2" class=" btn-abrir-popup2 btn btn-warning">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
-                                        <path
-                                            d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
-                                        <path fill-rule="evenodd"
-                                            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
-                                    </svg>
-                                </button>
+                                    <%
+                                        Connection con = null;
+                                        Statement sta = null;
+                                        ResultSet rs = null;
 
-                             </a>   
-                            <a href= "BD/deleteCaja.php?id_caja=<?php echo $row['id_caja']?>">
-                                <button class="btn btn-danger">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
-                                    </svg>
-                                </button>
+                                        try {
+                                            Class.forName("com.mysql.jdbc.Driver");
+                                            con = DriverManager.getConnection("jdbc:mysql://localhost/bdmaylu?user=root&password=");
 
-                            </a>
-                            </td>
+                                            sta = con.createStatement();
+                                            rs = sta.executeQuery("SELECT * FROM caja");
 
-                            <?php } ?>
-                           -->
+                                            while (rs.next()) {
+                                 </tr>
+                                 <td><%= rs.getString("nombre_codigo")%></td>
+                                 <td><%=rs.getString("efectivo")%></td>
+                                 <td>
+                                     <a href="bd/editCaja.jsp?id_caja=<%=rs.getString("id_caja")%>">
+                                         <!--<button id="btn-abrir-popup2" class=" btn-abrir-popup2 btn btn-warning">-->
+                                         <button class="btn btn-warning">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                  fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                                             <path
+                                                 d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
+                                             <path fill-rule="evenodd"
+                                                   d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
+                                             </svg>
+
+                                         </button>
+                                     </a>
+                                     <a href="bd/deleteCaja.jsp?id_caja=<%=rs.getString("id_caja")%>">
+                                         <button class="btn btn-danger">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                  fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                             <path fill-rule="evenodd"
+                                                   d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
+                                             </svg>
+                                         </button>
+                                 </td>
+                             </tr>
+
+
+                             <%
+
+                                     }
+
+                                     sta.close();
+                                     rs.close();
+                                     con.close();
+
+                                 } catch (Exception e) {
+                                 }
+
+                             %>
+                             </tr>
+
 
                                 
                             </tbody>
