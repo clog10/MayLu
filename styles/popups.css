@@ -66,7 +66,7 @@
     font-family: 'Montserrat', sans-serif;
     padding: 20px;
     text-align: center;
-    width: 750px;
+    width: 850px;
     margin-left: 170px;
     transition: .3s ease all;
     transform: scale(0.7);
@@ -121,7 +121,7 @@
 
 .popup form .contenedor-inputs {
     width: 40%;
-    margin-left: 200px;
+    margin-left: 250px;
     margin-right: 10px;
     opacity: 0;
 }
@@ -140,6 +140,14 @@
     height: 30px;
     font-size: 18px;
     text-align: left;
+}
+
+.actualiza>h5>label{
+    color:red;
+}
+
+.actualiza .contenedor-etiquetas-actualiza>h4>label{
+    color:red;
 }
 
 .actualiza form .contenedor-inputs-actualiza {

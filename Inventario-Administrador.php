@@ -39,17 +39,17 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                 <h3>Agregar Producto</h3>
                 <h4>Ingresa los datos</h4>
-                <h5>* Campos obligatorios</h5>
+                <h5><label>*</label> Campos obligatorios</h5>
                 <form method="post" action="nuevo.php">
                     <div class="contenedor-etiquetas">
-                        <h4>* Modelo</h4>
-                        <h4>* Descripción</>
-                            <h4>* Talla</h4>
-                            <h4>* Color</h4>
-                            <h4>* Precio U.</h4>
-                            <h4>* Precio Venta</h4>
-                            <h4>* Existencias</h4>
-                            <h4>* Proveedor</h4>
+                        <h4><label>*</label> Modelo</h4>
+                        <h4><label>*</label> Descripción</h4>
+                        <h4><label>*</label> Talla</h4>
+                        <h4><label>*</label> Color</h4>
+                        <h4><label>*</label> Precio U.</h4>
+                        <h4><label>*</label> Precio Venta</h4>
+                        <h4><label>*</label> Existencias</h4>
+                        <h4><label>*</label> Proveedor</h4>
                     </div>
                     <div class="contenedor-inputs">
                         <input type="text" name="codigo" placeholder="Modelo de zapato">
@@ -200,7 +200,6 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                             </a>
                         </div>
                     </div>
-
                 </nav>
             </div>
 
@@ -238,47 +237,42 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
                     <div class=" table-responsive">
                         <br>
-                        <div class=" table-responsive">
-                            <br>
-                            <table class="table table-hover" id="tablee">
-                                <thead>
+                        <table class="table table-hover" id="tablee">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Imagen</th>
+                                    <th>Modelo</th>
+                                    <th>Descripción</th>
+                                    <th>Talla</th>
+                                    <th>Color</th>
+                                    <th>Precio compra</th>
+                                    <th>Precio venta</th>
+                                    <th>Existencia</th>
+                                    <th>Proveedor</th>
+                                    <th>Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($productos as $producto) { ?>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Imagen</th>
-                                        <th>Modelo</th>
-                                        <th>Descripción</th>
-                                        <th>Talla</th>
-                                        <th>Color</th>
-                                        <th>Precio compra</th>
-                                        <th>Precio venta</th>
-                                        <th>Existencia</th>
-                                        <th>Proveedor</th>
-                                        <th>Opciones</th>
+                                        <td><?php echo $producto->id ?></td>
+                                        <td><img src="img/maylu.png" alt="logo" width="100" height="100" /></td>
+                                        <td><?php echo $producto->codigo ?></td>
+                                        <td><?php echo $producto->descripcion ?></td>
+                                        <td><?php echo $producto->talla ?></td>
+                                        <td><?php echo $producto->color ?></td>
+                                        <td>$<?php echo $producto->precioCompra ?></td>
+                                        <td>$<?php echo $producto->precioVenta ?></td>
+                                        <td><?php echo $producto->existencia ?></td>
+                                        <td><?php echo $producto->proveedor ?></td>
+                                        <td>
+                                            <a class="btn btn-warning" href="<?php echo "ActualizarZapato.php?id=" . $producto->id ?>"><i class="fa fa-edit"></i> Editar</a>
+                                            <a class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $producto->id ?>"><i class="fas fa-eye-slash"></i> Ocultar</a>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($productos as $producto) { ?>
-                                        <tr>
-                                            <td><?php echo $producto->id ?></td>
-                                            <td><img src="img/maylu.png" alt="logo" width="100" height="100" /></td>
-                                            <td><?php echo $producto->codigo ?></td>
-                                            <td><?php echo $producto->descripcion ?></td>
-                                            <td><?php echo $producto->talla ?></td>
-                                            <td><?php echo $producto->color ?></td>
-                                            <td>$<?php echo $producto->precioCompra ?></td>
-                                            <td>$<?php echo $producto->precioVenta ?></td>
-                                            <td><?php echo $producto->existencia ?></td>
-                                            <td><?php echo $producto->proveedor ?></td>
-                                            <td>
-                                                <a class="btn btn-warning" href="<?php echo "ActualizarZapato.php?id=" . $producto->id ?>"><i class="fa fa-edit"></i> Editar</a>
-                                                <a class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $producto->id ?>"><i class="fa fa-eye-slash"></i> Eliminar</a>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                        </tbody>
+                                <?php } ?>
+                            </tbody>
                         </table>
                     </div>
                 </article>

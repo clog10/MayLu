@@ -217,6 +217,7 @@
                             </div>
                             <div class="contenedor-inputs-actualiza">
                                 <input type="text" class="form-control" name="id" value="<?php echo $producto->id ?>" disabled>
+                                <input value="<?php echo $producto->codigo ?>" required id="codigo" name="codigo" cols="30" rows="5" class="form-control" disabled>
                                 <input value="<?php echo $producto->descripcion ?>" required id="descripcion" name="descripcion" cols="30" rows="5" class="form-control" disabled>
                                 <input value="<?php echo $producto->talla ?>" class="form-control" name="talla" required type="text" id="talla" disabled>
                                 <input value="<?php echo $producto->color ?>" class="form-control" name="color" required type="text" id="color" disabled>
