@@ -30,104 +30,30 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 </head>
 
 <body>
-<<<<<<< HEAD
+
     <div id="container">
-=======
-<div id="container">
+
+
         <div class="overlay" id="overlay">
             <div class="popup" id="popup">
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                 <h3>Agregar Producto</h3>
                 <h4>Ingresa los datos</h4>
-	<form method="post" action="nuevo.php">
-
-    <div class="contenedor-etiquetas">
-                            <h4>* Modelo</h4>
-                            <h4>* Descripción</>
+                <h5>* Campos obligatorios</h5>
+                <form method="post" action="nuevo.php">
+                    <div class="contenedor-etiquetas">
+                        <h4>* Modelo</h4>
+                        <h4>* Descripción</>
                             <h4>* Talla</h4>
                             <h4>* Color</h4>
                             <h4>* Precio U.</h4>
                             <h4>* Precio Venta</h4>
-                            <h4>* Existencias</h4>                            
+                            <h4>* Existencias</h4>
                             <h4>* Proveedor</h4>
-         </div>
-         <div class="contenedor-inputs">
-             <input type="text" name= "codigo" placeholder="Modelo de zapato">
-             <input type="text" name= "descripcion" placeholder="Descripción">
-             <select name="talla" class="select">
-                 <option selected value="0"> Elige una opción </option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                    <option value="26">26</option>
-                </select>
-
-                <!--<input type="text" name="talla" placeholder="Número">-->
-                <input type="text" name="color" placeholder="Color">
-                <input type="text" name="precioCompra" placeholder="Precio Unitario">
-                <input type="text" name="precioVenta" placeholder="Precio Venta">
-                <input type="text" name="existencia" placeholder="Cantidad en existencias">
-                            
-                <select name="proveedor" class="select">
-                    <option selected value="0"> Elige una opción </option>
-                    <option value="Alma Pérez Vista">Alma Pérez Vista</option>
-                    <option value="Explorar">Explorar</option>
-                    <option value="Patey woman">Patey woman</option>
-                    <option value="Calzaleta">Calzaleta</option>
-                </select>
-                <br><br><input class="btn btn-info" type="submit" value="Guardar">
-            </div>
-        <!-- <label for="codigo">Código de barras:</label>
-		<input class="form-control" name="codigo" required type="text" id="codigo" placeholder="Escribe el código">
-
-		<label for="descripcion">Descripción:</label>
-        <textarea required id="descripcion" name="descripcion" cols="30" rows="5" class="form-control"></textarea>
-        
-
-		<label for="precioVenta">Precio de venta:</label>
-		<input class="form-control" name="precioVenta" required type="number" id="precioVenta" placeholder="Precio de venta">
-
-		<label for="precioCompra">Precio de compra:</label>
-		<input class="form-control" name="precioCompra" required type="number" id="precioCompra" placeholder="Precio de compra">
-
-		<label for="existencia">Existencia:</label>
-		<input class="form-control" name="existencia" required type="number" id="existencia" placeholder="Cantidad o existencia">
-		<br><br><input class="btn btn-info" type="submit" value="Guardar">-->
-	</form>
-</div>
-</div>
-</div>
-   <!--<div id="container">
->>>>>>> 7f8bee42719e5c669726f570d7a279ce3dedb4ff
-        <div class="overlay" id="overlay">
-            <div class="popup" id="popup">
-                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-                <h3>Agregar Producto</h3>
-                <h4>Ingresa los datos</h4>
-                <h5>* Campo obligatorio</h5>
-                <form method="post" action="nuevo.php">
-                    <div class="contenedor-etiquetas">
-                        <h4>* Modelo</h4>
-                        <h4>* Descripción</h4>
-                        <h4>* Talla</h4>
-                        <h4>* Color</h4>
-                        <h4>* Precio Unitario</h4>
-                        <h4>* Precio Venta</h4>
-                        <h4>* Existencias</h4>
-                        <h4>* Proveedor</h4>
                     </div>
                     <div class="contenedor-inputs">
-                        <input type="text" name="modelo" placeholder="Modelo">
-                        <select name="descripcion" class="select">
-                            <option selected value="0"> Elige una opción </option>
-                            <option value="Tenis">Tenis</option>
-                            <option value="Zapatilla">Zapatilla</option>
-                            <option value="Flats">Flats</option>
-                            <option value="Bota">Bota</option>
-                            <option value="Botín">Botín</option>
-                            <option value="Sandalia">Sandalia</option>
-                            <option value="Zapato confort">Zapato confort</option>
-                        </select>
+                        <input type="text" name="codigo" placeholder="Modelo de zapato">
+                        <input type="text" name="descripcion" placeholder="Descripción">
                         <select name="talla" class="select">
                             <option selected value="0"> Elige una opción </option>
                             <option value="23">23</option>
@@ -135,13 +61,10 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                             <option value="25">25</option>
                             <option value="26">26</option>
                         </select>
-
-                        <!--<input type="text" name="talla" placeholder="Número">-->
                         <input type="text" name="color" placeholder="Color">
-                        <input type="text" name="precio_compra" placeholder="Precio Unitario">
-                        <input type="text" name="precio_venta" placeholder="Precio Venta">
-                        <input type="text" name="existencias" placeholder="Cantidad en existencias">
-
+                        <input type="text" name="precioCompra" placeholder="Precio Unitario">
+                        <input type="text" name="precioVenta" placeholder="Precio Venta">
+                        <input type="text" name="existencia" placeholder="Cantidad en existencias">
                         <select name="proveedor" class="select">
                             <option selected value="0"> Elige una opción </option>
                             <option value="Alma Pérez Vista">Alma Pérez Vista</option>
@@ -311,95 +234,51 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                 <button type="button" id="search">Buscar</button>
                             </div>
                         </div>
-
-
                     </div>
 
-<<<<<<< HEAD
                     <div class=" table-responsive">
                         <br>
-=======
-	<div class=" table-responsive">
-
-		<br>
-		<table class="table table-hover" id="tablee">
-			<thead>
-				<tr>
-                    <th>#</th>
-                    <th>Imagen</th>
-					<th>Modelo</th>
-                    <th>Descripción</th>
-                    <th>Talla</th>
-                    <th>Color</th>
-					<th>Precio compra</th>
-                    <th>Precio venta</th>
-                    <th>Existencia</th>
-                    <th>Proveedor</th>
-					<th>Opciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php foreach($productos as $producto){ ?>
-				<tr>
-                    <td><?php echo $producto->id ?></td>
-                    <td><img src="img/maylu.png" alt="logo" width="100" height="100" /></td>
-					<td><?php echo $producto->codigo ?></td>
-                    <td><?php echo $producto->descripcion ?></td>
-                    <td><?php echo $producto->talla ?></td>
-                    <td><?php echo $producto->color ?></td>
-					<td>$<?php echo $producto->precioCompra ?></td>
-                    <td>$<?php echo $producto->precioVenta ?></td>                    
-                    <td><?php echo $producto->existencia ?></td>
-                    <td><?php echo $producto->proveedor ?></td>
-					<td>
-                        <a class="btn btn-warning" href="<?php echo "ActualizarZapato.php?id=" . $producto->id?>"><i class="fa fa-edit"></i></a>
-                         <a class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $producto->id?>"><i class="fa fa-eye-slash"></i></a>
-                    </td>
-				</tr>
-				<?php } ?>
-			</tbody>
-		</table>
-	</div>
-
-
-                 <!--  <div class="table-responsive">
->>>>>>> 7f8bee42719e5c669726f570d7a279ce3dedb4ff
-                        <table class="table table-hover" id="tablee">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Imagen</th>
-                                    <th>Modelo</th>
-                                    <th>Descripción</th>
-                                    <th>Talla</th>
-                                    <th>Color</th>
-                                    <th>Precio compra</th>
-                                    <th>Precio venta</th>
-                                    <th>Proveedor</th>
-                                    <th>Existencia</th>
-                                    <th>Opciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($productos as $producto) { ?>
+                        <div class=" table-responsive">
+                            <br>
+                            <table class="table table-hover" id="tablee">
+                                <thead>
                                     <tr>
-                                        <td><?php echo $producto->id ?></td>
-                                        <td><img src="img/maylu.png" alt="logo" width="100" height="100" /></td>
-                                        <td><?php echo $producto->codigo ?></td>
-                                        <td><?php echo $producto->descripcion ?></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>$<?php echo $producto->precioCompra ?></td>
-                                        <td>$<?php echo $producto->precioVenta ?></td>
-                                        <td></td>
-                                        <td><?php echo $producto->existencia ?></td>
-                                        <td>
-                                            <a class="btn btn-warning" href="<?php echo "ActualizarZapato.php?id=" . $producto->id ?>"><i class="fa fa-edit"></i></a>
-                                            <a class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $producto->id ?>"><i class="fa fa-eye-slash"></i></a>
-                                        </td>
+                                        <th>#</th>
+                                        <th>Imagen</th>
+                                        <th>Modelo</th>
+                                        <th>Descripción</th>
+                                        <th>Talla</th>
+                                        <th>Color</th>
+                                        <th>Precio compra</th>
+                                        <th>Precio venta</th>
+                                        <th>Existencia</th>
+                                        <th>Proveedor</th>
+                                        <th>Opciones</th>
                                     </tr>
-                                <?php } ?>
-                            </tbody>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($productos as $producto) { ?>
+                                        <tr>
+                                            <td><?php echo $producto->id ?></td>
+                                            <td><img src="img/maylu.png" alt="logo" width="100" height="100" /></td>
+                                            <td><?php echo $producto->codigo ?></td>
+                                            <td><?php echo $producto->descripcion ?></td>
+                                            <td><?php echo $producto->talla ?></td>
+                                            <td><?php echo $producto->color ?></td>
+                                            <td>$<?php echo $producto->precioCompra ?></td>
+                                            <td>$<?php echo $producto->precioVenta ?></td>
+                                            <td><?php echo $producto->existencia ?></td>
+                                            <td><?php echo $producto->proveedor ?></td>
+                                            <td>
+                                                <a class="btn btn-warning" href="<?php echo "ActualizarZapato.php?id=" . $producto->id ?>"><i class="fa fa-edit"></i> Editar</a>
+                                                <a class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $producto->id ?>"><i class="fa fa-eye-slash"></i> Eliminar</a>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        </tbody>
                         </table>
                     </div>
                 </article>

@@ -150,7 +150,6 @@
             </div>
         </nav>
 
-
         <?php
         if (!isset($_GET["id"])) exit();
         $id = $_GET["id"];
@@ -165,7 +164,6 @@
 
         ?>
 
-
         <!-- contenido  -->
         <main class="page-content pt-2">
             <div class="fondo_transparente">
@@ -174,96 +172,9 @@
                     <div class="modal_mensaje">
                         <p>¿Seguro que desea salir?</p>
                     </div>
-<<<<<<< HEAD
                     <div class="modal_botones">
                         <a href="login.php" class="boton" id="btn-yes">SI</a>
                         <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
-=======
-                    <!-- sidebar-menu  -->
-                    <div class=" sidebar-item sidebar-menu">
-                        <ul>
-                            <li class="header-menu">
-                                <span>General</span>
-                            </li>
-                            <li>
-                                <a href="principal-admin.php">
-                                    <i class="fa fa-tachometer-alt"></i>
-                                    <span class="menu-text">Dashboard</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="PuntoVenta-Admin.php">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span class="menu-text">Punto de Venta</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="Inventario-Administrador.php">
-                                    <i class="fa fa-warehouse"></i>
-                                    <span class="menu-text">Inventario</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="reportes.php">
-                                    <i class="fa fa-chart-line"></i>
-                                    <span class="menu-text">Reportes</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="AdminCaja.php">
-                                    <i class="fa fa-cash-register"></i>
-                                    <span class="menu-text">Caja</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="apartados.php">
-                                    <i class="fa fa-cart-plus"></i>
-                                    <span class="menu-text">Apartados</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="devoluciones.php">
-                                    <i class="fa fa-sync-alt"></i>
-                                    <span class="menu-text">Devoluciones</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="Usuario-Administrador.php">
-                                    <i class="fa fa-users"></i>
-                                    <span class="menu-text">Usuarios</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="Proveedor-Administrador.php">
-                                    <i class="fa fa-truck"></i>
-                                    <span class="menu-text">Proveedores</span>
-                                </a>
-                            </li>
-                            <li class="header-menu">
-                                <span>Extra</span>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-question"></i>
-                                    <span class="menu-text">Ayuda</span>
-                                    <span class="badge badge-pill badge-primary">Prox</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-calendar"></i>
-                                    <span class="menu-text">Calendario</span>
-                                    <span class="badge badge-pill badge-primary">Prox</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" id="btnabrir" >
-                                    <i class="fa fa-power-off"></i>
-                                    <span class="menu-text" onclick="cierra()">Cerrar sesión</span>
-                                </a>
-                            </li>
-                        </ul>
->>>>>>> 7f8bee42719e5c669726f570d7a279ce3dedb4ff
                     </div>
                 </div>
             </div>
@@ -272,7 +183,7 @@
 
                 <article>
                     <div id="divcerrar">
-                        <a href="login.jsp">
+                        <a href="login.php">
                             <button class="btn-tiny btn-danger">
                                 Cerrar Sesion <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
@@ -281,148 +192,51 @@
                             </button>
                         </a>
                     </div>
-<<<<<<< HEAD
                     <header id="encabezado">
                         <img id="img-inventario" class="img-responsive img-rounded" src="img/inventario.png" height="150" width="150" alt="Inventario picture">
                         <br>
                         <br>
                         <h1>Inventario</h1>
                     </header>
-=======
-                </div>
-            </nav>
 
-
-            <?php
-if(!isset($_GET["id"])) exit();
-$id = $_GET["id"];
-include_once "base_de_datos.php";
-$sentencia = $base_de_datos->prepare("SELECT * FROM productos WHERE id = ?;");
-$sentencia->execute([$id]);
-$producto = $sentencia->fetch(PDO::FETCH_OBJ);
-if($producto === FALSE){
-	echo "¡No existe algún producto con ese ID!";
-	exit();
-}
-
-?>
-
-
-            <!-- contenido  -->
-           <main class="page-content pt-2">
-                <div class="fondo_transparente">
-                    <div class="modal">
-                        <div class="modal_titulo">ADVERTENCIA</div>
-                        <div class="modal_mensaje">
-                            <p>¿Seguro que desea salir?</p>
-                        </div>
-                        <div class="modal_botones">
-                            <a href="login.jsp" class="boton" id="btn-yes">SI</a>
-                            <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
-                        </div>
-                    </div>
-                </div>
-                <div id="overlay" class="overlay"></div>
-                <section id="main-content">
-
-                    <article>
-                        <div id="divcerrar">
-                            <a href="login.jsp">
-                                <button class="btn-tiny btn-danger">
-                                    Cerrar Sesion <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                       fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                          d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                                    <path fill-rule="evenodd"
-                                          d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                                    </svg>
-                                </button>
-                            </a>
-                        </div>
-                        <header id="encabezado">
-                            <img id="img-inventario" class="img-responsive img-rounded" src="img/inventario.png"
-                                 height="150" width="150" alt="Inventario picture">
-                            <br>
-                            <br>
-                            <h1>Inventario</h1>
-                        </header>
-
-                        
-        	<div class="col-xs-12">
-		<h1>Editar producto con el ID <?php echo $producto->id; ?></h1>
-		<form method="post" action="guardarDatosEditados.php">
-			<input type="hidden" name="id" value="<?php echo $producto->id; ?>">
-	
-			<label for="codigo">Código de barras:</label>
-			<input value="<?php echo $producto->codigo ?>" class="form-control" name="codigo" required type="text" id="codigo" placeholder="Escribe el código">
-
-			<label for="descripcion">Descripción:</label>
-            <textarea required id="descripcion" name="descripcion" cols="30" rows="5" class="form-control"><?php echo $producto->descripcion ?></textarea>
-            
-            <label for="talla">Talla:</label>
-			<input value="<?php echo $producto->talla ?>" class="form-control" name="talla" required type="text" id="talla">
-
-            <label for="color">Color:</label>
-			<input value="<?php echo $producto->color ?>" class="form-control" name="color" required type="text" id="color" >
-
-			<label for="precioCompra">Precio de compra:</label>
-            <input value="<?php echo $producto->precioCompra ?>" class="form-control" name="precioCompra" required type="number" id="precioCompra" placeholder="Precio de compra">
-            
-            <label for="precioVenta">Precio de venta:</label>
-			<input value="<?php echo $producto->precioVenta ?>" class="form-control" name="precioVenta" required type="number" id="precioVenta" placeholder="Precio de venta">
-
-			<label for="existencia">Existencia:</label>
-            <input value="<?php echo $producto->existencia ?>" class="form-control" name="existencia" required type="number" id="existencia" placeholder="Cantidad o existencia">
-            
-            <label for="proveedor">Proveedor:</label>
-			<input value="<?php echo $producto->proveedor ?>" class="form-control" name="proveedor" required type="text" id="proveedor" >
-
-			<br><br><input class="btn btn-info" type="submit" value="Guardar">
-			<a class="btn btn-warning" href="./Inventario-Administrador.php">Cancelar</a>
-		</form>
-	</div>
-
-                     <!--   <div class="actualiza">
-                            <h3>Actualizar Zapato</h3>
-                            <h4>Ingresa los datos</h4>
-                            <h5><label>*</label> Campo obligatorio </h5>
-
-                            <%
-                                Connection con;
-                                String url = "jdbc:mysql://localhost/bdmaylu";
-                                String Driver = "com.mysql.jdbc.Driver";
-                                String user = "root";
-                                String clave = "";
-                                Class.forName(Driver);
-                                con = DriverManager.getConnection(url, user, clave);
->>>>>>> 7f8bee42719e5c669726f570d7a279ce3dedb4ff
-
-
-                    <div class="col-xs-12">
-                        <h5>* Campo obligatorio</h5>
+                    <div class="actualiza">
+                        <h3>Actualizar Zapato</h3>
+                        <h4>Ingresa los datos</h4>
+                        <h5><label>*</label> Campo obligatorio </h5>
                         <form method="post" action="guardarDatosEditados.php">
-                            <input type="hidden" name="id" value="<?php echo $producto->id; ?>">
-
-                            <label for="codigo">Código de barras:</label>
-                            <input value="<?php echo $producto->codigo ?>" class="form-control" name="codigo" required type="text" id="codigo" placeholder="Escribe el código">
-
-                            <label for="descripcion">Descripción:</label>
-                            <textarea required id="descripcion" name="descripcion" cols="30" rows="5" class="form-control"><?php echo $producto->descripcion ?></textarea>
-
-                            <label for="precioVenta">Precio de venta:</label>
-                            <input value="<?php echo $producto->precioVenta ?>" class="form-control" name="precioVenta" required type="number" id="precioVenta" placeholder="Precio de venta">
-
-                            <label for="precioCompra">Precio de compra:</label>
-                            <input value="<?php echo $producto->precioCompra ?>" class="form-control" name="precioCompra" required type="number" id="precioCompra" placeholder="Precio de compra">
-
-                            <label for="existencia">Existencia:</label>
-                            <input value="<?php echo $producto->existencia ?>" class="form-control" name="existencia" required type="number" id="existencia" placeholder="Cantidad o existencia">
-                            <br><br><input class="btn btn-info" type="submit" value="Guardar">
+                            <div class="contenedor-etiquetas-actualiza">
+                                <h4> ID Zapato</h4>
+                                <h4><label>*</label> Modelo</h4>
+                                <h4><label>*</label> Descripción</h4>
+                                <h4><label>*</label> Talla</h4>
+                                <h4><label>*</label> Color</h4>
+                                <h4><label>*</label> Precio Compra ($)</h4>
+                                <h4><label>*</label> Precio Venta ($)</h4>
+                                <h4><label>*</label> Existencias</h4>
+                                <h4><label>*</label> Proveedor</h4>
+                            </div>
+                            <div class="contenedor-inputs-actualiza">
+                                <input type="text" class="form-control" name="id" value="<?php echo $producto->id ?>" disabled>
+                                <input value="<?php echo $producto->descripcion ?>" required id="descripcion" name="descripcion" cols="30" rows="5" class="form-control" disabled>
+                                <input value="<?php echo $producto->talla ?>" class="form-control" name="talla" required type="text" id="talla" disabled>
+                                <input value="<?php echo $producto->color ?>" class="form-control" name="color" required type="text" id="color" disabled>
+                                <input value="<?php echo $producto->precioCompra ?>" class="form-control" name="precioCompra" required type="text" id="precioCompra" placeholder="Precio de compra">
+                                <input value="<?php echo $producto->precioVenta ?>" class="form-control" name="precioVenta" required type="text" id="precioVenta" placeholder="Precio de venta">
+                                <input value="<?php echo $producto->existencia ?>" class="form-control" name="existencia" required type="text" id="existencia" placeholder="Cantidad o existencia">
+                                <input value="<?php echo $producto->proveedor ?>" class="form-control" name="proveedor" required type="text" id="proveedor" placeholder="Proveedor" disabled>
+                            </div>
+                            <br><br>
+                            <input class="btn btn-info" type="submit" value="Guardar">
                             <a class="btn btn-warning" href="./Inventario-Administrador.php">Cancelar</a>
                         </form>
                     </div>
+                    <br>
+                    <br>
+                </article>
+            </section>
+        </main>
+        <!-- page-content" -->
     </div>
-    <!-- page-wrapper -->
     <!-- using online scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
