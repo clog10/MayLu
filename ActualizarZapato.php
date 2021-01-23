@@ -61,55 +61,55 @@
                                 <span>General</span>
                             </li>
                             <li>
-                                <a href="principal-admin.jsp">
+                                <a href="principal-admin.php">
                                     <i class="fa fa-tachometer-alt"></i>
                                     <span class="menu-text">Dashboard</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="PuntoVenta-Admin.jsp">
+                                <a href="PuntoVenta-Admin.php">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span class="menu-text">Punto de Venta</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="Inventario-Administrador.jsp">
+                                <a href="Inventario-Administrador.php">
                                     <i class="fa fa-warehouse"></i>
                                     <span class="menu-text">Inventario</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="reportes.jsp">
+                                <a href="reportes.php">
                                     <i class="fa fa-chart-line"></i>
                                     <span class="menu-text">Reportes</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="AdminCaja.jsp">
+                                <a href="AdminCaja.php">
                                     <i class="fa fa-cash-register"></i>
                                     <span class="menu-text">Caja</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="apartados.jsp">
+                                <a href="apartados.php">
                                     <i class="fa fa-cart-plus"></i>
                                     <span class="menu-text">Apartados</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="devoluciones.jsp">
+                                <a href="devoluciones.php">
                                     <i class="fa fa-sync-alt"></i>
                                     <span class="menu-text">Devoluciones</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="Usuario-Administrador.jsp">
+                                <a href="Usuario-Administrador.php">
                                     <i class="fa fa-users"></i>
                                     <span class="menu-text">Usuarios</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="Proveedor-Administrador.jsp">
+                                <a href="Proveedor-Administrador.php">
                                     <i class="fa fa-truck"></i>
                                     <span class="menu-text">Proveedores</span>
                                 </a>
@@ -217,16 +217,26 @@ if($producto === FALSE){
 			<input value="<?php echo $producto->codigo ?>" class="form-control" name="codigo" required type="text" id="codigo" placeholder="Escribe el código">
 
 			<label for="descripcion">Descripción:</label>
-			<textarea required id="descripcion" name="descripcion" cols="30" rows="5" class="form-control"><?php echo $producto->descripcion ?></textarea>
+            <textarea required id="descripcion" name="descripcion" cols="30" rows="5" class="form-control"><?php echo $producto->descripcion ?></textarea>
+            
+            <label for="talla">Talla:</label>
+			<input value="<?php echo $producto->talla ?>" class="form-control" name="talla" required type="text" id="talla">
 
-			<label for="precioVenta">Precio de venta:</label>
-			<input value="<?php echo $producto->precioVenta ?>" class="form-control" name="precioVenta" required type="number" id="precioVenta" placeholder="Precio de venta">
+            <label for="color">Color:</label>
+			<input value="<?php echo $producto->color ?>" class="form-control" name="color" required type="text" id="color" >
 
 			<label for="precioCompra">Precio de compra:</label>
-			<input value="<?php echo $producto->precioCompra ?>" class="form-control" name="precioCompra" required type="number" id="precioCompra" placeholder="Precio de compra">
+            <input value="<?php echo $producto->precioCompra ?>" class="form-control" name="precioCompra" required type="number" id="precioCompra" placeholder="Precio de compra">
+            
+            <label for="precioVenta">Precio de venta:</label>
+			<input value="<?php echo $producto->precioVenta ?>" class="form-control" name="precioVenta" required type="number" id="precioVenta" placeholder="Precio de venta">
 
 			<label for="existencia">Existencia:</label>
-			<input value="<?php echo $producto->existencia ?>" class="form-control" name="existencia" required type="number" id="existencia" placeholder="Cantidad o existencia">
+            <input value="<?php echo $producto->existencia ?>" class="form-control" name="existencia" required type="number" id="existencia" placeholder="Cantidad o existencia">
+            
+            <label for="proveedor">Proveedor:</label>
+			<input value="<?php echo $producto->proveedor ?>" class="form-control" name="proveedor" required type="text" id="proveedor" >
+
 			<br><br><input class="btn btn-info" type="submit" value="Guardar">
 			<a class="btn btn-warning" href="./Inventario-Administrador.php">Cancelar</a>
 		</form>
