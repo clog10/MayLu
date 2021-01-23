@@ -1,11 +1,3 @@
-
-
-<?php
-include_once "base_de_datos.php";
-$sentencia = $base_de_datos->query("SELECT * FROM productos;");
-$productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -39,33 +31,8 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 </head>
 
 <body>
-<div id="container">
-        <div class="overlay" id="overlay">
-            <div class="popup" id="popup">
-                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-                <h3>Agregar Producto</h3>
-                <h4>Ingresa los datos</h4>
-	<form method="post" action="nuevo.php">
-		<label for="codigo">Código de barras:</label>
-		<input class="form-control" name="codigo" required type="text" id="codigo" placeholder="Escribe el código">
 
-		<label for="descripcion">Descripción:</label>
-		<textarea required id="descripcion" name="descripcion" cols="30" rows="5" class="form-control"></textarea>
-
-		<label for="precioVenta">Precio de venta:</label>
-		<input class="form-control" name="precioVenta" required type="number" id="precioVenta" placeholder="Precio de venta">
-
-		<label for="precioCompra">Precio de compra:</label>
-		<input class="form-control" name="precioCompra" required type="number" id="precioCompra" placeholder="Precio de compra">
-
-		<label for="existencia">Existencia:</label>
-		<input class="form-control" name="existencia" required type="number" id="existencia" placeholder="Cantidad o existencia">
-		<br><br><input class="btn btn-info" type="submit" value="Guardar">
-	</form>
-</div>
-</div>
-</div>
-   <!--<div id="container">
+    <div id="container">
         <div class="overlay" id="overlay">
             <div class="popup" id="popup">
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
@@ -83,9 +50,9 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                     </div>
                     <div class="contenedor-inputs">
 
-                        <input type="text" name= "modelo" placeholder="Modelo">
+                        <input type="text" placeholder="Modelo">
 
-                        <select name="Proveedor" name="proveedor" class="select">
+                        <select name="Proveedor" class="select">
                             <option selected value="0"> Elige una opción </option>
                             <option value="1">Windows Vista</option>
                             <option value="2">Windows 7</option>
@@ -94,16 +61,6 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                             <option value="11">Debian</option>
                             <option value="12">Suse</option>
                         </select>
-
-                        <input type="text" name="talla" placeholder="Número">
-
-                        <input type="text" name="color" placeholder="Color">
-
-                        <input type="text" name="precio_compra" placeholder="Precio Compra">
-
-                        <input type="text" name="precio_venta" placeholder="Precio Venta">
-
-                        <input type="text"  name="stock"  placeholder="Stock">
 
                         <input type="text" placeholder="Número" onkeypress="return solonumeros(event)">
 
@@ -114,17 +71,17 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                         <input type="text" placeholder="Precio Venta" onkeypress="return solonumeros(event)">
 
                         <input type="text" placeholder="Stock" onkeypress="return solonumeros(event)">
-
                     </div>
                     <div class="contenedor-imagen">
                         <input type="file" placeholder="Cargar">
                     </div>
                     <br>
-                    <input type="submit" class="btn-submit" name="guardar"  value="Guardar">
+                    <input type="submit" class="btn-submit" value="Guardar">
                 </form>
             </div>
         </div>
     </div>
+
 
     <div id="container">
         <div class="overlay2" id="overlay2">
@@ -174,8 +131,7 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                 </form>
             </div>
         </div>
-    </div>-->
-
+    </div>
 
 
 
@@ -213,57 +169,21 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                     </div>
                 </div>
                 <!-- sidebar-menu  -->
-                 <div class=" sidebar-item sidebar-menu">
+               <div class=" sidebar-item sidebar-menu">
                     <ul>
                         <li class="header-menu">
                             <span>General</span>
                         </li>
                         <li>
-                            <a href="principal-admin.php">
+                            <a href="principal-almacen.html">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span class="menu-text">Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Punto-Venta-Admin.php">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span class="menu-text">Punto de Venta</span>
-                            </a>
-                        </li>
-                        <li >
-                            <a href="Inventario-Administrador.php">
+                            <a href="Inventario-Almacen.html">
                                 <i class="fa fa-warehouse"></i>
                                 <span class="menu-text">Inventario</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="reportes.php">
-                                <i class="fa fa-chart-line"></i>
-                                <span class="menu-text">Reportes</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="AdminCaja.php">
-                                <i class="fa fa-cash-register"></i>
-                                <span class="menu-text">Caja</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="devoluciones.php">
-                                <i class="fa fa-sync-alt"></i>
-                                <span class="menu-text">Devoluciones</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="Usuario-Administrador.php">
-                                <i class="fa fa-users"></i>
-                                <span class="menu-text">Usuarios</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="Proveedor-Administrador.php">
-                                <i class="fa fa-truck"></i>
-                                <span class="menu-text">Proveedores</span>
                             </a>
                         </li>
                         <li class="header-menu">
@@ -304,9 +224,10 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
             </div>
           
         </nav>
-        </div>
-         
+        </div> 
+           
         </nav>
+        <!-- contenido  -->
         <main class="page-content pt-2">
             <div id="overlay" class="overlay"></div>
             <section id="main-content">
@@ -349,55 +270,13 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
                     </div>
 
-	<div class=" table-responsive">
-
-		<br>
-		<table class="table table-hover" id="tablee">
-			<thead>
-				<tr>
-                    <th>#</th>
-                    <th>Imagen</th>
-					<th>Modelo</th>
-                    <th>Descripción</th>
-                    <th>Talla</th>
-                    <th>Color</th>
-					<th>Precio compra</th>
-                    <th>Precio venta</th>
-                    <th>Proveedor</th>
-					<th>Existencia</th>
-					<th>Opciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php foreach($productos as $producto){ ?>
-				<tr>
-                    <td><?php echo $producto->id ?></td>
-                    <td><img src="img/maylu.png" alt="logo" width="100" height="100" /></td>
-					<td><?php echo $producto->codigo ?></td>
-                    <td><?php echo $producto->descripcion ?></td>
-                    <td></td>
-                    <td></td>
-					<td>$<?php echo $producto->precioCompra ?></td>
-                    <td>$<?php echo $producto->precioVenta ?></td>
-                    <td></td>
-					<td><?php echo $producto->existencia ?></td>
-					<td>
-                        <a class="btn btn-warning" href="<?php echo "ActualizarZapato.php?id=" . $producto->id?>"><i class="fa fa-edit"></i></a>
-                         <a class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $producto->id?>"><i class="fa fa-eye-slash"></i></a>
-                    </td>
-				</tr>
-				<?php } ?>
-			</tbody>
-		</table>
-	</div>
-
-
-                 <!--  <div class="table-responsive">
+                    <div class="table-responsive">
                         <table class="table table-hover" id="tablee">
                             <thead>
                                 <tr>
                                     <th>Modelo</th>
                                     <th>Proveedor</th>
+                                    <th>Descripción</th>
                                     <th>Número</th>
                                     <th>Color</th>
                                     <th>Precio Compra</th>
@@ -408,7 +287,6 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                             </thead>
 
                             <tbody>
-
                                 <tr>
                                     <td>4500MX</td>
                                     <td>Alma Perez</td>
@@ -493,14 +371,13 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                             </tbody>
                         </table>
                         <br>
-                    </div>-->
+                    </div>
 
                 </article>
             </section>
 
 
         </main>
-
     </div>
 
     <!-- page-wrapper -->
