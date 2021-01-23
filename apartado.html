@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>MayLú - Administrador</title>
+    <title>MayLu - Administrador</title>
 
     <!-- using online links -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
@@ -23,12 +23,49 @@
 
     <link rel="stylesheet" href="styles/estilos-principal.css">
     <link rel="stylesheet" href="styles/sidebar-themes.css">
+    <link rel="stylesheet" href="styles/estilos-nuevoproducto.css">
+    <link rel="stylesheet" href="styles/popups.css">
     <link rel="shortcut icon" type="image/png" href="img/icon.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+    <div id="container">
+        <div class="overlay" id="overlay">
+            <div class="popup" id="popup">
+                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <h3>Apartar</h3>
+                <h4>Ingresa los datos</h4>
+                <form action="">
+                    <div class="contenedor-etiquetas">
+                        <h4>Vencimiento</h4>
+                        <h4>Modelo</h4>
+                        <h4>Cliente</h4>
+                        <h4>Número</h4>
+                        <h4>Color</h4>
+                        <h4>Precio</h4>
+                        <h4>Abono</h4>
+                        <h4>Saldo</h4>
+                    </div>
+                    <div class="contenedor-inputs">
+                        <input type="date" id="fecha" onclick="">
+                        <input type="text" name="modelo" placeholder="Modelo">
+                        <input type="text" name="cliente" placeholder="Nombre del cliente">
+                        <input type="text" name="talla" placeholder="Numero">
+                        <input type="text" name="color" placeholder="Color">
+                        <input type="text" name="precio" placeholder="Precio">
+                        <input type="text" name="abono" placeholder="¿Cuanto abona el cliente?">
+                        <input type="text" name="saldo" placeholder="¿Cuanto resta el cliente?">
+                    </div>
+                    <br>
+                    <input type="submit" class="btn-submit" name="guardar" value="Guardar">
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
@@ -81,10 +118,10 @@
                                     </a>
                                 </li>
                                 <li>
-                                    (<a href="Inventario-Administrador.jsp">
+                                    <a href="Inventario-Administrador.html">
                                         <i class="fa fa-warehouse"></i>
                                         <span class="menu-text">Inventario</span>
-                                    </a>)
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="reportes.html">
@@ -93,7 +130,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="AdminCaja.jsp">
+                                    <a href="AdminCaja.html">
                                         <i class="fa fa-cash-register"></i>
                                         <span class="menu-text">Caja</span>
                                     </a>
@@ -141,9 +178,6 @@
                                 </li>
                             </ul>
                         </div>
-
-
-
                         <!-- sidebar-menu  -->
                     </div>
                     <div class="sidebar-footer">
@@ -158,93 +192,79 @@
 
                 </nav>
             </div>
+
         </nav>
-
         <main class="page-content pt-2">
-            <div class="fondo_transparente">
-                <div class="modal">
-                    <div class="modal_titulo">ADVERTENCIA</div>
-                    <div class="modal_mensaje">
-                        <p>¿Seguro que desea salir?</p>
-                    </div>
-                    <div class="modal_botones">
-                        <a href="login.html" class="boton" id="btn-yes">SI</a>
-                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
-                    </div>
-                </div>
-            </div>
-
             <div id="overlay" class="overlay"></div>
-            <div class="container p-5">
-                <div class="row">
-                    <div class="form-group col-md-3 ">
-                        <div class="article">
-                            <a href="Inventario-Administrador.html">
-                                <img src="/img/cajitas.svg" width="200" height="150" alt="">
-                                <p>Inventario</p>
-                            </a>
+            <section id="main-content">
+
+                <article>
+                    <div id="divcerrar">
+                        <button class="btn-tiny btn-danger">
+                            Cerrar Sesión <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                                <path fill-rule="evenodd"
+                                    d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                            </svg></button>
+                    </div>
+                    <header id="encabezado">
+                        <img id="img-inventario" class="img-responsive img-rounded" src="img/car.png" height="150"
+                            width="150" alt="Inventario picture">
+                        <br>
+                        <br>
+                        <h1>Apartados</h1>
+                    </header>
+
+                    <div id="container1">
+                        <div>
+                            <a href="#" id="btn-abrir-popup" class="btn btn-success" data-toggle="modal">Apartar</a>
                         </div>
                     </div>
-                    <div class="form-group col-md-3">
-                        <div class="article">
-                            <a href="Punto-Venta-Admin.html">
-                                <img src="/img/carrito.svg" width="200" height="150" alt="">
-                                <p>Punto de Venta</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <div class="article">
-                            <a href="reportes.html">
-                                <img src="/img/document.svg" width="200" height="150" alt="">
-                                <p>Reportes</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <div class="article">
-                            <a href="AdminCaja.html">
-                                <img src="/img/wallet.svg" width="200" height="150" alt="">
-                                <p>Caja</p>
-                            </a>
-                        </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="tablee">
+                            <thead>
+                                <tr>
+                                    <th>Fecha Vencimiento</th>
+                                    <th>Modelo</th>
+                                    <th>Cliente</th>
+                                    <th>Número</th>
+                                    <th>Color</th>
+                                    <th>Precio</th>
+                                    <th>Abonó</th>
+                                    <th>Saldo</th>
+                                    <th>Marcar como completado</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>10/02/2021</td>
+                                    <td>4500MX</td>
+                                    <td>Alma Perez</td>
+                                    <td>22</td>
+                                    <td>Rojo</td>
+                                    <td>$200</td>
+                                    <td>$100</td>
+                                    <td>$100</td>
+                                    <td>
+                                        <button id="completo" class=" completo btn">
+                                            <i class="fas fa-clipboard-check"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
                     </div>
 
-                    <div class="form-group col-md-3">
-                        <div class="article">
-                            <a href="devoluciones.html">
-                                <img src="/img/broked.svg" width="200" height="150" alt="">
-                                <p>Devoluciones</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <div class="article">
-                            <a href="Proveedor-Administrador.html">
-                                <img src="/img/provider.svg" width="200" height="150" alt="">
-                                <p>Proveedores</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <div class="article">
-                            <a href="Usuario-Administrador.html">
-                                <img src="/img/user.svg" width="200" height="150" alt="">
-                                <p>Usuarios</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <div class="article">
-                            <a href="">
-                                <img src="/img/questions.svg" width="200" height="150" alt="">
-                                <p>Ayuda</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </article>
+            </section>
+
+
         </main>
+
     </div>
 
     <!-- page-wrapper -->
@@ -265,7 +285,9 @@
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script> -->
 
-    <script src="js/administrador/principal-admin.js"></script>
+    <script src="js/popups.js"></script>
+    <script src="js/almacen/principal-almacen.js"></script>
+    <script src="js/administrador/validacion.js"></script>
 
 </body>
 

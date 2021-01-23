@@ -256,6 +256,8 @@
     cursor: pointer;
 }
 
+
+
 .contenedor article .btn-abrir-popup2:hover {
     background: rgba(94, 125, 227, .9);
 }
@@ -543,3 +545,23 @@ th {
     color: #ffffff;
 }
 
+.completo{
+    background-color: #f10032;
+    font-size: 25px;
+}
+
+.completo > i{
+    margin: 0;
+    color: rgb(0, 0, 0);
+    transition: .1s ease all;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+ .completo:hover {
+    background: rgba(94, 125, 227, .9);
+}
+
+.completo>i:hover{
+    color: #8d0404;
+}
