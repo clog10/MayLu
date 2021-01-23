@@ -66,11 +66,20 @@
     font-family: 'Montserrat', sans-serif;
     padding: 20px;
     text-align: center;
-    width: 550px;
+    width: 750px;
     margin-left: 170px;
     transition: .3s ease all;
     transform: scale(0.7);
     opacity: 0;
+}
+
+.actualiza {
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    text-align: center;
+    width: 900px;
+    margin-left: 50px;
+    height: 650px;
 }
 
 .popup .btn-cerrar-popup {
@@ -91,17 +100,27 @@
     font-weight: 600;
     margin-bottom: 10px;
     opacity: 0;
+    color: #030249
 }
 
 .popup h4 {
     font-size: 26px;
     font-weight: 300;
+    margin-bottom: 10px;
+    opacity: 0;
+    color: #030249;
+}
+
+.popup h5 {
+    font-size: 20px;
+    font-weight: 250;
     margin-bottom: 40px;
     opacity: 0;
+    color: #030249;
 }
 
 .popup form .contenedor-inputs {
-    width: 50%;
+    width: 40%;
     margin-left: 200px;
     margin-right: 10px;
     opacity: 0;
@@ -121,23 +140,65 @@
     height: 30px;
     font-size: 18px;
     text-align: left;
+}
 
+.actualiza form .contenedor-inputs-actualiza {
+    width: 50%;
+    margin-left: 350px;
+    margin-right: 10px;
+}
+
+.actualiza form .contenedor-inputs-actualiza select {
+    width: 100%;
+    margin-bottom: 15px;
+    height: 30px;
+    font-size: 18px;
+    text-align: left;
+}
+
+.actualiza form .contenedor-inputs-actualiza input {
+    width: 100%;
+    margin-bottom: 15px;
+    height: 30px;
+    font-size: 18px;
+    text-align: left;
 }
 
 .popup form .contenedor-etiquetas {
-    width: 50%;
+    width: 60%;
     height: 15px;
-    font-size: 18px;
-    text-align: left;
+    font-size: 20px;
+    text-align: right;
+    margin-top: 0;
 }
 
 .popup form .contenedor-etiquetas h4 {
     width: 50%;
     height: 5px;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 52px;
-    text-align: left;
+    text-align: right;
+    margin-bottom: 40px;
+    margin-top: 5px;
+}
 
+.actualiza form .contenedor-etiquetas-actualiza {
+    width: 50%;
+    height: 15px;
+    font-size: 20px;
+    text-align: right;
+    margin-top: 0;
+    margin-left: 50px
+}
+
+.actualiza form .contenedor-etiquetas-actualiza h4 {
+    width: 50%;
+    height: 5px;
+    font-size: 20px;
+    line-height: 52px;
+    text-align: right;
+    margin-bottom: 40px;
+    margin-top: 5px;
 }
 
 .popup form .contenedor-imagen input {
@@ -145,7 +206,7 @@
     margin-bottom: 15px;
     height: 30px;
     font-size: 18px;
-    text-align: left;
+    text-align: center;
 }
 
 .popup form .btn-submit {
@@ -179,6 +240,10 @@
 }
 
 .popup.active h4 {
+    animation: entradaSubtitulo .8s ease .5s forwards;
+}
+
+.popup.active h5 {
     animation: entradaSubtitulo .8s ease .5s forwards;
 }
 
@@ -256,8 +321,6 @@
     cursor: pointer;
 }
 
-
-
 .contenedor article .btn-abrir-popup2:hover {
     background: rgba(94, 125, 227, .9);
 }
@@ -320,6 +383,13 @@
 .popup2 h4 {
     font-size: 26px;
     font-weight: 300;
+    margin-bottom: 10px;
+    opacity: 0;
+}
+
+.popup2 h5 {
+    font-size: 20px;
+    font-weight: 250;
     margin-bottom: 40px;
     opacity: 0;
 }
@@ -454,90 +524,107 @@ th {
     color: white;
 }
 
-.ventas{
-	width: 100%;
-}
-
-.datos{
-	margin: 0;
-}
-
-.datos >table{
-	margin: 0;
-	padding: 0;
-}
-
-.detalles{
-	border-style: solid;
+.ventas {
     width: 100%;
 }
 
-.detalles >h1{
-	color: #030249;
-	padding-left: 80px;
+.datos {
+    margin: 0;
 }
 
-.detalles >h3{
-	color: #030249;
-	font-size: larger;
+.datos>table {
+    margin: 0;
+    padding: 0;
+}
+
+.detalles {
+    border-style: solid;
+    width: 100%;
+}
+
+.detalles>h1 {
+    color: #030249;
+    padding-left: 80px;
+}
+
+.detalles>h3 {
+    color: #030249;
+    font-size: larger;
     padding-left: 10px;
 }
 
-#HoraActual{
-		font-size: larger;
-		font-family: Arial,sans-serif;
-		color: #030249;
-
+.detalles .recibido {
+    padding-left: 10px;
+    display: flex;
 }
 
-.botones{
-	padding-left: 10px;
-	padding-bottom: 10px;
-	width: 100%;
-	display: inline-block;
+.detalles .recibido>h3 {
+    color: #030249;
+    font-size: larger;
+    width: 30%
 }
 
-#hecho {
-	
+.detalles .recibido>input {
+    width: 60%;
+    margin-bottom: 15px;
+    height: 30px;
+    font-size: 18px;
+    text-align: left;
 }
 
-#cancel{
-	background-color: rgb(146, 13, 13);
+#HoraActual {
+    font-size: larger;
+    font-family: Arial, sans-serif;
+    color: #030249;
+}
+
+.botones {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    display: inline-block;
+}
+
+#hecho {}
+
+#cancel {
+    background-color: rgb(146, 13, 13);
 }
 
 .wrap {
-	width: 90%;
-	max-width: 1000px;
-	/*margin:auto;*/
+    width: 90%;
+    max-width: 1000px;
+    /*margin:auto;*/
 }
 
 .wrap p {
-	display: inline-block;
-	line-height: 1em;
-	color: #43434b;
+    display: inline-block;
+    line-height: 1em;
+    color: #43434b;
 }
 
 .fecha {
-	text-align: center;
-	font-size:1em;
-	padding: 5px;
-	width: 100%;
+    text-align: center;
+    font-size: 1em;
+    padding: 5px;
+    width: 100%;
 }
 
 .reloj {
-	width: 100%;
-	font-size: 1em;
-	text-align: center;
+    width: 100%;
+    font-size: 1em;
+    text-align: center;
 }
 
 .quitar {
-    background-color: #f10032;
+    background-color: rgb(146, 13, 13);
     border-radius: 8px;
     color: #ffffff;
     height: 40px;
 }
 
-.quitar>i,p {
+.quitar>i,
+p {
     margin-top: 5px;
     margin-left: 10px;
     margin-right: 10px;
@@ -545,12 +632,12 @@ th {
     color: #ffffff;
 }
 
-.completo{
-    background-color: #f10032;
+.completo {
+    background-color: #8d0404;
     font-size: 25px;
 }
 
-.completo > i{
+.completo>i {
     margin: 0;
     color: rgb(0, 0, 0);
     transition: .1s ease all;
@@ -558,10 +645,10 @@ th {
     border-radius: 3px;
 }
 
- .completo:hover {
+.completo:hover {
     background: rgba(94, 125, 227, .9);
 }
 
-.completo>i:hover{
+.completo>i:hover {
     color: #8d0404;
 }

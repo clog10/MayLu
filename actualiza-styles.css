@@ -1,0 +1,213 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14/01/2021, 03:32:59 PM
+    Author     : Carlos Loaeza
+*/
+
+.actualiza{
+    background-color: #ffffff;
+    box-shadow: 2px 8px 20px rgb(3, 7, 53);
+    width: 900px;
+}
+
+.actualiza > h3, h4,h5 {
+    color:#030249;
+}
+
+.actualiza>h5>label{
+    color:red;
+}
+
+.actualiza form .boton-actualiza{
+    background-color:#030249;
+    color:#ffffff;
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+}
+
+.actualiza .contenedor-etiquetas-actualiza>h4>label{
+    color:red;
+}
+
+.overlay2 {
+    background: rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    visibility: hidden;
+}
+
+.overlay2.active {
+    visibility: visible;
+}
+
+.popup2 {
+    background: #F8F8F8;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 550px;
+    margin-left: 170px;
+    transition: .3s ease all;
+    transform: scale(0.7);
+    opacity: 0;
+}
+
+.popup2 .btn-cerrar-popup2 {
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    transition: .3s ease all;
+    color: #BBBBBB;
+}
+
+.popup2 .btn-cerrar-popup2:hover {
+    color: #000;
+}
+
+.popup2 h3 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    opacity: 0;
+}
+
+.popup2 h4 {
+    font-size: 26px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    opacity: 0;
+}
+
+.popup2 form .contenedor-inputs2 {
+    width: 50%;
+    margin-left: 200px;
+    margin-right: 10px;
+    opacity: 0;
+}
+
+.popup2 form .contenedor-inputs2 select {
+    width: 100%;
+    margin-bottom: 15px;
+    height: 30px;
+    font-size: 18px;
+    text-align: left;
+}
+
+.popup2 form .contenedor-inputs2 input {
+    width: 100%;
+    margin-bottom: 15px;
+    height: 30px;
+    font-size: 18px;
+    text-align: left;
+
+}
+
+.popup2 form .contenedor-etiquetas2 {
+    width: 50%;
+    height: 15px;
+    font-size: 18px;
+    text-align: right;
+}
+
+.popup2 form .contenedor-etiquetas2 h4 {
+    width: 50%;
+    height: 5px;
+    font-size: 18px;
+    line-height: 52px;
+    text-align: right;
+
+}
+
+.popup2 form .contenedor-imagen2 input {
+    width: 100%;
+    margin-bottom: 15px;
+    height: 30px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.popup2 form .btn-submit {
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    color: #fff;
+    background: #5E7DE3;
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s ease all;
+}
+
+.popup2 form .btn-submit:hover {
+    background: rgba(94, 125, 227, .9);
+}
+
+/* ------------------------- */
+/* ANIMACIONES */
+/* ------------------------- */
+.popup2.active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.popup2.active h3 {
+    animation: entradaTitulo2 .8s ease .5s forwards;
+}
+
+.popup2.active h4 {
+    animation: entradaSubtitulo2 .8s ease .5s forwards;
+}
+
+.popup2.active .contenedor-inputs2 {
+    animation: entradaInputs2 1s linear 1s forwards;
+}
+
+@keyframes entradaTitulo2 {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes entradaSubtitulo2 {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes entradaInputs2 {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

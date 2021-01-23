@@ -16,7 +16,7 @@ img {
     display: inline-flexbox;
     background-color: white;
     width: 55em;
-    height: 32em;
+    height: 32.5em;
     margin: auto;
     padding: 0px;
     margin-top: 70px;
@@ -29,9 +29,9 @@ img {
     font-family: 'Lobster', cursive;
     background-color: white;
     width: 21em;
-    height: 23em;
+    height: 26em;
     margin: auto;
-    margin-top: 65px;
+    margin-top: 30px;
     border-radius: 8px;
     margin-bottom: 29px;
     margin-left: 100px;
@@ -53,30 +53,25 @@ h1 {
     font-size: 50px;
     font-family: "Tangerine";
     color: black;
-    padding-left: 150px;
+    padding-left: 120px;
     margin-top: 18px;
     margin-bottom: 10px;
 
 }
 
 h3 {
-    font-size: 50px;
-    margin-top: 20px;
-    padding-left: 80px;
-    font-size: 25px;
-    font-family: 'Lobster', cursive;
-    font-weight: lighter;
+    font-size: 50px; 
+    font-family: "Tangerine";
+    color:black;
+    padding-left: 40px;
+    margin-top: 5px;
 }
 
 label {
     padding-left: 10px;
-    font-size: 20px;
-    font-family: 'Lobster', cursive;
-    color: #000000;
-}
-
-span {
-    color: #000000;
+    font-size: 50px;
+    font-family: "Tangerine";
+    color: #000000; 
 }
 
 input {
@@ -86,16 +81,10 @@ input {
     height: 40px;
     border-radius: 5px;
     border-style: none;
-    margin-top: 10px;
+    margin-top: 5px;
     padding-left: 10px;
     margin-bottom: 20px;
     margin-left: 20px;
-}
-
-.tipo {
-    font-family: 'Lobster', cursive;
-    font-weight: lighter;
-    font-size: 20px;
 }
 
 button {
@@ -103,24 +92,27 @@ button {
     padding-left: 0px;
     padding-right: 5px;
     margin-bottom: 10px;
-    margin-top: 20px;
-    text-transform: uppercase;
+    margin-top: 5px;
     border-style: solid;
     border-radius: 10px;
     width: 50%;
     cursor: pointer;
     margin-left: 80px;
     padding-top: 0px;
-    color: #fff;
+    background-color: #ffffff;
     background-clip: padding-box;
     border: 2px solid #000000;
+    font-family: "Tangerine";
+    font-weight: lighter;
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
 }
 
 button:hover {
-    background: #616363;
+    background-color: #000000;
+    color: #ffffff;
   }
-
-
 
 @media screen and (max-width:910px) {
 

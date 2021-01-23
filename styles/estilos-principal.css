@@ -456,11 +456,11 @@ body {
 
 .pdf {
   margin-top: 30px;
-  margin-left: 100px;
+  margin-left: 50px;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
+ 
 .fondo_transparente {
   top: 0;
   left: 0;
@@ -491,20 +491,20 @@ body {
   font-size: 18px;
 }
 
-.modal_mensaje {
-  padding: 0px 5px;
-  text-align: center;
+.modal_mensaje{
+    background-color: white;
 }
 
-.modal_mensaje > p{
-  color:#030249; 
-}
+ .modal_mensaje > p{
+  padding: 0px 5px;
+  text-align: center;
+  color: #030249;
+} 
 
 .modal_botones {
   width: 100%;
   background: whitesmoke;
   border-top: whitesmoke 1px;
-  /* padding-top: 10px; */
   display: flex;
   margin-bottom: 15px;
   justify-content: space-evenly;
@@ -540,7 +540,6 @@ body {
     height: 40vh;
     width: 45%;
   }
-
   .modal .boton {
     width: 40%;
     padding: 5px 0px;

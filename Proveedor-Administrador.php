@@ -205,7 +205,7 @@
                         <p>¿Seguro que desea salir?</p>
                     </div>
                     <div class="modal_botones">
-                        <a href="login.html" class="boton" id="btn-yes">SI</a>
+                        <a href="login.php" class="boton" id="btn-yes">SI</a>
                         <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
                     </div>
                 </div>
