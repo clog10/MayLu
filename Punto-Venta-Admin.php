@@ -302,11 +302,22 @@ function redondear($valor, $decimales)
                                 <h3>Subtotal: $ <?php echo $subtotal; ?></h3>
                                 <h3>Iva: $<?php echo $iva; ?></h3>
                                 <h3>Total: $<?php echo $granTotal; ?>.00</h3>
-                                <div class="recibido">
-                                    <h3>Recibido: </h3>
-                                    <input type="text" name="recibido" value="" maxlength="9" required placeholder="¿Con cuanto paga?" />
+                                <div class="cambio-div">
+                                    <form class="formulario-cambio" name="datosrecibido">
+                                        <h3>Recibido: <input type="text" class="recibidoinput" name="recibidoinput" maxlength="10" onchange="cal()" onkeyup="cal()" placeholder="Efectivo" /></h3>
+                                        <h3>Cambio: <input class="cambio" type="text" name="cambio" value="$ 0.00" readonly="readonly"></h3>
+                                    </form>
                                 </div>
-                                <h3>Cambio: </h3>
+                                <script type="text/javascript">
+                                    function cal() {
+                                        try {
+                                            var a = parseInt(<?php echo $granTotal; ?>),
+                                                b = parseInt(document.datosrecibido.recibidoinput.value);
+                                            c = b - a;
+                                            document.datosrecibido.cambio.value = "$ " + c + ".00";
+                                        } catch (e) {}
+                                    }
+                                </script>
                                 <div class="botones">
                                     <form action="./terminarVenta.php" method="POST">
                                         <input name="total" type="hidden" value="<?php echo $granTotal; ?>">

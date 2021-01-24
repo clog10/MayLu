@@ -682,3 +682,22 @@ p {
 .completo>i:hover {
     color: #8d0404;
 }
+
+.detalles .cambio-div form > h3{
+    padding-left: 10px;
+    font-size:20px;
+    color:#030249;
+}
+
+.detalles .cambio-div form h3 >input{
+    width:190px;
+    color:#030249;
+}
+
+.detalles .cambio-div form h3 >.recibidoinput{
+    width:130px;
+}
+
+.detalles .cambio-div form h3 >.cambio{
+    border:none;
+}
