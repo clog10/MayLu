@@ -165,7 +165,7 @@ function redondear($valor, $decimales)
         <!-- contenido  -->
         <main class="page-content pt-2">
             <div id="overlay" class="overlay"></div>
-            <section id="main-content">
+            <!--<section id="main-content">-->
                 <article>
                     <div id="divcerrar">
                         <button class="btn-tiny btn-danger">
@@ -181,7 +181,7 @@ function redondear($valor, $decimales)
                             if ($_GET["status"] === "1") {
                         ?>
                                 <div class="alert alert-success">
-                                    <strong>¡Correcto!</strong> Venta realizada correctamente
+                                    <strong>¡Hecho!</strong> Venta realizada correctamente
                                 </div>
                             <?php
                             } else if ($_GET["status"] === "2") {
@@ -243,7 +243,7 @@ function redondear($valor, $decimales)
                                                     <th>#</th>
                                                     <th>Modelo</th>
                                                     <th>Cantidad</th>
-                                                    <th>Descripción</th>
+                                                    <th>Descrip.</th>
                                                     <th>Talla</th>
                                                     <th>Precio</th>
                                                     <th>Importe</th>
@@ -264,8 +264,8 @@ function redondear($valor, $decimales)
                                                         <td><?php echo $producto->cantidad ?></td>
                                                         <td><?php echo $producto->descripcion ?></td>
                                                         <td><?php echo $producto->talla ?></td>
-                                                        <td>$<?php echo $producto->precioVenta ?></td>
-                                                        <td>$ <?php echo $producto->total ?></td>
+                                                        <td>$<?php echo $producto->precioCompra ?></td>
+                                                        <td>$<?php echo $producto->total ?></td>
                                                         <td><a class="btn btn-danger" href="<?php echo "quitarDelCarrito.php?indice=" . $indice ?>"><i class="fa fa-trash"></i></a></td>
                                                     </tr>
                                                 <?php } ?>
@@ -320,7 +320,7 @@ function redondear($valor, $decimales)
                         </div>
                     </div>
                 </article>
-            </section>
+            <!--</section>-->
         </main>
     </div>
 

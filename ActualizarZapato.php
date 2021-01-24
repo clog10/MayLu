@@ -59,55 +59,55 @@
                             <span>General</span>
                         </li>
                         <li>
-                            <a href="principal-admin.jsp">
+                            <a href="principal-admin.php">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span class="menu-text">Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="PuntoVenta-Admin.jsp">
+                            <a href="Punto-Venta-Admin.php">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span class="menu-text">Punto de Venta</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Inventario-Administrador.jsp">
+                            <a href="Inventario-Administrador.php">
                                 <i class="fa fa-warehouse"></i>
                                 <span class="menu-text">Inventario</span>
                             </a>
                         </li>
                         <li>
-                            <a href="reportes.jsp">
+                            <a href="reportes.php">
                                 <i class="fa fa-chart-line"></i>
                                 <span class="menu-text">Reportes</span>
                             </a>
                         </li>
                         <li>
-                            <a href="AdminCaja.jsp">
+                            <a href="AdminCaja.php">
                                 <i class="fa fa-cash-register"></i>
                                 <span class="menu-text">Caja</span>
                             </a>
                         </li>
                         <li>
-                            <a href="apartados.jsp">
+                            <a href="apartados.php">
                                 <i class="fa fa-cart-plus"></i>
                                 <span class="menu-text">Apartados</span>
                             </a>
                         </li>
                         <li>
-                            <a href="devoluciones.jsp">
+                            <a href="devoluciones.php">
                                 <i class="fa fa-sync-alt"></i>
                                 <span class="menu-text">Devoluciones</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Usuario-Administrador.jsp">
+                            <a href="Usuario-Administrador.php">
                                 <i class="fa fa-users"></i>
                                 <span class="menu-text">Usuarios</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Proveedor-Administrador.jsp">
+                            <a href="Proveedor-Administrador.php">
                                 <i class="fa fa-truck"></i>
                                 <span class="menu-text">Proveedores</span>
                             </a>
@@ -149,6 +149,7 @@
                 </div>
             </div>
         </nav>
+
 
         <?php
         if (!isset($_GET["id"])) exit();
@@ -216,20 +217,20 @@
                                 <h4><label>*</label> Existencias</h4>
                                 <h4><label>*</label> Proveedor</h4>
                             </div>
-                            <div class="contenedor-inputs-actualiza">
-                                <input type="text" class="form-control" name="id" value="<?php echo $producto->id ?>" disabled>
-                                <input value="<?php echo $producto->codigo ?>" required id="codigo" name="codigo" cols="30" rows="5" class="form-control" disabled>
-                                <input value="<?php echo $producto->descripcion ?>" required id="descripcion" name="descripcion" cols="30" rows="5" class="form-control" disabled>
-                                <input value="<?php echo $producto->talla ?>" class="form-control" name="talla" required type="text" id="talla" disabled>
-                                <input value="<?php echo $producto->color ?>" class="form-control" name="color" required type="text" id="color" disabled>
-                                <input value="<?php echo $producto->precioCompra ?>" class="form-control" name="precioCompra" required type="text" id="precioCompra" placeholder="Precio de compra">
+                            <div class="contenedor-inputs-actualiza">                              
+                                <input type="text" class="form-control" name="id" readonly value="<?php echo $producto->id ?>">
+                                <input value="<?php echo $producto->codigo ?>" readonly  id="codigo" name="codigo" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $producto->descripcion ?>" readonly id="descripcion" name="descripcion" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $producto->talla ?>" class="form-control" readonly name="talla"  type="text" id="talla" >
+                                <input value="<?php echo $producto->color ?>" class="form-control"  readonly name="color"  type="text" id="color" >
                                 <input value="<?php echo $producto->precioVenta ?>" class="form-control" name="precioVenta" required type="text" id="precioVenta" placeholder="Precio de venta">
+                                <input value="<?php echo $producto->precioCompra ?>" class="form-control" name="precioCompra" required type="text" id="precioCompra" placeholder="Precio de compra">
                                 <input value="<?php echo $producto->existencia ?>" class="form-control" name="existencia" required type="text" id="existencia" placeholder="Cantidad o existencia">
-                                <input value="<?php echo $producto->proveedor ?>" class="form-control" name="proveedor" required type="text" id="proveedor" placeholder="Proveedor" disabled>
+                                <input value="<?php echo $producto->proveedor ?>" class="form-control" readonly name="proveedor"  type="text" id="proveedor" placeholder="Proveedor" >
                             </div>
                             <br><br>
                             <input class="btn boton-actualiza" type="submit" value="Guardar">
-                            <a class="btn btn-warning" href="./Inventario-Administrador.php">Cancelar</a>
+                            <a class="btn boton-cancelar" href="./Inventario-Administrador.php">Cancelar</a>
                         </form>
                         <br>
                     </div>

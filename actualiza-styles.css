@@ -30,6 +30,15 @@ and open the template in the editor.
     font-size: 25px;
 }
 
+.actualiza form .boton-cancelar{
+    background-color:#E0A800;
+    color:#ffffff;
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+}
+
+
 .actualiza .contenedor-etiquetas-actualiza>h4>label{
     color:red;
 }

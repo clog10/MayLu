@@ -1,3 +1,9 @@
+<?php
+include_once "base_de_datos.php";
+$sentencia = $base_de_datos->query("SELECT * FROM usuario;");
+$usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -40,7 +46,7 @@
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                 <h3>Agregar Usuario</h3>
                 <h2>Ingresa los datos</h2>
-                    <form action="BD/inserUsuario.php" method="POST">
+                     <form method="post" action="nuevoUsuario.php">
                         <div class="contenedor-etiquetas">
                             <h4>Nombre comp.</h4>
                             <h4>Puesto</h4>
@@ -48,7 +54,6 @@
                             <h4>Genero</h4>
                             <h4>Dirección</h4>
                             <h4>Teléfono</h4>
-                            <h4>Correo</h4>
                             <h4>Usuario</h4>
                             <h4>Contraseña</h4>
                         </div>
@@ -57,22 +62,22 @@
                             <input type="text" name="nombre_com" placeholder="Nombre completo" onkeypress="return sololetras(event)">
                             <select name="puesto" class="select">
                                 <option selected value="0"> Elige una opción </option>
-                                <option value="1">Admistrador</option>
-                                <option value="2">Vendedor</option>
-                                <option value="3">Almacenista</option>
+                                <option value="Admistrador">Admistrador</option>
+                                <option value="Vendedor">Vendedor</option>
+                                <option value="Almacenista">Almacenista</option>
                             </select>
                             <select name="id_caja" class="select">
                                 <option selected value="0"> Elige una opción </option>
-                                <option value="1">Caja</option>
+                                <option value="Caja 1">Caja 1</option>
+                                <option value="Caja 2">Caja 2</option>
                             </select>
                             <select name="genero" class="select">
                                 <option selected value="0"> Elige una opción </option>
-                                <option value="1">Masculino</option>
-                                <option value="2">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
                             </select>
                             <input type="text" name="direccion" placeholder="Dirección">
                             <input type="text" name="tel" placeholder="Teléfono" onkeypress="return solonumeros(event)">
-                            <input type="text" name="email" placeholder="Correo electrónico">
                             <input type="text" name="usuario" placeholder="Usuario">
                             <input type="text" name="contra" placeholder="Contraseña">
                         </div>
@@ -233,21 +238,25 @@
                         <h1>Usuarios</h1>
                     </header>
 
-                    <div id="container1">
-                        <div>
-                            <br>
-                            <a href="#" id="btn-abrir-popup" class="btn btn-success" data-toggle="modal">Agregar
-                                usuario</a>
-                            <div class="field" id="searchform">
-                                <input type="text" id="searchterm" placeholder="Ingresar nombre de usuario" />
-                                <button type="button" id="search">Buscar</button>
-                            </div>
+                                        
+                        <div id="container1">
+
+                            <form>
+                                <div class="field" id="searchform">
+                                    <input type="text" id="searchterm" name="introducemodelo" placeholder="Ingresar nombre de usuario" />
+                                    <input class="btn btn" type="submit" id="search" value="Buscar"/>
+                                    <button type="button" id="btn-abrir-popup"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                        </svg> Agregar</button>
+                                </div> 
+                            </form>
+  
                         </div>
 
 
-                    </div>
 
                     <div class="table-responsive">
+                        <br>
                         <table border="1" class="table table-hover table-bordered" id="tablee">
                             <thead>
                                 <tr>
@@ -257,7 +266,6 @@
                                     <th>Genero</th>
                                     <th>Dirección</th>
                                     <th>Teléfono</th>
-                                    <th>Correo</th>
                                     <th>Usuario</th>
                                     <th>Contraseña</th>
                                     <th>Opciones</th>
@@ -265,57 +273,23 @@
                             </thead>
 
                             <tbody>
-                                <!--
-                                    <?php $conexion = mysqli_connect('localhost', 'root', '', 'bdmaylu'); ?>
-
-                            <?php 
-                            $consulta = "SELECT * FROM usuario";
-                            $result = mysqli_query($conexion, $consulta);
-
-                            while($row = mysqli_fetch_array($result)) { ?>
-                                <tr>
-                                    <td><?php echo $row['nombre_com'] ?></td>
-                                    <td><?php echo $row['puesto'] ?></td>
-                                    <td><?php echo $row['id_caja'] ?></td>
-                                    <td><?php echo $row['genero'] ?></td>
-                                    <td><?php echo $row['direccion'] ?></td>
-                                    <td><?php echo $row['tel'] ?></td>
-                                    <td><?php echo $row['email'] ?></td> 
-                                    <td><?php echo $row['usuario'] ?></td>
-                                    <td><?php echo $row['contra'] ?></td>                              
-
-    
-                                    <td>
-                                    
-                                    <a href= "BD/editUsuario.php?id_usuario=<?php echo $row['id_usuario']?>">
-                                    <button class="btn btn-warning">
-                                    <button id="btn-abrir-popup2" class=" btn-abrir-popup2 btn btn-warning">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
-                                        <path
-                                            d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
-                                        <path fill-rule="evenodd"
-                                            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
-                                    </svg>
-                                </button>
-
-                             </a>   
-                            <a href= "BD/deleteUsuario.php?id_usuario=<?php echo $row['id_usuario']?>">
-                                <button class="btn btn-danger">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
-                                    </svg>
-                                </button>
-
-                            </a>
-                            </td>
-
-                            <?php } ?>
-                                -->
-                                
-
+                            <?php foreach ($usuarios as $usuario) { ?>
+                                        <tr>
+                                            <td><?php echo $usuario->nombre_com ?></td>
+                                            <td><?php echo $usuario->puesto ?></td>
+                                            <td><?php echo $usuario->id_caja ?></td>
+                                            <td><?php echo $usuario->genero ?></td>
+                                            <td><?php echo $usuario->direccion ?></td>
+                                            <td><?php echo $usuario->tel ?></td>
+                                            <td><?php echo $usuario->usuario ?></td>
+                                            <td><?php echo $usuario->contra ?></td>
+                                            <td>
+                                                <a class="btn btn-warning" href="<?php echo "ActualizarUsuario.php?id_usuario=" . $usuario->id_usuario ?>"><i class="fa fa-edit"></i> Editar</a>
+                                                <a class="btn btn-danger" href="<?php echo "eliminarUsuario.php?id_usuario=" . $usuario->id_usuario?>"><i class="fas fa-trash"></i> Eliminar</a>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+ 
                             </tbody>
                         </table>
                         <br>

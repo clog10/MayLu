@@ -1,3 +1,9 @@
+<?php
+include_once "base_de_datos.php";
+$sentencia = $base_de_datos->query("SELECT * FROM caja;");
+$cajas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -32,7 +38,7 @@
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                 <h3>Agregar Caja</h3>
                 <h4>Ingresa los datos</h4>
-                <form action="BD/inserCaja.php" method="POST">
+                <form method="post" action="nuevaCaja.php">
                     <div class="contenedor-etiquetas">
                         <h4>Nombre/Codigo</h4>
                         <h4>Efectivo</h4>
@@ -203,19 +209,23 @@
                         <h1>Caja</h1>
                     </header>
 
-                    <div id="container1">
-                        <div>
-                            <br>
-                            <a href="#" id="btn-abrir-popup" class="btn btn-success" data-toggle="modal">Agregar
-                                caja</a>
-                            <div class="field" id="searchform">
-                                <input type="text" id="searchterm" placeholder="Ingresar nombre o codigo de caja" />
-                                <button type="button" id="search">Buscar</button>
-                            </div>
+                        <div id="container1">
+
+                            <form>
+                                <div class="field" id="searchform">
+                                    <input type="text" id="searchterm" name="introducemodelo" placeholder="Ingresar nombre o codigo de caja" />
+                                    <input class="btn btn" type="submit" id="search" value="Buscar"/>
+                                    <button type="button" id="btn-abrir-popup"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                        </svg> Agregar</button>
+                                </div> 
+                            </form>
+  
                         </div>
-                    </div>
+
 
                     <div class="table-responsive">
+                        <br>
                         <table class="table table-hover table-bordered" id="tablee">
                             <thead>
                                 <tr>
@@ -226,30 +236,17 @@
                             </thead>
 
                             <tbody>
-                                <tr>
-                                </tr>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <a href="">
-                                        <!--<button id="btn-abrir-popup2" class=" btn-abrir-popup2 btn btn-warning">-->
-                                        <button class="btn btn-warning">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
-                                                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
-                                                <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
-                                            </svg>
+                            <?php foreach ($cajas as $caja) { ?>
+                                        <tr>
+                                            <td><?php echo $caja->nombre_codigo ?></td>
+                                            <td>$<?php echo $caja->efectivo ?>.00</td>
+                                            <td>
+                                                <a class="btn btn-warning" href="<?php echo "ActualizarCaja.php?id_caja=" . $caja->id_caja ?>"><i class="fa fa-edit"></i> Editar</a>
+                                                <a class="btn btn-danger" href="<?php echo "eliminarCaja.php?id_caja=" . $caja->id_caja?>"><i class="fas fa-trash"></i> Eliminar</a>
+                                            </td>
+                                        </tr>
+                             <?php } ?>
 
-                                        </button>
-                                    </a>
-                                    <a href="bd/deleteCaja.jsp?id_caja=<%=rs.getString("id_caja")%>">
-                                        <button class="btn btn-danger">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
-                                            </svg>
-                                        </button>
-                                </td>
-                                </tr>
-                                </tr>
                             </tbody>
                         </table>
                         <br>

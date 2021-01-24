@@ -61,7 +61,7 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                 <option value="Botín">Botín</option>
                                 <option value="Sandalia">Sandalia</option>
                                 <option value="Zapato confort">Zapato confort</option>
-                            </select>
+                        </select>
                         <select name="talla" class="select">
                             <option selected value="0"> Elige una opción </option>
                             <option value="23">23</option>
@@ -81,11 +81,14 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                             <option value="Calzaleta">Calzaleta</option>
                         </select>
                     </div>
-                    <br><br><input class="btn btn-info" type="submit" value="Guardar">
+                    <input class="btn btn-info" type="submit" value="Guardar">
                 </form>
             </div>
         </div>
     </div>
+
+
+
 
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -211,6 +214,11 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                     </div>
                 </nav>
             </div>
+            </nav>
+
+
+
+
             <main class="page-content pt-2">
                 <div id="overlay" class="overlay"></div>
                         <div id="divcerrar">
@@ -226,8 +234,28 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                             <br>
                             <h1>Inventario</h1>
                         </header>
+                        
 
+                    
                         <div id="container1">
+
+                            <form>
+                                <div class="field" id="searchform">
+                                    <input type="text" id="searchterm" name="introducemodelo" placeholder="Ingresar Modelo" />
+                                    <input class="btn btn" type="submit" id="search" value="Buscar"/>
+                                    <button type="button" id="btn-abrir-popup"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                        </svg> Agregar</button>
+                                </div> 
+                            </form>
+  
+                        </div>
+
+                        
+
+
+
+                       <!-- <div id="container1">
                             <div>
                                 <br>
                                 <a href="#" id="btn-abrir-popup" class="btn btn-success" data-toggle="modal">Agregar</a>
@@ -236,7 +264,9 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                     <button type="button" id="search">Buscar</button>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
+
+
 
                         <div class=" table-responsive">
                             <br>
@@ -265,13 +295,13 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                             <td><?php echo $producto->descripcion ?></td>
                                             <td><?php echo $producto->talla ?></td>
                                             <td><?php echo $producto->color ?></td>
-                                            <td>$<?php echo $producto->precioCompra ?></td>
                                             <td>$<?php echo $producto->precioVenta ?></td>
+                                            <td>$<?php echo $producto->precioCompra ?></td>
                                             <td><?php echo $producto->existencia ?></td>
                                             <td><?php echo $producto->proveedor ?></td>
                                             <td>
                                                 <a class="btn btn-warning" href="<?php echo "ActualizarZapato.php?id=" . $producto->id ?>"><i class="fa fa-edit"></i> Editar</a>
-                                                <a class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $producto->id ?>"><i class="fas fa-eye-slash"></i> Ocultar</a>
+                                                <a class="btn btn-danger" href=""><i class="fas fa-eye-slash"></i> Ocultar</a>
                                             </td>
                                         </tr>
                                     <?php } ?>
