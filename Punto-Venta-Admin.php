@@ -192,19 +192,25 @@ function redondear($valor, $decimales)
                         } else if ($_GET["status"] === "3") {
                         ?>
                             <div class="alert alert-info">
-                                <strong>Hecho</strong> Producto quitado de la lista
+                                <strong>Hecho</strong> Producto elminado de la lista
                             </div>
                         <?php
                         } else if ($_GET["status"] === "4") {
                         ?>
                             <div class="alert alert-warning">
-                                <strong>Error:</strong> El producto que buscas no existe
+                                <strong>Error:</strong> El producto que busca no existe
                             </div>
                         <?php
                         } else if ($_GET["status"] === "5") {
                         ?>
                             <div class="alert alert-danger">
                                 <strong>Error: </strong>El producto está agotado
+                            </div>
+                        <?php
+                        } else if ($_GET["status"] === "6") {
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Alerta: </strong>El producto esta por agotarse, quedan menos de 5 productos
                             </div>
                         <?php
                         } else {
@@ -263,7 +269,7 @@ function redondear($valor, $decimales)
                                                     <td><?php echo $producto->cantidad ?></td>
                                                     <td><?php echo $producto->descripcion ?></td>
                                                     <td><?php echo $producto->talla ?></td>
-                                                    <td>$<?php echo $producto->precioCompra ?></td>
+                                                    <td>$<?php echo $producto->precioVenta ?></td>
                                                     <td>$<?php echo $producto->total ?></td>
                                                     <td><a class="btn btn-danger" href="<?php echo "quitarDelCarrito.php?indice=" . $indice ?>"><i class="fa fa-trash"></i></a></td>
                                                 </tr>

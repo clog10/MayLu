@@ -30,7 +30,7 @@ for ($i = 0; $i < count($_SESSION["carrito"]); $i++) {
 # Si no existe, lo agregamos como nuevo
 if ($indice === false) {
     $producto->cantidad = 1;
-    $producto->total = $producto->precioCompra;
+    $producto->total = $producto->precioVenta;
     array_push($_SESSION["carrito"], $producto);
 } else {
     # Si ya existe, se agrega la cantidad
@@ -42,6 +42,6 @@ if ($indice === false) {
         exit;
     }
     $_SESSION["carrito"][$indice]->cantidad++;
-    $_SESSION["carrito"][$indice]->total = $_SESSION["carrito"][$indice]->cantidad * $_SESSION["carrito"][$indice]->precioCompra;
+    $_SESSION["carrito"][$indice]->total = $_SESSION["carrito"][$indice]->cantidad * $_SESSION["carrito"][$indice]->precioVenta;
 }
 header("Location: ./Punto-Venta-Vendedor.php");
