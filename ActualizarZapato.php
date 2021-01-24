@@ -200,6 +200,7 @@
                     </header>
 
                     <div class="actualiza">
+                    <br>
                         <h3>Actualizar Zapato</h3>
                         <h4>Ingresa los datos</h4>
                         <h5><label>*</label> Campo obligatorio </h5>
@@ -227,9 +228,10 @@
                                 <input value="<?php echo $producto->proveedor ?>" class="form-control" name="proveedor" required type="text" id="proveedor" placeholder="Proveedor" disabled>
                             </div>
                             <br><br>
-                            <input class="btn btn-info" type="submit" value="Guardar">
+                            <input class="btn boton-actualiza" type="submit" value="Guardar">
                             <a class="btn btn-warning" href="./Inventario-Administrador.php">Cancelar</a>
                         </form>
+                        <br>
                     </div>
                     <br>
                     <br>

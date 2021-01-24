@@ -12,7 +12,7 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>MayLu - Almacén</title>
+    <title>MayLu - Administrador</title>
 
     <!-- using online links -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -202,82 +202,82 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                     </div>
                 </nav>
             </div>
+            <main class="page-content pt-2">
+                <div id="overlay" class="overlay"></div>
+                <section id="main-content">
 
-        </nav>
-        <main class="page-content pt-2">
-            <div id="overlay" class="overlay"></div>
-            <section id="main-content">
-
-                <article>
-                    <div id="divcerrar">
-                        <button class="btn-tiny btn-danger">
-                            Cerrar Sesión <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                            </svg></button>
-                    </div>
-                    <header id="encabezado">
-                        <img id="img-inventario" class="img-responsive img-rounded" src="img/inventario.png" height="150" width="150" alt="Inventario picture">
-                        <br>
-                        <br>
-                        <h1>Inventario</h1>
-                    </header>
-
-                    <div id="container1">
-                        <div>
+                    <article>
+                        <div id="divcerrar">
+                            <button class="btn-tiny btn-danger">
+                                Cerrar Sesión <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                </svg></button>
+                        </div>
+                        <header id="encabezado">
+                            <img id="img-inventario" class="img-responsive img-rounded" src="img/inventario.png" height="150" width="150" alt="Inventario picture">
                             <br>
-                            <a href="#" id="btn-abrir-popup" class="btn btn-success" data-toggle="modal">Agregar</a>
-                            <div class="field" id="searchform">
-                                <input type="text" id="searchterm" placeholder="Ingresar Modelo" />
+                            <br>
+                            <h1>Inventario</h1>
+                        </header>
 
-                                <button type="button" id="search">Buscar</button>
+                        <div id="container1">
+                            <div>
+                                <br>
+
+                                <div class="field" id="searchform">
+                                    <input type="text" id="searchterm" placeholder="Ingresar Modelo" />
+                                    <button type="button" id="search">Buscar</button>
+                                    <button type="button" id="btn-abrir-popup"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                        </svg> Agregar</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class=" table-responsive">
-                        <br>
-                        <table class="table table-hover" id="tablee">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Imagen</th>
-                                    <th>Modelo</th>
-                                    <th>Descripción</th>
-                                    <th>Talla</th>
-                                    <th>Color</th>
-                                    <th>Precio compra</th>
-                                    <th>Precio venta</th>
-                                    <th>Existencia</th>
-                                    <th>Proveedor</th>
-                                    <th>Opciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($productos as $producto) { ?>
+                        <div class=" table-responsive">
+                            <br>
+                            <table class="table table-hover" id="tablee">
+                                <thead>
                                     <tr>
-                                        <td><?php echo $producto->id ?></td>
-                                        <td><img src="img/maylu.png" alt="logo" width="100" height="100" /></td>
-                                        <td><?php echo $producto->codigo ?></td>
-                                        <td><?php echo $producto->descripcion ?></td>
-                                        <td><?php echo $producto->talla ?></td>
-                                        <td><?php echo $producto->color ?></td>
-                                        <td>$<?php echo $producto->precioCompra ?></td>
-                                        <td>$<?php echo $producto->precioVenta ?></td>
-                                        <td><?php echo $producto->existencia ?></td>
-                                        <td><?php echo $producto->proveedor ?></td>
-                                        <td>
-                                            <a class="btn btn-warning" href="<?php echo "ActualizarZapato.php?id=" . $producto->id ?>"><i class="fa fa-edit"></i> Editar</a>
-                                            <a class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $producto->id ?>"><i class="fas fa-eye-slash"></i> Ocultar</a>
-                                        </td>
+                                        <th>#</th>
+                                        <th>Imagen</th>
+                                        <th>Modelo</th>
+                                        <th>Descripción</th>
+                                        <th>Talla</th>
+                                        <th>Color</th>
+                                        <th>Precio compra</th>
+                                        <th>Precio venta</th>
+                                        <th>Existencia</th>
+                                        <th>Proveedor</th>
+                                        <th>Opciones</th>
                                     </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </article>
-            </section>
-        </main>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($productos as $producto) { ?>
+                                        <tr>
+                                            <td><?php echo $producto->id ?></td>
+                                            <td><img src="img/maylu.png" alt="logo" width="100" height="100" /></td>
+                                            <td><?php echo $producto->codigo ?></td>
+                                            <td><?php echo $producto->descripcion ?></td>
+                                            <td><?php echo $producto->talla ?></td>
+                                            <td><?php echo $producto->color ?></td>
+                                            <td>$<?php echo $producto->precioCompra ?></td>
+                                            <td>$<?php echo $producto->precioVenta ?></td>
+                                            <td><?php echo $producto->existencia ?></td>
+                                            <td><?php echo $producto->proveedor ?></td>
+                                            <td>
+                                                <a class="btn btn-warning" href="<?php echo "ActualizarZapato.php?id=" . $producto->id ?>"><i class="fa fa-edit"></i> Editar</a>
+                                                <a class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $producto->id ?>"><i class="fas fa-eye-slash"></i> Ocultar</a>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </article>
+                </section>
+            </main>
     </div>
 
     <!-- page-wrapper -->

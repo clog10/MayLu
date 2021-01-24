@@ -238,7 +238,7 @@
                         <div class="article">
                             <a href="">
                                 <img src="img/questions.svg" width="200" height="150" alt="">
-                                <p>Ayuda</p>
+                                <p>Ayuda <span class="badge badge-pill badge-primary"> Prox </span></p>
                             </a>
                         </div>
                     </div>
