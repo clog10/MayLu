@@ -33,4 +33,3 @@ $base_de_datos->commit();
 unset($_SESSION["carrito"]);
 $_SESSION["carrito"] = [];
 header("Location: ./Punto-Venta-Admin.php?status=1");
-?>

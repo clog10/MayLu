@@ -1,3 +1,10 @@
+<?php
+include_once "base_de_datos.php";
+$sentencia = $base_de_datos->query("SELECT * FROM productos;");
+$productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,11 +22,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
-
-    <!-- using local links -->
-    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"> -->
 
     <link rel="stylesheet" href="styles/estilos-principal.css">
     <link rel="stylesheet" href="styles/sidebar-themes.css">
@@ -71,19 +73,19 @@
                             <span>General</span>
                         </li>
                         <li>
-                            <a href="principal-vendedor.html">
+                            <a href="principal-vendedor.php">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span class="menu-text">Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Punto-Venta-Vendedor.html">
+                            <a href="Punto-Venta-Vendedor.php">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span class="menu-text">Punto de Venta</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Almacen-Vendedor.html">
+                            <a href="Almacen-Vendedor.php">
                                 <i class="fa fa-warehouse"></i>
                                 <span class="menu-text">Inventario</span>
                             </a>
@@ -129,9 +131,6 @@
         </div>
           <main class="page-content pt-2">
             <div id="overlay" class="overlay"></div>
-            <section id="main-content">
-
-                <article>
                     <div id="divnombre">
                         <p id="pnombre"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
@@ -167,45 +166,37 @@
 
                     </div>
 
-                    <div class="table-responsive">
-                        <table border="1" class="table table-hover table-bordered" id="tablee">
-                            <thead>
-                                <tr>
-                                    <th>Codigo P</th>
-                                    <th>Foto</th>
-                                    <th>Precio</th>
-                                    <th>Talla</th>
-                                    <th>Color</th>
-                                    <th>Existencia</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>4500MX</td>
-                                    <td></td>
-                                    <td>$250</td>
-                                    <td>22</td>
-                                    <td>Rojo</td>
-                                    <td>7</td>                                   
-                                </tr>
-                                <tr>
-                                    <td>4500MX</td>
-                                    <td></td>
-                                    <td>$280</td>
-                                    <td>24</td>
-                                    <td>Rosa</td>
-                                    <td>10</td>
-                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                        <br>
-                    </div>
-
-                </article>
-            </section>
-
+                    <div class=" table-responsive">
+                <br>
+                <table class="table table-hover" id="tablee">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Imagen</th>
+                            <th>Modelo</th>
+                            <th>Descripción</th>
+                            <th>Talla</th>
+                            <th>Color</th>
+                            <th>Precio venta</th>
+                            <th>Existencia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($productos as $producto) { ?>
+                            <tr>
+                                <td><?php echo $producto->id ?></td>
+                                <td><img src="img/maylu.png" alt="logo" width="100" height="100" /></td>
+                                <td><?php echo $producto->codigo ?></td>
+                                <td><?php echo $producto->descripcion ?></td>
+                                <td><?php echo $producto->talla ?></td>
+                                <td><?php echo $producto->color ?></td>
+                                <td>$<?php echo $producto->precioVenta ?></td>
+                                <td><?php echo $producto->existencia ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
 
         </main>
         </nav>
@@ -223,14 +214,8 @@
         </script>
     <script src="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <!-- using local scripts -->
-    <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script> -->
-
     <script src="js/popups.js"></script>
-    <script src="js/almacen/principal-almacen.js"></script>
+    <script src="js/vendedor/principal-vendedor.js"></script>
 
 </body>
 
