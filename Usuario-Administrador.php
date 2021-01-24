@@ -22,11 +22,6 @@ $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
 
-    <!-- using local links -->
-    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"> -->
-
     <link rel="stylesheet" href="styles/estilos-principal.css">
     <link rel="stylesheet" href="styles/sidebar-themes.css">
     <link rel="stylesheet" href="styles/estilos-nuevoproducto.css">
@@ -45,17 +40,20 @@ $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
             <div class="popup" id="popup">
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                 <h3>Agregar Usuario</h3>
-                <h2>Ingresa los datos</h2>
+                <h4>Ingresa los datos</h4>
+                <h5><label>*</label> Campo obligatorio <br>
+                <label>**</label> La contraseña debe tener una longitud entre 8 y 15 caracteres 
+                        (Debe contener letras minúsculas, mayúsculas, números y símbolos)</h5>
                      <form method="post" action="nuevoUsuario.php">
-                        <div class="contenedor-etiquetas">
-                            <h4>Nombre comp.</h4>
-                            <h4>Puesto</h4>
-                            <h4>Caja</h4>
-                            <h4>Genero</h4>
-                            <h4>Dirección</h4>
-                            <h4>Teléfono</h4>
-                            <h4>Usuario</h4>
-                            <h4>Contraseña</h4>
+                     <div class="contenedor-etiquetas">
+                            <h4><label>*</label> Nombre</h4>
+                            <h4><label>*</label> Puesto</h4>
+                            <h4><label>*</label> Caja</h4>
+                            <h4><label>*</label> Genero</h4>
+                            <h4><label>*</label> Dirección</h4>
+                            <h4><label>*</label> Telefono</h4>
+                            <h4><label>*</label> Usuario</h4>
+                            <h4><label>**</label> Contraseña</h4>
                         </div>
                         <div class="contenedor-inputs">
 
@@ -82,7 +80,7 @@ $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
                             <input type="text" name="contra" placeholder="Contraseña">
                         </div>
                         <br>
-                        <input type="submit" class="btn-submit btn-block" name="guardar" value="Guardar">
+                        <input type="submit" class="btn-submit" name="guardar" value="Guardar">
                     </form>
             </div>
         </div>

@@ -22,11 +22,6 @@ $proveedores = $sentencia->fetchAll(PDO::FETCH_OBJ);
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
 
-    <!-- using local links -->
-    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"> -->
-
     <link rel="stylesheet" href="styles/estilos-principal.css"> 
     <link rel="stylesheet" href="styles/sidebar-themes.css">
     <link rel="stylesheet" href="styles/estilos-nuevoproducto.css">
@@ -46,13 +41,14 @@ $proveedores = $sentencia->fetchAll(PDO::FETCH_OBJ);
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                 <h3>Agregar Proveedor</h3>
                 <h4>Ingresa los datos</h4>
+                <h5><label>*</label> Campos obligatorios</h5>
                 <form method="post" action="nuevoProveedor.php">
                     <div class="contenedor-etiquetas">
-                        <h4>Nombre</h4>
-                        <h4>Agente</h4>
-                        <h4>Direccion</h4>
-                        <h4>Telefono</h4>
-                        <h4>Correo</h4>
+                        <h4><label>*</label> Nombre</h4>
+                        <h4><label>*</label> Agente</h4>
+                        <h4><label>*</label> Direccion</h4>
+                        <h4><label>*</label> Telefono</h4>
+                        <h4><label>*</label> Correo</h4>
                     </div>
                     <div class="contenedor-inputs">
 
@@ -68,7 +64,7 @@ $proveedores = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
                     </div>
                     <br>
-                    <input type="submit" class="btn-submit btn-block" name="guardar" value="Guardar">
+                    <input type="submit" class="btn-submit" name="guardar" value="Guardar">
                 </form>
             </div>
         </div>

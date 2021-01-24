@@ -16,11 +16,6 @@
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
 
-    <!-- using local links -->
-    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"> -->
-
     <link rel="stylesheet" href="styles/estilos-principal.css">
     <link rel="stylesheet" href="styles/sidebar-themes.css">
     <link rel="shortcut icon" type="image/png" href="img/icon.png" />
@@ -68,13 +63,13 @@
                             <span>General</span>
                         </li>
                         <li>
-                            <a href="principal-almacen.html">
+                            <a href="principal-almacen.php">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span class="menu-text">Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Inventario-Almacen.html">
+                            <a href="Inventario-Almacen.php">
                                 <i class="fa fa-warehouse"></i>
                                 <span class="menu-text">Inventario</span>
                             </a>
@@ -126,8 +121,8 @@
                     <div class="col-md-3"></div>
                     <div class="form-group col-md-6">
                         <div class="article">
-                            <a href="Inventario-Almacen.html">
-                                <img src="/img/cajitas.svg" width="400" height="350" alt="">
+                            <a href="Inventario-Almacen.php">
+                                <img src="img/cajitas.svg" width="400" height="350" alt="">
                                 <p>Almacen</p>
                             </a>
                         </div>
@@ -149,13 +144,6 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
         </script>
     <script src="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-
-    <!-- using local scripts -->
-    <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script> -->
-
 
     <script src="js/almacen/principal-almacen.js"></script>
 </body>

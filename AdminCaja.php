@@ -38,17 +38,18 @@ $cajas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                 <h3>Agregar Caja</h3>
                 <h4>Ingresa los datos</h4>
+                <h5><label>*</label> Campos obligatorios</h5>
                 <form method="post" action="nuevaCaja.php">
                     <div class="contenedor-etiquetas">
-                        <h4>Nombre/Codigo</h4>
-                        <h4>Efectivo</h4>
+                        <h4><label>*</label> Nombre/Codigo</h4>
+                        <h4><label>*</label> Efectivo</h4>
                     </div>
                     <div class="contenedor-inputs">
                         <input type="text" name="nombre_codigo" placeholder="Nombre o codigo de caja">
                         <input type="text" name="efectivo" placeholder="Cantidad de efectivo" onkeypress="return solonumeros(event)">
                     </div>
                     <br>
-                    <input type="submit" class="btn-submit btn-block" name="guardar" value="Guardar">
+                    <input type="submit" class="btn-submit" name="guardar" value="Guardar">
                 </form>
             </div>
         </div>
