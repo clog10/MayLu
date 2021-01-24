@@ -231,6 +231,12 @@ body {
 
 #encabezado {
     display: flex;
+    margin-left: 20px;
+}
+
+#encabezado>h1{
+    margin-top: 50px;
+    color:#030249;
 }
 
 .puestos1 {

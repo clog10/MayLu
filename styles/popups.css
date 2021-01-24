@@ -237,9 +237,9 @@ main{
     padding: 0 20px;
     height: 40px;
     line-height: 40px;
-    border: none;
-    color: #fff;
-    background: #5E7DE3;
+    border-color: #030249;
+    color: #030249;
+    background:#ffffff;
     border-radius: 3px;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
@@ -248,7 +248,8 @@ main{
 }
 
 .popup form .btn-submit:hover {
-    background: rgba(94, 125, 227, .9);
+    background: #030249;
+    color:#ffffff;
 }
 
 /* ------------------------- */
@@ -538,9 +539,14 @@ main{
     }
 }
 
+
 table th,
 td {
     text-align: center;
+}
+
+td{
+    color:#030249;
 }
 
 th {

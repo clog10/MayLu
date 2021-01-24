@@ -165,162 +165,160 @@ function redondear($valor, $decimales)
         <!-- contenido  -->
         <main class="page-content pt-2">
             <div id="overlay" class="overlay"></div>
-            <!--<section id="main-content">-->
-                <article>
-                    <div id="divcerrar">
-                        <button class="btn-tiny btn-danger">
-                            Cerrar Sesión <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                            </svg></button>
-                    </div>
+            <article>
+                <div id="divcerrar">
+                    <button class="btn-tiny btn-danger">
+                        Cerrar Sesión <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                        </svg></button>
+                </div>
 
-                    <div class="col-xs-12">
+                <div class="col-xs-12">
+                    <?php
+                    if (isset($_GET["status"])) {
+                        if ($_GET["status"] === "1") {
+                    ?>
+                            <div class="alert alert-success">
+                                <strong>¡Hecho!</strong> Venta realizada correctamente
+                            </div>
                         <?php
-                        if (isset($_GET["status"])) {
-                            if ($_GET["status"] === "1") {
+                        } else if ($_GET["status"] === "2") {
                         ?>
-                                <div class="alert alert-success">
-                                    <strong>¡Hecho!</strong> Venta realizada correctamente
-                                </div>
-                            <?php
-                            } else if ($_GET["status"] === "2") {
-                            ?>
-                                <div class="alert alert-info">
-                                    <strong>Venta cancelada</strong>
-                                </div>
-                            <?php
-                            } else if ($_GET["status"] === "3") {
-                            ?>
-                                <div class="alert alert-info">
-                                    <strong>Hecho</strong> Producto quitado de la lista
-                                </div>
-                            <?php
-                            } else if ($_GET["status"] === "4") {
-                            ?>
-                                <div class="alert alert-warning">
-                                    <strong>Error:</strong> El producto que buscas no existe
-                                </div>
-                            <?php
-                            } else if ($_GET["status"] === "5") {
-                            ?>
-                                <div class="alert alert-danger">
-                                    <strong>Error: </strong>El producto está agotado
-                                </div>
-                            <?php
-                            } else {
-                            ?>
-                                <div class="alert alert-danger">
-                                    <strong>Error:</strong> Algo salió mal mientras se realizaba la venta
-                                </div>
+                            <div class="alert alert-info">
+                                <strong>Venta cancelada</strong>
+                            </div>
                         <?php
-                            }
+                        } else if ($_GET["status"] === "3") {
+                        ?>
+                            <div class="alert alert-info">
+                                <strong>Hecho</strong> Producto quitado de la lista
+                            </div>
+                        <?php
+                        } else if ($_GET["status"] === "4") {
+                        ?>
+                            <div class="alert alert-warning">
+                                <strong>Error:</strong> El producto que buscas no existe
+                            </div>
+                        <?php
+                        } else if ($_GET["status"] === "5") {
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Error: </strong>El producto está agotado
+                            </div>
+                        <?php
+                        } else {
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Error:</strong> Algo salió mal mientras se realizaba la venta
+                            </div>
+                    <?php
                         }
-                        ?>
-                        <br>
-                        <div class="row ventas">
-                            <div class="col-md-8">
-                                <header id="encabezado">
-                                    <img id="img-inventario" class="img-responsive img-rounded" src="img/punto.png" height="150" width="150" alt="Inventario picture">
-                                    <br>
-                                    <br>
-                                    <h1>Punto de Venta</h1>
-                                    <br>
-                                </header>
+                    }
+                    ?>
+                    <br>
+                    <div class="row ventas">
+                        <div class="col-md-8">
+                            <header id="encabezado">
+                                <img id="img-inventario" class="img-responsive img-rounded" src="img/punto.png" height="150" width="150" alt="Inventario picture">
                                 <br>
-                                <div id="container">
-                                    <form method="post" action="agregarAlCarrito.php">
-                                        <label for="codigo" class="indicacion">Introduce el modelo y presiona enter:</label>
-                                        <div class="field-venta" id="searchform">
-                                            <input autocomplete="off" autofocus name="codigo" required type="text" id="codigo" placeholder="Escribe el modelo del zapato">
-                                        </div>
-                                    </form>
-                                    <div class="table-responsive">
-                                        <br>
-                                        <table class="table table-hover table-bordered" id="tablee">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Modelo</th>
-                                                    <th>Cantidad</th>
-                                                    <th>Descrip.</th>
-                                                    <th>Talla</th>
-                                                    <th>Precio</th>
-                                                    <th>Importe</th>
-                                                    <th>Quitar</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php foreach ($_SESSION["carrito"] as $indice => $producto) {
-                                                    $granTotal += $producto->total;
-                                                    $subtotal += $producto->total / 1.16;
-                                                    $subtotal = redondear($subtotal, 2);
-                                                    $iva += $producto->total - ($producto->total / 1.16);
-                                                    $iva = redondear($iva, 2);
-                                                ?>
-                                                    <tr>
-                                                        <td><?php echo $producto->id ?></td>
-                                                        <td><?php echo $producto->codigo ?></td>
-                                                        <td><?php echo $producto->cantidad ?></td>
-                                                        <td><?php echo $producto->descripcion ?></td>
-                                                        <td><?php echo $producto->talla ?></td>
-                                                        <td>$<?php echo $producto->precioCompra ?></td>
-                                                        <td>$<?php echo $producto->total ?></td>
-                                                        <td><a class="btn btn-danger" href="<?php echo "quitarDelCarrito.php?indice=" . $indice ?>"><i class="fa fa-trash"></i></a></td>
-                                                    </tr>
-                                                <?php } ?>
-                                            </tbody>
-                                        </table>
-                                        <br>
+                                <br>
+                                <h1>Punto de Venta</h1>
+                                <br>
+                            </header>
+                            <br>
+                            <div id="container">
+                                <form method="post" action="agregarAlCarrito.php">
+                                    <label for="codigo" class="indicacion">Introduce el modelo y presiona enter:</label>
+                                    <div class="field-venta" id="searchform">
+                                        <input autocomplete="off" autofocus name="codigo" required type="text" id="codigo" placeholder="Escribe el modelo del zapato">
                                     </div>
+                                </form>
+                                <div class="table-responsive">
+                                    <br>
+                                    <table class="table table-hover tabla-venta" id="tablee">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Modelo</th>
+                                                <th>Cantidad</th>
+                                                <th>Descrip.</th>
+                                                <th>Talla</th>
+                                                <th>Precio</th>
+                                                <th>Importe</th>
+                                                <th>Quitar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($_SESSION["carrito"] as $indice => $producto) {
+                                                $granTotal += $producto->total;
+                                                $subtotal += $producto->total / 1.16;
+                                                $subtotal = redondear($subtotal, 2);
+                                                $iva += $producto->total - ($producto->total / 1.16);
+                                                $iva = redondear($iva, 2);
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $producto->id ?></td>
+                                                    <td><?php echo $producto->codigo ?></td>
+                                                    <td><?php echo $producto->cantidad ?></td>
+                                                    <td><?php echo $producto->descripcion ?></td>
+                                                    <td><?php echo $producto->talla ?></td>
+                                                    <td>$<?php echo $producto->precioCompra ?></td>
+                                                    <td>$<?php echo $producto->total ?></td>
+                                                    <td><a class="btn btn-danger" href="<?php echo "quitarDelCarrito.php?indice=" . $indice ?>"><i class="fa fa-trash"></i></a></td>
+                                                </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                    <br>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="detalles" name="detalles">
-                                    <p align="center"><img src="img/logito.jpg" width="250" height="150" alt=""></p>
-                                    <h1>Detalles</h1>
-                                    <h3>Fecha y hora: </h3>
-                                    <div class="wrap">
-                                        <div class="fecha">
-                                            <p id="diaSemana" class="diaSemana"></p>
-                                            <p id="dia" class="dia"></p>
-                                            <p>de </p>
-                                            <p id="mes" class="mes"></p>
-                                            <p>del </p>
-                                            <p id="year" class="year"></p>
-                                            <div class="reloj">
-                                                <p id="horas" class="horas"></p>
-                                                <p>:</p>
-                                                <p id="minutos" class="minutos"></p>
-                                                <p>:</p>
-                                                <p id="segundos" class="segundos"></p>
-                                                <p id="ampm" class="ampm"></p>
-                                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="detalles" name="detalles">
+                                <p align="center"><img src="img/logito.jpg" width="250" height="150" alt=""></p>
+                                <h1>Detalles</h1>
+                                <h3>Fecha y hora: </h3>
+                                <div class="wrap">
+                                    <div class="fecha">
+                                        <p id="diaSemana" class="diaSemana"></p>
+                                        <p id="dia" class="dia"></p>
+                                        <p>de </p>
+                                        <p id="mes" class="mes"></p>
+                                        <p>del </p>
+                                        <p id="year" class="year"></p>
+                                        <div class="reloj">
+                                            <p id="horas" class="horas"></p>
+                                            <p>:</p>
+                                            <p id="minutos" class="minutos"></p>
+                                            <p>:</p>
+                                            <p id="segundos" class="segundos"></p>
+                                            <p id="ampm" class="ampm"></p>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <h3>Vendedor: Carlos Loaeza</h3>
-                                    <h3>Subtotal: $ <?php echo $subtotal; ?></h3>
-                                    <h3>Iva: $<?php echo $iva; ?></h3>
-                                    <h3>Total: $<?php echo $granTotal; ?>.00</h3>
-                                    <div class="recibido">
-                                        <h3>Recibido: </h3>
-                                        <input type="text" name="recibido" value="" maxlength="9" required placeholder="¿Con cuanto paga?" />
-                                    </div>
-                                    <h3>Cambio: </h3>
-                                    <div class="botones">
-                                        <form action="./terminarVenta.php" method="POST">
-                                            <input name="total" type="hidden" value="<?php echo $granTotal; ?>">
-                                            <button type="submit" class="btn btn-success">Terminar venta</button>
-                                            <a href="./cancelarVenta.php" class="btn btn-danger">Cancelar venta</a>
-                                        </form>
-                                    </div>
+                                <h3>Vendedor: Carlos Loaeza</h3>
+                                <h3>Subtotal: $ <?php echo $subtotal; ?></h3>
+                                <h3>Iva: $<?php echo $iva; ?></h3>
+                                <h3>Total: $<?php echo $granTotal; ?>.00</h3>
+                                <div class="recibido">
+                                    <h3>Recibido: </h3>
+                                    <input type="text" name="recibido" value="" maxlength="9" required placeholder="¿Con cuanto paga?" />
+                                </div>
+                                <h3>Cambio: </h3>
+                                <div class="botones">
+                                    <form action="./terminarVenta.php" method="POST">
+                                        <input name="total" type="hidden" value="<?php echo $granTotal; ?>">
+                                        <button type="submit" class="btn btn-success">Terminar venta</button>
+                                        <a href="./cancelarVenta.php" class="btn btn-danger">Cancelar venta</a>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </article>
-            <!--</section>-->
+                </div>
+            </article>
         </main>
     </div>
 
