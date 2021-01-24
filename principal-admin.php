@@ -142,8 +142,6 @@
                             </ul>
                         </div>
 
-
-
                         <!-- sidebar-menu  -->
                     </div>
                     <div class="sidebar-footer">
@@ -212,7 +210,7 @@
 
                     <div class="form-group col-md-3">
                         <div class="article">
-                            <a href="devoluciones.php">
+                            <a href="devoluciones.html">
                                 <img src="img/broked.svg" width="200" height="150" alt="">
                                 <p>Devoluciones</p>
                             </a>

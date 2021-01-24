@@ -3,7 +3,7 @@ body {
     padding: 0;
     font-family: Helvetica, Arial, sans-serif;
     color: #666;
-    background: #f2f2f2; 
+    background: #f2f2f2;
     font-size: 1em;
     line-height: 1.5em;
 }
@@ -24,7 +24,7 @@ body {
     width: 90%;
     max-width: 1000px;
     margin: 7px auto;
-    box-shadow: 0 0 20px rgba(0,0,0,.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
 }
 
 #main-content h1 {
@@ -54,7 +54,7 @@ body {
     width: 30%;
 }
 
-.flexsearch--select{
+.flexsearch--select {
     width: 30%;
 }
 
@@ -65,7 +65,8 @@ body {
     height: 20px;
     padding: 0 26px 0 10px;
     border-color: #888;
-    border-radius: 35px; /* (height/2) + border-width */
+    border-radius: 35px;
+    /* (height/2) + border-width */
     border-style: solid;
     border-width: 3px;
     margin-top: 15px;
@@ -77,14 +78,15 @@ body {
     -moz-appearance: none;
 }
 
-.flexsearch--select{
+.flexsearch--select {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     height: 20px;
     padding: 0 26px 0 10px;
     border-color: #888;
-    border-radius: 35px; /* (height/2) + border-width */
+    border-radius: 35px;
+    /* (height/2) + border-width */
     border-style: solid;
     border-width: 3px;
     margin-top: 15px;
@@ -106,13 +108,13 @@ body {
     border-color: #333;
 }
 
-.field{
+.field {
     margin-left: 0px;
     margin-right: 50px;
     float: right;
-    display:flex;
-    width:70%;
-    flex-direction:row;
+    display: flex;
+    width: 70%;
+    flex-direction: row;
     box-shadow:
         1px 1px 0 #030249,
         2px 2px 0 #030249,
@@ -121,8 +123,8 @@ body {
         5px 5px 0 #030249,
         6px 6px 0 #030249,
         7px 7px 0 #030249;
-    width:80%;
-    flex-direction:row;
+    width: 80%;
+    flex-direction: row;
     box-shadow:
         1px 1px 0 rgb(3, 7, 53),
         2px 2px 0 rgb(3, 7, 53),
@@ -130,18 +132,17 @@ body {
         4px 4px 0 rgb(3, 7, 53),
         5px 5px 0 rgb(3, 7, 53),
         6px 6px 0 rgb(3, 7, 53),
-        7px 7px 0 rgb(3, 7, 53)
-        ;
+        7px 7px 0 rgb(3, 7, 53);
 }
 
-.field-venta{
+.field-venta {
     margin-left: 0px;
     margin-right: 50px;
     float: right;
-    display:flex;
-    width:70%;
+    display: flex;
+    width: 30%;
     height: 50px;
-    flex-direction:row;
+    flex-direction: row;
     box-shadow:
         1px 1px 0 #030249,
         2px 2px 0 #030249,
@@ -150,8 +151,8 @@ body {
         5px 5px 0 #030249,
         6px 6px 0 #030249,
         7px 7px 0 #030249;
-    width:80%;
-    flex-direction:row;
+    width: 80%;
+    flex-direction: row;
     box-shadow:
         1px 1px 0 rgb(3, 7, 53),
         2px 2px 0 rgb(3, 7, 53),
@@ -159,62 +160,65 @@ body {
         4px 4px 0 rgb(3, 7, 53),
         5px 5px 0 rgb(3, 7, 53),
         6px 6px 0 rgb(3, 7, 53),
-        7px 7px 0 rgb(3, 7, 53)
-        ;
+        7px 7px 0 rgb(3, 7, 53);
 }
 
 .field>input[type=text],
 .field>button,
-.field>select{
-    display:block;
-    font:1.6em 'Montserrat Alternates';
+.field>select {
+    display: block;
+    font: 1.6em 'Montserrat Alternates';
     font-family: Helvetica, Arial, sans-serif;
 }
 
-.field-venta>input[type=text]{
-    width: 55%
-}
-.field-venta>input[type=number]{
-    width: 35%
+.indicacion {
+    margin-left: 80px;
+    font-size: 20px;
+    color: #030249;
 }
 
-#btn-abrir-popup{
-    display:block; 
-    font-family: Helvetica, Arial, sans-serif;  
+.field-venta>input {
+    width: 100%;
+    height: 50px;
+}
+
+#btn-abrir-popup {
+    display: block;
+    font-family: Helvetica, Arial, sans-serif;
     background-color: #030249;
-    color:white;
-    border:none;
+    color: white;
+    border: none;
     border-radius: 0;
-    padding:0.6% 0.8%;
-    border:0.2em solid  #030249;
+    padding: 0.6% 0.8%;
+    border: 0.2em solid #030249;
 
 }
 
-#search{
-    display:block; 
-    font-family: Helvetica, Arial, sans-serif;  
+#search {
+    display: block;
+    font-family: Helvetica, Arial, sans-serif;
     background-color: #030249;
-    color:white;
-    border:none;
+    color: white;
+    border: none;
     border-radius: 0;
-    padding:0.6% 0.8%;
-    border:0.2em solid  #030249;
+    padding: 0.6% 0.8%;
+    border: 0.2em solid #030249;
 }
 
 .field>input[type=text] {
-    flex:1;
-    padding:0.6em;
-    border:0.2em solid  #030249;
+    flex: 1;
+    padding: 0.6em;
+    border: 0.2em solid #030249;
 }
 
 .field>button {
-    padding:0.6em 0.8em;
+    padding: 0.6em 0.8em;
     background-color: #030249;
-    color:white;
-    border:none;
+    color: white;
+    border: none;
 }
 
-.field>select{
+.field>select {
     width: 100%;
     background-color: #030249;
     color: #ffffff;
@@ -225,16 +229,16 @@ body {
     width: 90%;
 }
 
-#encabezado{
+#encabezado {
     display: flex;
 }
 
-.puestos1{
-    width:60%;
+.puestos1 {
+    width: 60%;
     float: left;
 }
 
-.puestos2{
-    widht:40%;
+.puestos2 {
+    widht: 40%;
     float: left;
 }

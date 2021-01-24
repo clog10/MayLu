@@ -23,6 +23,7 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
     <link rel="stylesheet" href="styles/sidebar-themes.css">
     <link rel="stylesheet" href="styles/estilos-nuevoproducto.css">
     <link rel="stylesheet" href="styles/popups.css">
+    <link rel="stylesheet" href="styles/estilos-apartados.css">
 
     <link rel="shortcut icon" type="image/png" href="img/icon.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -32,8 +33,6 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 <body>
 
     <div id="container">
-
-
         <div class="overlay" id="overlay">
             <div class="popup" id="popup">
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
@@ -53,7 +52,16 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                     </div>
                     <div class="contenedor-inputs">
                         <input type="text" name="codigo" placeholder="Modelo de zapato">
-                        <input type="text" name="descripcion" placeholder="Descripción">
+                        <select name="descripcion" class="select">
+                                <option selected value="0"> Elige una opción </option>
+                                <option value="Tenis">Tenis</option>
+                                <option value="Zapatilla">Zapatilla</option>
+                                <option value="Flats">Flats</option>
+                                <option value="Bota">Bota</option>
+                                <option value="Botín">Botín</option>
+                                <option value="Sandalia">Sandalia</option>
+                                <option value="Zapato confort">Zapato confort</option>
+                            </select>
                         <select name="talla" class="select">
                             <option selected value="0"> Elige una opción </option>
                             <option value="23">23</option>
@@ -78,6 +86,7 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
             </div>
         </div>
     </div>
+
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -204,9 +213,6 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
             </div>
             <main class="page-content pt-2">
                 <div id="overlay" class="overlay"></div>
-                <section id="main-content">
-
-                    <article>
                         <div id="divcerrar">
                             <button class="btn-tiny btn-danger">
                                 Cerrar Sesión <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
@@ -224,13 +230,10 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                         <div id="container1">
                             <div>
                                 <br>
-
+                                <a href="#" id="btn-abrir-popup" class="btn btn-success" data-toggle="modal">Agregar</a>
                                 <div class="field" id="searchform">
                                     <input type="text" id="searchterm" placeholder="Ingresar Modelo" />
                                     <button type="button" id="search">Buscar</button>
-                                    <button type="button" id="btn-abrir-popup"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-                                        </svg> Agregar</button>
                                 </div>
                             </div>
                         </div>
@@ -275,8 +278,6 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                 </tbody>
                             </table>
                         </div>
-                    </article>
-                </section>
             </main>
     </div>
 
@@ -291,7 +292,7 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
     <script src="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script src="js/popups.js"></script>
-    <script src="js/almacen/principal-almacen.js"></script>
+    <script src="js/administrador/principal-admin.js"></script>                                    
     <script src="js/administrador/validacion.js"></script>
 
 </body>
