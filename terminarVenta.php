@@ -25,7 +25,7 @@ $sentencia = $base_de_datos->prepare("INSERT INTO productos_vendidos(id_producto
 $sentenciaExistencia = $base_de_datos->prepare("UPDATE productos SET existencia = existencia - ? WHERE id = ?;");
 foreach ($_SESSION["carrito"] as $producto) {
 	$total += $producto->total;
-	$sentencia->execute([$producto->id, $idVenta, $producto->cantidad, $vendedor]);
+	$sentencia->execute([$producto->id, $idVenta, $producto->cantidad]);
 	$sentenciaExistencia->execute([$producto->cantidad, $producto->id]);
 }
 $base_de_datos->commit();
