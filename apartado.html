@@ -49,15 +49,15 @@
                         <h4>Abono</h4>
                         <h4>Saldo</h4>
                     </div>
-                    <div class="contenedor-inputs">
-                        <input type="date" id="fecha" onclick="">
+                    <div  class="contenedor-inputs">
+                        <input type="date" id="fecha">
                         <input type="text" name="modelo" placeholder="Modelo">
-                        <input type="text" name="cliente" placeholder="Nombre del cliente">
-                        <input type="text" name="talla" placeholder="Numero">
-                        <input type="text" name="color" placeholder="Color">
-                        <input type="text" name="precio" placeholder="Precio">
-                        <input type="text" name="abono" placeholder="¿Cuanto abona el cliente?">
-                        <input type="text" name="saldo" placeholder="¿Cuanto resta el cliente?">
+                        <input type="text" name="cliente" placeholder="Nombre del cliente" onkeypress="return sololetras(event)">
+                        <input type="text" name="talla" placeholder="Numero" onkeypress="return solonumeros(event)">
+                        <input type="text" name="color" placeholder="Color" onkeypress="return sololetras(event)">
+                        <input type="text" name="precio" placeholder="Precio" onkeypress="return solonumeros(event)">
+                        <input type="text" name="abono" placeholder="¿Cuanto abona el cliente?" onkeypress="return solonumeros(event)">
+                        <input type="text" name="saldo" placeholder="¿Cuanto resta el cliente?" onkeypress="return solonumeros(event)">
                     </div>
                     <br>
                     <input type="submit" class="btn-submit" name="guardar" value="Guardar">
@@ -288,6 +288,7 @@
     <script src="js/popups.js"></script>
     <script src="js/almacen/principal-almacen.js"></script>
     <script src="js/administrador/validacion.js"></script>
+    <script src="js/vali.js"></script>
 
 </body>
 
