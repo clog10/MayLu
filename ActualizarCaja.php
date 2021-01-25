@@ -194,10 +194,10 @@
                         </a>
                     </div>
                     <header id="encabezado">
-                        <img id="img-inventario" class="img-responsive img-rounded" src="img/inventario.png" height="150" width="150" alt="Inventario picture">
+                        <img id="img-inventario" class="img-responsive img-rounded" src="img/caja.png" height="150" width="150" alt="Inventario picture">
                         <br>
                         <br>
-                        <h1>Inventario</h1>
+                        <h1>Caja</h1>
                     </header>
 
                     <div class="actualiza">
