@@ -156,20 +156,25 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                     </div>
                 </nav>
             </div>
-        </nav>
+            
+        
 
-        <!-- sidebar-menu  -->
-
-        <div class="sidebar-footer">
-            <div class="dropdown">
-                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-laptop-code"></i>
-                    <i class="fa fa-terminal"></i>
-                    <span> codiguITO</span>
-                </a>
+        <main class="page-content pt-2">
+            <div class="fondo_transparente">
+                <div class="modal">
+                    <div class="modal_titulo">ADVERTENCIA</div>
+                    <div class="modal_mensaje">
+                        <p>¿Seguro que desea salir?</p>
+                    </div>
+                    <div class="modal_botones">
+                        <a href="login.php" class="boton" id="btn-yes">SI</a>
+                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
+                    </div>
+                </div>
             </div>
-        </div>
+
         </nav>
+
         <main class="page-content pt-2">
             <div class="pdf">
                 <h1>Reporte de ventas: </h1>
