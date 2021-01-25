@@ -1,9 +1,7 @@
 <?php
-if(!isset($_POST["total"])) exit;
-
+if (!isset($_POST["total"])) exit;
 
 session_start();
-
 
 $total = $_POST["total"];
 include_once "base_de_datos.php";
@@ -31,4 +29,49 @@ foreach ($_SESSION["carrito"] as $producto) {
 $base_de_datos->commit();
 unset($_SESSION["carrito"]);
 $_SESSION["carrito"] = [];
+
+// Cargamos la librería dompdf que hemos instalado en la carpeta dompdf
+require_once 'dompdf/autoload.inc.php';
+
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
+// Introducimos HTML de prueba
+function file_get_contents_curl($url)
+{
+	$ch = curl_init();
+
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_URL, $url);
+
+	$data = curl_exec($ch);
+	curl_close($ch);
+
+	return $data;
+}
+
+$html = file_get_contents("http://localhost/MayLu/ticketpdf.php?idventa=" . $idVenta);
+
+$options = new Options();
+$options->set('isRemoteEnabled', TRUE);
+
+// Instanciamos un objeto de la clase DOMPDF.
+$pdf = new DOMPDF($options);
+
+// Definimos el tamaño y orientación del papel que queremos.
+$pdf->set_paper("letter", "portrait");
+//$pdf->set_paper(array(0,0,104,250));
+
+// Cargamos el contenido HTML.
+$pdf->load_html($html);
+
+// Renderizamos el documento PDF.
+$pdf->render();
+
+// Enviamos el fichero PDF al navegador.
+$pdf->stream('Reporte-de-Venta.pdf');
+
 header("Location: ./Punto-Venta-Vendedor.php?status=1");
+
+?>

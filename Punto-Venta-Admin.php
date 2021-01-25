@@ -310,7 +310,7 @@ function redondear($valor, $decimales)
 
                                 <h3>Vendedor: Carlos Loaeza</h3>
                                 <h3>Subtotal: $ <?php echo $subtotal; ?></h3>
-                                <h3>Iva: $<?php echo $iva; ?></h3>
+                                <h3>Iva: $ <?php echo $iva; ?></h3>
                                 <h3>Total: $<?php echo $granTotal; ?>.00</h3>
                                 <div class="cambio-div">
                                     <form class="formulario-cambio" name="datosrecibido">
