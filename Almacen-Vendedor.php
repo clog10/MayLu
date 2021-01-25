@@ -1,7 +1,6 @@
 <?php
 include_once "base_de_datos.php";
 $sentencia = $base_de_datos->query("SELECT * FROM productos;");
-$productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 
@@ -156,11 +155,18 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                     </header>
 
                     <div id="container1">
-                        <div>                           
+                        <form>                           
                             <div class="field" id="searchform">
-                                <input type="text" id="searchterm" placeholder="Ingresar Modelo" />
-                                <button type="button" id="search">Buscar</button>
-                            </div>
+                                <input type="text" id="searchterm" name="introducemodelo" placeholder="Ingresar Modelo" />
+                                <button type="submit" id="search">Buscar</button>
+                        </form>
+                        <?php
+                         if(isset($_GET['introducemodelo'])){
+                             $sentencia = $base_de_datos->query("SELECT * FROM productos where codigo = '" .$_GET['introducemodelo']. "';");
+                        
+                        } 
+                        $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                        ?>
                         </div>
 
 

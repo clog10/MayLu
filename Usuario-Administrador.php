@@ -1,7 +1,6 @@
 <?php
 include_once "base_de_datos.php";
 $sentencia = $base_de_datos->query("SELECT * FROM usuario;");
-$usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 <!DOCTYPE html>
@@ -261,7 +260,13 @@ $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                         </svg> Agregar</button>
                                 </div> 
                             </form>
-  
+                            <?php
+                            if(isset($_GET['introducemodelo'])){
+                                $sentencia = $base_de_datos->query("SELECT * FROM usuario where id_usuario = '" .$_GET['introducemodelo']. "';");
+                        
+                             } 
+                             $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                             ?>
                         </div>
 
 
