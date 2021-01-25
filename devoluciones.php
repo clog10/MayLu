@@ -1,3 +1,8 @@
+<?php
+include_once "base_de_datos.php";
+$sentencia = $base_de_datos->query("SELECT * FROM productos;");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -237,14 +242,22 @@
                     </header>
 
                     <div id="container1">
-                        <div>
+                        <form>
                             <br>
                             <div class="field" id="searchform">
-                                <input type="text" id="searchterm" placeholder="Ingresar Modelo" />
-                                <button type="button" id="btn-abrir-popup" class="">Buscar</button>
+                                <input type="text" name="introducemodelo" id="searchterm" placeholder="Ingresar Modelo" />
+                                <button type="submit" id="btn-abrir-popup" class="">Buscar</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
+
+                    <?php
+                    if(isset($_GET['introducemodelo'])){
+                        $sentencia = $base_de_datos->query("SELECT * FROM productos where codigo = '" .$_GET['introducemodelo']. "';");
+                        
+                    } 
+                    $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                     ?>
 
                     <div class="table-responsive">
                         <table class="table table-hover" id="tablee">
@@ -259,35 +272,18 @@
                                     <th>Existencia</th>
                                 </tr>
                             </thead>
-
+                            <?php foreach ($productos as $producto) { ?>
                             <tbody>
                                 <tr>
-                                    <td>4500MX</td>
-                                    <td>Alma Perez</td>
-                                    <td>Zapato con...</td>
-                                    <td>22</td>
-                                    <td>Rojo</td>
-                                    <td>$190</td>
-                                    <td>$250</td>
-                                </tr>
-                                <tr>
-                                    <td>4500MX</td>
-                                    <td>Alma Perez</td>
-                                    <td>Zapato con... de</td>
-                                    <td>24</td>
-                                    <td>Rosa</td>
-                                    <td>$200</td>
-                                    <td>$280</td>
-                                </tr>
-                                <tr>
-                                    <td>1508CX</td>
-                                    <td>Calzando</td>
-                                    <td>Bota de...</td>
-                                    <td>24</td>
-                                    <td>Negro</td>
-                                    <td>$280</td>
-                                    <td>$320</td>
-                                </tr>
+                                <td><?php echo $producto->codigo ?></td>
+                                <td><?php echo $producto->id ?></td>
+                                <td><?php echo $producto->descripcion ?></td>
+                                <td><?php echo $producto->talla ?></td>
+                                <td><?php echo $producto->color ?></td>
+                                <td>$<?php echo $producto->precioCompra ?></td>
+                                <td><?php echo $producto->existencia ?></td>                                                                                         
+                                </tr>                               
+                                <?php } ?>
                             </tbody>
                         </table>
                         <br>
