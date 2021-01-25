@@ -62,12 +62,12 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
                     <div class="contenedor-inputs">
                         <input type="date" id="fecha" onclick="" <?php echo $vencimiento?>>
                         <input type="text" name="modelo" placeholder="Modelo">
-                        <input type="text" name="cliente" placeholder="Nombre del cliente">
-                        <input type="text" name="talla" placeholder="Numero">
-                        <input type="text" name="color" placeholder="Color">
-                        <input type="text" name="precio" placeholder="Precio">
-                        <input type="text" name="abono" placeholder="¿Cuanto abona el cliente?">
-                        <input type="text" name="saldo" placeholder="¿Cuanto resta el cliente?">
+                        <input type="text" name="cliente" placeholder="Nombre del cliente" onkeypress="return sololetras(event)">
+                        <input type="text" name="talla" placeholder="Numero" onkeypress="return solonumeros(event)">
+                        <input type="text" name="color" placeholder="Color" onkeypress="return sololetras(event)">
+                        <input type="text" name="precio" placeholder="Precio" onkeypress="return solonumeros(event)">
+                        <input type="text" name="abono" placeholder="¿Cuanto abona el cliente?" onkeypress="return solonumeros(event)">
+                        <input type="text" name="saldo" placeholder="¿Cuanto resta el cliente?" onkeypress="return solonumeros(event)">
                     </div>
                     <br>
                     <input type="submit" class="btn-submit" name="guardar" value="Guardar">
