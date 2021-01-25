@@ -1,6 +1,6 @@
 <?php
 include_once "base_de_datos.php";
-$sentencia = $base_de_datos->query("SELECT ventas.total, ventas.fecha, ventas.id, GROUP_CONCAT(	productos.codigo, '..',  productos.descripcion,'..',  productos.precioVenta, '..', productos_vendidos.cantidad SEPARATOR '__') AS productos FROM ventas INNER JOIN productos_vendidos ON productos_vendidos.id_venta = ventas.id INNER JOIN productos ON productos.id = productos_vendidos.id_producto GROUP BY ventas.id ORDER BY ventas.id;");
+$sentencia = $base_de_datos->query("SELECT ventas.total, ventas.fecha, ventas.vendedor, ventas.id, GROUP_CONCAT(	productos.codigo, '..',  productos.descripcion,'..',  productos.precioVenta, '..', productos_vendidos.cantidad SEPARATOR '__') AS productos FROM ventas INNER JOIN productos_vendidos ON productos_vendidos.id_venta = ventas.id INNER JOIN productos ON productos.id = productos_vendidos.id_producto GROUP BY ventas.id ORDER BY ventas.id;");
 $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 
@@ -18,11 +18,6 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
-
-    <!-- using local links -->
-    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"> -->
 
     <link rel="stylesheet" href="styles/estilos-principal.css">
     <link rel="stylesheet" href="styles/sidebar-themes.css">
@@ -187,7 +182,7 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                             <thead>
                                 <tr>
                                     <th>Número</th>
-                                    <th>Fecha</th>
+                                    <th>Fecha - Vendedor</th>
                                     <th>Productos vendidos</th>
                                     <th>Total</th>
                                 </tr>
@@ -196,7 +191,8 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                 <?php foreach ($ventas as $venta) { ?>
                                     <tr>
                                         <td><?php echo $venta->id ?></td>
-                                        <td><?php echo $venta->fecha ?></td>
+                                        <td><?php echo $venta->fecha?>
+                                        <?php echo $venta->vendedor?></td>
                                         <td>
                                             <table class="table">
                                                 <thead>

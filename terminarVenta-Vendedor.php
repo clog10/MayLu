@@ -8,9 +8,8 @@ session_start();
 $total = $_POST["total"];
 include_once "base_de_datos.php";
 
-
+$ahora = date_default_timezone_set("America/Mexico_City");
 $ahora = date("Y-m-d H:i:s");
-
 
 $sentencia = $base_de_datos->prepare("INSERT INTO ventas(fecha, total) VALUES (?, ?);");
 $sentencia->execute([$ahora, $total]);

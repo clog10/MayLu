@@ -273,26 +273,26 @@ function redondear($valor, $decimales)
                             <h3>Iva: $<?php echo $iva; ?></h3>
                             <h3>Total: $<?php echo $granTotal; ?>.00</h3>
                             <div class="cambio-div">
-                                    <form class="formulario-cambio" name="datosrecibido">
-                                        <h3>Recibido: <input type="text" class="recibidoinput" name="recibidoinput" maxlength="10" onchange="cal()" onkeyup="cal()" placeholder="Efectivo" /></h3>
-                                        <h3>Cambio: <input class="cambio" type="text" name="cambio" value="$ 0.00" readonly="readonly"></h3>
-                                    </form>
-                                </div>
-                                <script type="text/javascript">
-                                    function cal() {
-                                        try {
-                                            var a = parseInt(<?php echo $granTotal; ?>),
-                                                b = parseInt(document.datosrecibido.recibidoinput.value);
-                                            c = b - a;
-                                            document.datosrecibido.cambio.value = "$ " + c + ".00";
-                                        } catch (e) {}
-                                    }
-                                </script>
+                                <form class="formulario-cambio" name="datosrecibido">
+                                    <h3>Recibido: <input type="text" class="recibidoinput" name="recibidoinput" maxlength="10" onchange="cal()" onkeyup="cal()" placeholder="Efectivo" /></h3>
+                                    <h3>Cambio: <input class="cambio" type="text" name="cambio" value="$ 0.00" readonly="readonly"></h3>
+                                </form>
+                            </div>
+                            <script type="text/javascript">
+                                function cal() {
+                                    try {
+                                        var a = parseInt(<?php echo $granTotal; ?>),
+                                            b = parseInt(document.datosrecibido.recibidoinput.value);
+                                        c = b - a;
+                                        document.datosrecibido.cambio.value = "$ " + c + ".00";
+                                    } catch (e) {}
+                                }
+                            </script>
                             <div class="botones">
                                 <form action="./terminarVenta-Vendedor.php" method="POST">
                                     <input name="total" type="hidden" value="<?php echo $granTotal; ?>">
                                     <button type="submit" class="btn btn-success">Terminar venta</button>
-                                    <a href="./cancelarVenta.php" class="btn btn-danger">Cancelar venta</a>
+                                    <a href="./cancelarVenta-Vendedor.php" class="btn btn-danger">Cancelar venta</a>
                                 </form>
                             </div>
                         </div>
@@ -300,10 +300,7 @@ function redondear($valor, $decimales)
                 </div>
             </div>
         </main>
-
     </div>
-    <!-- page-wrapper -->
-
     <!-- using online scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
