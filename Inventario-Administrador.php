@@ -307,7 +307,7 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
     <script src="js/popups.js"></script>
     <script src="js/administrador/principal-admin.js"></script>
     <script src="js/administrador/validacion.js"></script>
-    <script src="js/vali.js"></script>
+    
 
 </body>
 
