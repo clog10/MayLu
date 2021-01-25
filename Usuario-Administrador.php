@@ -215,8 +215,20 @@ $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                             </svg> Nombre</p>
                     </div>
+            <div class="fondo_transparente">
+                <div class="modal">
+                    <div class="modal_titulo">ADVERTENCIA</div>
+                    <div class="modal_mensaje">
+                        <p>¿Seguro que desea salir?</p>
+                    </div>
+                    <div class="modal_botones">
+                        <a href="login.php" class="boton" id="btn-yes">SI</a>
+                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
+                    </div>
+                </div>
+            </div>
                     <div id="divcerrar">
-                        <a href="login.html">
+                        <a href="login.php">
                             <button class="btn-tiny btn-danger">
                                 Cerrar Sesión <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
@@ -228,6 +240,7 @@ $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
                             </button>
                         </a>
                     </div>
+                    
                     <header id="encabezado">
                         <img id="img-inventario" class="img-responsive img-rounded" src="img/usuario.png" height="150"
                             width="150" alt="Usuario picture">
