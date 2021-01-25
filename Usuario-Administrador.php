@@ -59,9 +59,9 @@ $sentencia = $base_de_datos->query("SELECT * FROM usuario;");
                             <input type="text" name="nombre_com" placeholder="Nombre completo" onkeypress="return sololetras(event)">
                             <select name="puesto" class="select">
                                 <option selected value="0"> Elige una opción </option>
-                                <option value="Admistrador">Admistrador</option>
-                                <option value="Vendedor">Vendedor</option>
-                                <option value="Almacenista">Almacenista</option>
+                                <option value="1">Admistrador</option>
+                                <option value="2">Vendedor</option>
+                                <option value="3">Almacenista</option>
                             </select>
                             <select name="id_caja" class="select">
                                 <option selected value="0"> Elige una opción </option>
