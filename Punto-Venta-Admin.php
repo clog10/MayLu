@@ -243,7 +243,7 @@ function redondear($valor, $decimales)
                                     <div class="field-venta" id="searchform">
                                         <input autocomplete="off" autofocus name="codigo" required type="text" id="codigo" placeholder="Escribe el modelo del zapato">
                                     </div>
-                                </form>
+                                </form>                                
                                 <div class="table-responsive">
                                     <br>
                                     <table class="table table-hover tabla-venta" id="tablee">

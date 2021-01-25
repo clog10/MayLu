@@ -250,7 +250,8 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
                             </div>
                         </form>
                     </div>
-
+                    <br>                   
+                    <br>
                     <?php
                     if(isset($_GET['introducemodelo'])){
                         $sentencia = $base_de_datos->query("SELECT * FROM productos where codigo = '" .$_GET['introducemodelo']. "';");
