@@ -68,10 +68,10 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
                             <option value="25">25</option>
                             <option value="26">26</option>
                         </select>
-                        <input type="text" name="color" placeholder="Color">
-                        <input type="text" name="precioCompra" placeholder="Precio Unitario">
-                        <input type="text" name="precioVenta" placeholder="Precio Venta">
-                        <input type="text" name="existencia" placeholder="Cantidad en existencias">
+                         <input type="text" name="color" placeholder="Color" onkeypress="return sololetras(event)">
+                        <input type="text" name="precioCompra" placeholder="Precio Unitario" onkeypress="return solonumeros(event)">
+                        <input type="text" name="precioVenta" placeholder="Precio Venta" onkeypress="return solonumeros(event)">
+                        <input type="text" name="existencia" placeholder="Cantidad en existencias" onkeypress="return solonumeros(event)">
                         <select name="proveedor" class="select">
                             <option selected value="0"> Elige una opción </option>
                             <option value="Alma Pérez Vista">Alma Pérez Vista</option>
@@ -307,6 +307,7 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
     <script src="js/popups.js"></script>
     <script src="js/administrador/principal-admin.js"></script>
     <script src="js/administrador/validacion.js"></script>
+    <script src="js/vali.js"></script>
 
 </body>
 
