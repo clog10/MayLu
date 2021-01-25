@@ -196,7 +196,7 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                 <?php foreach ($ventas as $venta) { ?>
                                     <tr>
                                         <td><?php echo $venta->id ?></td>
-                                        <td><?php echo $venta->fecha?>
+                                        <td><?php echo $venta->fecha?><br>
                                         <?php echo $venta->vendedor?></td>
                                         <td>
                                             <table class="table">
