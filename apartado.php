@@ -56,11 +56,11 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
                     </div>
                     <?php 
                     $vencimiento =(new datetime("+ 15 days"))->format("d/m/y");
-                    echo $vencimiento;
+                    echo ''.$vencimiento;
                     ?>
 
                     <div class="contenedor-inputs">
-                        <input type="date" id="fecha" onclick="" <?php echo $vencimiento?>>
+                        
                         <input type="text" name="modelo" placeholder="Modelo">
                         <input type="text" name="cliente" placeholder="Nombre del cliente" onkeypress="return sololetras(event)">
                         <input type="text" name="talla" placeholder="Numero" onkeypress="return solonumeros(event)">
