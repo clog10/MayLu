@@ -18,7 +18,7 @@ $sentencia = $base_de_datos->prepare("INSERT INTO productos(codigo, descripcion,
 $resultado = $sentencia->execute([$codigo, $descripcion,$talla, $color, $precioVenta, $precioCompra, $existencia,$proveedor]);
 
 if($resultado === TRUE){
-	header("Location: ./Inventario-Administrador.php");
+	header("Location: ./Inventario-Administrador.php?pagina=1");
 	exit;
 }
 else echo "Algo salió mal. Por favor verifica que la tabla exista";

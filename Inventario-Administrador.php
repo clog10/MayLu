@@ -1,6 +1,16 @@
 <?php
 include_once "base_de_datos.php";
 $sentencia = $base_de_datos->query("SELECT * FROM productos;");
+
+
+
+
+$articulos_x_pagina =4;
+$total_articulos_bd = $sentencia->rowCount();
+$paginas = $total_articulos_bd/4;
+$paginas = ceil($paginas);
+#echo $paginas;
+
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +37,7 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
     <link rel="shortcut icon" type="image/png" href="img/icon.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
 </head>
 
 <body>
@@ -154,9 +165,9 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="devoluciones.php">
-                                        <i class="fa fa-sync-alt"></i>
-                                        <span class="menu-text">Devoluciones</span>
+                                    <a href="apartado.php">
+                                    <i class="fa fa-cart-plus"></i>
+                                        <span class="menu-text">Apartados</span>
                                     </a>
                                 </li>
                                 <li>
@@ -253,6 +264,25 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
             </div>
 
             <div class=" table-responsive">
+
+            <?php
+            if(!$_GET){
+                header('Location:Inventario-Administrador.php?pagina=1');
+
+            }
+
+            $iniciar = ($_GET['pagina']-1)*$articulos_x_pagina;
+            //echo $iniciar;
+
+            $sql_articulos = "SELECT * FROM productos LIMIT :inicar,:narticulos";
+            $productosS=$base_de_datos->prepare($sql_articulos);
+            $productosS->bindParam(':inicar',$iniciar,PDO::PARAM_INT);
+            $productosS->bindParam(':narticulos',$articulos_x_pagina,PDO::PARAM_INT);
+            $productosS->execute();
+
+            $resultado_articulos = $productosS->fetchAll();
+            ?>
+
                 <br>
                 <table class="table table-hover" id="tablee">
                     <thead>
@@ -271,9 +301,10 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($productos as $producto) { ?>
+                        <?php foreach ($resultado_articulos as $producto) { ?>
                             <tr>
-                                <td><?php echo $producto->id ?></td>
+                            
+                            <td><?php echo $producto->id ?></td>
                                 <td><img src="img/maylu.png" alt="logo" width="100" height="100" /></td>
                                 <td><?php echo $producto->codigo ?></td>
                                 <td><?php echo $producto->descripcion ?></td>
@@ -285,12 +316,45 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
                                 <td><?php echo $producto->proveedor ?></td>
                                 <td>
                                     <a class="btn btn-warning" href="<?php echo "ActualizarZapato.php?id=" . $producto->id ?>"><i class="fa fa-edit"></i> Editar</a>
-                                    <a class="btn btn-danger" href=""><i class="fas fa-eye-slash"></i> Ocultar</a>
+                                    
                                 </td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
+                <!--PAGINACION-->
+                <nav aria-label="Page navigation example">
+
+                    <ul class="pagination ">
+                        <li class="page-item
+                        <?php echo $_GET['pagina']<=1? 'disabled':''?>
+                        ">
+
+                        <a class="page-link" 
+                        href="Inventario-Administrador.php?pagina=<?php echo $_GET['pagina']-1 ?>">
+                        Anterior
+                        </a>
+                        </li>
+
+                    <?php for($i=0;$i<$paginas;$i++):?>
+
+                    <li class="page-item <?php echo $_GET['pagina']==$i+1 ?'active':'' ?>">
+                        <a class="page-link" 
+                        href="Inventario-Administrador.php?pagina=<?php echo $i+1 ?>">
+                        <?php echo $i+1 ?>
+                        </a>
+                    </li>
+                    <?php endfor ?>
+
+
+
+                    <li class="page-item
+                    <?php echo $_GET['pagina']>=$paginas? 'disabled':''?>
+                    "><a class="page-link"
+                    href="Inventario-Administrador.php?pagina=<?php echo $_GET['pagina']+1 ?>">Siguiente</a></li>
+                    </ul>
+                </nav>  
+
             </div>
         </main>
     </div>
