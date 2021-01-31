@@ -46,10 +46,10 @@
                         <img class="img-responsive img-rounded" src="img/user.png" alt="User picture">
                     </div>
                     <div class="user-info">
-                        <span class="user-name"><strong>Carlos
-                                Loaeza</strong>
+                        <span class="user-name"><strong>Juan
+                                Antonio</strong>
                         </span>
-                        <span class="user-role">Almacén</span>
+                        <span class="user-role">Almacenista</span>
                         <span class="user-status">
                             <i class="fa fa-circle"></i>
                             <span>Online</span>
@@ -99,6 +99,7 @@
                         </li>
                     </ul>
                 </div>
+                
                 <!-- sidebar-menu  -->
             </div>
             <div class="sidebar-footer">
@@ -109,9 +110,22 @@
                         <span> codiguITO</span>
                     </a>
                 </div>
+                
             </div>
-          
         </nav>
+        <div class="fondo_transparente">
+                <div class="modal">
+                    <div class="modal_titulo">ADVERTENCIA</div>
+                    <div class="modal_mensaje">
+                        <p>¿Seguro que desea salir?</p>
+                    </div>
+                    <div class="modal_botones">
+                        <a href="login.php" class="boton" id="btn-yes">SI</a>
+                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
           </nav>
           <main class="page-content pt-2">

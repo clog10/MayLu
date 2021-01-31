@@ -45,8 +45,8 @@ $cajas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                         <h4><label>*</label> Efectivo</h4>
                     </div>
                     <div class="contenedor-inputs">
-                        <input type="text" name="nombre_codigo" placeholder="Nombre o codigo de caja">
-                        <input type="text" name="efectivo" placeholder="Cantidad de efectivo" onkeypress="return solonumeros(event)">
+                        <input type="text" name="nombre_codigo" placeholder="Nombre o codigo de caja" required>
+                        <input type="text" name="efectivo" placeholder="Cantidad de efectivo" onkeypress="return solonumeros(event)" required>
                     </div>
                     <br>
                     <input type="submit" class="btn-submit" name="guardar" value="Guardar">
@@ -106,13 +106,13 @@ $cajas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Inventario-Administrador.php">
+                                    <a href="Inventario-Administrador.php?pagina=1">
                                         <i class="fa fa-warehouse"></i>
                                         <span class="menu-text">Inventario</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="reportes.php">
+                                    <a href="reportes.php?pagina=1">
                                         <i class="fa fa-chart-line"></i>
                                         <span class="menu-text">Reportes</span>
                                     </a>
@@ -124,19 +124,19 @@ $cajas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="devoluciones.php">
-                                        <i class="fa fa-sync-alt"></i>
-                                        <span class="menu-text">Devoluciones</span>
+                                    <a href="apartado.php">
+                                    <i class="fa fa-cart-plus"></i>
+                                        <span class="menu-text">Apartados</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Usuario-Administrador.php">
+                                    <a href="Usuario-Administrador.php?pagina=1">
                                         <i class="fa fa-users"></i>
                                         <span class="menu-text">Usuarios</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Proveedor-Administrador.php">
+                                    <a href="Proveedor-Administrador.php?pagina=1">
                                         <i class="fa fa-truck"></i>
                                         <span class="menu-text">Proveedores</span>
                                     </a>
@@ -230,13 +230,20 @@ $cajas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
                             <form>
                                 <div class="field" id="searchform">
-                                    <input type="text" id="searchterm" name="introducemodelo" placeholder="Ingresar nombre o codigo de caja" />
+                                    <input type="text" id="searchterm" name="introducemodelo" placeholder="Ingresar nombre o codigo de caja" required />
                                     <input class="btn btn" type="submit" id="search" value="Buscar"/>
                                     <button type="button" id="btn-abrir-popup"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
                                         </svg> Agregar</button>
                                 </div> 
                             </form>
+                            <?php
+                            if(isset($_GET['introducemodelo'])){
+                            $sentencia = $base_de_datos->query("SELECT * FROM caja where id_caja = '" .$_GET['introducemodelo']. "';");
+
+                            } 
+                            $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                            ?>
   
                         </div>
 

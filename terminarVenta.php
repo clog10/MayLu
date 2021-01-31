@@ -49,9 +49,10 @@ function file_get_contents_curl($url) {
     curl_close($ch);
 
     return $data;
+    
 }
 
- $html=file_get_contents("http://localhost/MayLu/ticketpdf.php?idventa=".$idVenta);
+ $html=file_get_contents("http://localhost:8080/mal/MayLu/ticketpdf.php?idventa=".$idVenta);
 
 $options = new Options();
 $options->set('isRemoteEnabled',TRUE);
@@ -72,6 +73,8 @@ $pdf->render();
 // Enviamos el fichero PDF al navegador.
 $pdf->stream('Reporte-de-Venta.pdf');
 
-header("Location: ./Punto-Venta-Admin.php?status=1");
+header("Refresh:0; url=Punto-Venta-Admin.php");
+#header("Location: ./Punto-Venta-Admin.php?status=1");
+
 
 ?>

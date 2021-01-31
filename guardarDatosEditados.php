@@ -30,7 +30,7 @@ $sentencia = $base_de_datos->prepare("UPDATE productos SET codigo = ?, descripci
 $resultado = $sentencia->execute([$codigo, $descripcion, $talla,$color, $precioCompra, $precioVenta, $existencia,$proveedor, $id]);
 
 if($resultado === TRUE){
-	header("Location: ./Inventario-Administrador.php");
+	header("Location: ./Inventario-Administrador.php?pagina=1.php");
 	exit;
 }
 else echo "Algo salió mal. Por favor verifica que la tabla exista, así como el ID del producto";

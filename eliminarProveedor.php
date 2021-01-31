@@ -5,7 +5,7 @@ include_once "base_de_datos.php";
 $sentencia = $base_de_datos->prepare("DELETE FROM proveedor WHERE id_proveedor = ?;");
 $resultado = $sentencia->execute([$id_proveedor]);
 if($resultado === TRUE){
-	header("Location: ./Proveedor-Administrador.php");
+	header("Location: ./Proveedor-Administrador.php?pagina=1");
 	exit;
 }
 else echo "Algo salió mal";

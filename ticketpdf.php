@@ -27,7 +27,7 @@ function redondear($valor, $decimales)
 
     <div class="detalles" name="detalles">
         <?php foreach ($ventas as $venta) { ?>
-            <h3 align="center"><img src="http://localhost/MayLu/img/logito.jpg" width="250" height="150" alt="Img"><br>
+            <h3 align="center"><img src="http://localhost:8080/mal/MayLu/img/logito.jpg" width="250" height="150" alt="Img"><br>
                 Av. Juárez #49, Local 3, Centro <br>San Pablo Huixtepec, Oaxaca <br>
                 Facebook: Zapateria Ma y Lu <br>WhatsApp: 951 114 2171</h3>
             <h3 style="margin-left:60px;">Venta No. <?php echo $venta->id ?></h3>
@@ -70,14 +70,17 @@ function redondear($valor, $decimales)
             <br>
             <br>
 
+            <h2 align="right" style="margin-right:100px;"><strong> Total: $ <?php echo $venta->total ?></strong></h2>           
             <h3 align="right" style="margin-right:100px;">Subtotal: $ <?php echo $subtotalfinal; ?></h3>
             <h3 align="right" style="margin-right:100px;">Iva: $ <?php echo $ivafinal; ?></h3>
-            <h3 align="right" style="margin-right:100px;">Total: $ <?php echo $venta->total ?></h3>
+            
         <?php } ?>
         <br>
         <h2 align="center">¡Gracias por su Preferencia!</h2>
+        <h3 align="center"><em>Nota: Salida la mercancia no se aceptan cambios ni devoluciones </em></h3>
         <br>
     </div>
+    <a href="Punto-Venta-Admin.php?status=1">
 </body>
 
 </html>

@@ -59,8 +59,7 @@ function redondear($valor, $decimales)
                                 <img class="img-responsive img-rounded" src="img/user.png" alt="User picture">
                             </div>
                             <div class="user-info">
-                                <span class="user-name"><strong>Carlos
-                                        Loaeza</strong>
+                                <span class="user-name"><strong>Nancy Yesnia</strong>
                                 </span>
                                 <span class="user-role">Vendedor</span>
                                 <span class="user-status">
@@ -135,13 +134,17 @@ function redondear($valor, $decimales)
         </nav>
         <!-- contenido  -->
         <main class="page-content pt-2">
-            <div id="overlay" class="overlay"></div>
-            <div id="divcerrar">
-                <button class="btn-tiny btn-danger">
-                    Cerrar Sesión <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                    </svg></button>
+        <div class="fondo_transparente">
+                <div class="modal">
+                    <div class="modal_titulo">ADVERTENCIA</div>
+                    <div class="modal_mensaje">
+                        <p>¿Seguro que desea salir?</p>
+                    </div>
+                    <div class="modal_botones">
+                        <a href="login.php" class="boton" id="btn-yes">SI</a>
+                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
+                    </div>
+                </div>
             </div>
 
             <div class="col-xs-12">
@@ -234,7 +237,7 @@ function redondear($valor, $decimales)
                                                 <td><?php echo $producto->descripcion ?></td>
                                                 <td><?php echo $producto->talla ?></td>
                                                 <td>$<?php echo $producto->precioVenta ?></td>
-                                                <td>$ <?php echo $producto->total ?></td>
+                                                <td>$<?php echo $producto->total ?></td>
                                                 <td><a class="btn btn-danger" href="<?php echo "quitarDelCarrito.php?indice=" . $indice ?>"><i class="fa fa-trash"></i></a></td>
                                             </tr>
                                         <?php } ?>
@@ -268,7 +271,7 @@ function redondear($valor, $decimales)
                                 </div>
                             </div>
 
-                            <h3>Vendedor: Carlos Loaeza</h3>
+                            <h3>Vendedor: Nancy Yesenia</h3>
                             <h3>Subtotal: $ <?php echo $subtotal; ?></h3>
                             <h3>Iva: $<?php echo $iva; ?></h3>
                             <h3>Total: $<?php echo $granTotal; ?>.00</h3>

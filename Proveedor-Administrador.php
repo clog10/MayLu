@@ -1,6 +1,12 @@
 <?php
 include_once "base_de_datos.php";
 $sentencia = $base_de_datos->query("SELECT * FROM proveedor;");
+
+$articulos_x_pagina =3;
+$total_articulos_bd = $sentencia->rowCount();
+$paginas = $total_articulos_bd/3;
+$paginas = ceil($paginas);
+#echo $paginas;
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +37,26 @@ $sentencia = $base_de_datos->query("SELECT * FROM proveedor;");
 
     <div id="container">
         <div class="overlay" id="overlay">
+        <?php
+            if(!$_GET){
+                header('Location:Proveedor-Administrador.php?pagina=1');
 
+            }
+            if($_GET['pagina']>$paginas){
+                header('Location:Proveedor-Administrador.php?pagina=1');
+            }
+
+            $iniciar = ($_GET['pagina']-1)*$articulos_x_pagina;
+            //echo $iniciar;
+
+            $sql_articulos = "SELECT * FROM proveedor LIMIT :inicar,:narticulos";
+            $productosS=$base_de_datos->prepare($sql_articulos);
+            $productosS->bindParam(':inicar',$iniciar,PDO::PARAM_INT);
+            $productosS->bindParam(':narticulos',$articulos_x_pagina,PDO::PARAM_INT);
+            $productosS->execute();
+
+            $resultado_articulos = $productosS->fetchAll();
+            ?>
 
             <div class="popup" id="popup">
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
@@ -48,15 +73,15 @@ $sentencia = $base_de_datos->query("SELECT * FROM proveedor;");
                     </div>
                     <div class="contenedor-inputs">
 
-                        <input type="text" name="nombre_empresa" placeholder="Nombre de la empresa" onkeypress="return sololetras(event)">
+                        <input type="text" name="nombre_empresa" placeholder="Nombre de la empresa" onkeypress="return sololetras(event)" required>
 
-                        <input type="text" name="nombre_agente" placeholder="Nombre del agente" onkeypress="return sololetras(event)">
+                        <input type="text" name="nombre_agente" placeholder="Nombre del agente" onkeypress="return sololetras(event)" required>
 
-                        <input type="text" name="direccion" placeholder="Direccion">
+                        <input type="text" name="direccion" placeholder="Direccion" required>
 
-                        <input type="text" name="tel" placeholder="Telefono" onkeypress="return solonumeros(event)">
+                        <input type="text" name="tel" placeholder="Telefono" onkeypress="return solonumeros(event)" required>
 
-                        <input type="text" name="email" placeholder="Correo electrónico">
+                        <input type="text" name="email" placeholder="Correo electrónico" required>
 
                     </div>
                     <br>
@@ -117,13 +142,13 @@ $sentencia = $base_de_datos->query("SELECT * FROM proveedor;");
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Inventario-Administrador.php">
+                                    <a href="Inventario-Administrador.php?pagina=1">
                                         <i class="fa fa-warehouse"></i>
                                         <span class="menu-text">Inventario</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="reportes.php">
+                                    <a href="reportes.php?pagina=1">
                                         <i class="fa fa-chart-line"></i>
                                         <span class="menu-text">Reportes</span>
                                     </a>
@@ -135,19 +160,19 @@ $sentencia = $base_de_datos->query("SELECT * FROM proveedor;");
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="devoluciones.php">
-                                        <i class="fa fa-sync-alt"></i>
-                                        <span class="menu-text">Devoluciones</span>
+                                    <a href="apartado.php">
+                                    <i class="fa fa-cart-plus"></i>
+                                        <span class="menu-text">Apartados</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Usuario-Administrador.php">
+                                    <a href="Usuario-Administrador.php?pagina=1">
                                         <i class="fa fa-users"></i>
                                         <span class="menu-text">Usuarios</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Proveedor-Administrador.php">
+                                    <a href="Proveedor-Administrador.php?pagina=1">
                                         <i class="fa fa-truck"></i>
                                         <span class="menu-text">Proveedores</span>
                                     </a>
@@ -240,7 +265,7 @@ $sentencia = $base_de_datos->query("SELECT * FROM proveedor;");
 
                         <form>
                             <div class="field" id="searchform">
-                                <input type="text" id="searchterm" name="introducemodelo" placeholder="Ingresar nombre del proveedor" />
+                                <input type="text" id="searchterm" name="introducemodelo" placeholder="Ingresar nombre del proveedor" required />
                                 <input class="btn btn" type="submit" id="search" value="Buscar" />
                                 <button type="button" id="btn-abrir-popup"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
@@ -255,7 +280,6 @@ $sentencia = $base_de_datos->query("SELECT * FROM proveedor;");
                              $proveedores = $sentencia->fetchAll(PDO::FETCH_OBJ);
                              ?>
                     </div>
-
                     <div class="table-responsive">
                         <br>
                         <table border="1" class="table table-hover table-bordered" id="tablee">
@@ -271,7 +295,7 @@ $sentencia = $base_de_datos->query("SELECT * FROM proveedor;");
                             </thead>
 
                             <tbody>
-                                <?php foreach ($proveedores as $proveedor) { ?>
+                                <?php foreach ($resultado_articulos as $proveedor) { ?>
                                     <tr>
                                         <td><?php echo $proveedor->nombre_empresa ?></td>
                                         <td><?php echo $proveedor->nombre_agente ?></td>
@@ -286,6 +310,40 @@ $sentencia = $base_de_datos->query("SELECT * FROM proveedor;");
                                 <?php } ?>
                             </tbody>
                         </table>
+
+                 <div class="d-flex flex-row-reverse"> 
+                    <nav aria-label="Page navigation example">
+
+                    <ul class="pagination ">
+                        <li class="page-item
+                        <?php echo $_GET['pagina']<=1? 'disabled':''?>
+                        ">
+
+                        <a class="page-link" 
+                        href="Proveedor-Administrador.php?pagina=<?php echo $_GET['pagina']-1 ?>">
+                        Anterior
+                        </a>
+                        </li>
+
+                    <?php for($i=0;$i<$paginas;$i++):?>
+
+                    <li class="page-item <?php echo $_GET['pagina']==$i+1 ?'active':'' ?>">
+                        <a class="page-link" 
+                        href="Proveedor-Administrador.php?pagina=<?php echo $i+1 ?>">
+                        <?php echo $i+1 ?>
+                        </a>
+                    </li>
+                    <?php endfor ?>
+
+
+
+                    <li class="page-item
+                    <?php echo $_GET['pagina']>=$paginas? 'disabled':''?>
+                    "><a class="page-link"
+                    href="Proveedor-Administrador.php?pagina=<?php echo $_GET['pagina']+1 ?>">Siguiente</a></li>
+                    </ul>
+                </nav>  
+                    </div>
                         <br>
                     </div>
 

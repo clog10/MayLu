@@ -109,10 +109,10 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
                         <img class="img-responsive img-rounded" src="img/user.png" alt="User picture">
                     </div>
                     <div class="user-info">
-                        <span class="user-name"><strong>Carlos
-                                Loaeza</strong>
+                        <span class="user-name"><strong>Juan   
+                                Antonio</strong>
                         </span>
-                        <span class="user-role">Administrador</span>
+                        <span class="user-role">Almacenista</span>
                         <span class="user-status">
                             <i class="fa fa-circle"></i>
                             <span>Online</span>
@@ -173,20 +173,38 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
                     </a>
                 </div>
             </div>
+            
           
         </nav>
-        </div> 
+        
+        
+
+        <div class="fondo_transparente">
+                <div class="modal">
+                    <div class="modal_titulo">ADVERTENCIA</div>
+                    <div class="modal_mensaje">
+                        <p>¿Seguro que desea salir?</p>
+                    </div>
+                    <div class="modal_botones">
+                        <a href="login.php" class="boton" id="btn-yes">SI</a>
+                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
+                    </div>
+                </div>
+            </div>
            
         </nav>
         <!-- contenido  -->
         <main class="page-content pt-2">
             <div id="overlay" class="overlay"></div>
             <div id="divcerrar">
-                <button class="btn-tiny btn-danger">
-                    Cerrar Sesión <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                    </svg></button>
+            <a href="login.php">
+                            <button class="btn-tiny btn-danger">
+                                Cerrar Sesión <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                </svg>
+                            </button>
+                        </a>
             </div>
             <header id="encabezado">
                 <img id="img-inventario" class="img-responsive img-rounded" src="img/inventario.png" height="150" width="150" alt="Inventario picture">
@@ -246,7 +264,7 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
                                 <td><?php echo $producto->proveedor ?></td>
                                 <td>
                                     <a class="btn btn-warning" href="<?php echo "ActualizarZapato-Almacen.php?id=" . $producto->id ?>"><i class="fa fa-edit"></i> Editar</a>
-                                    <a class="btn btn-danger" href=""><i class="fas fa-eye-slash"></i> Ocultar</a>
+                                    
                                 </td>
                             </tr>
                         <?php } ?>

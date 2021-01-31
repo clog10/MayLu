@@ -110,7 +110,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Usuario-Administrador.php">
+                                    <a href="Usuario-Administrador.php?pagina=1">
                                         <i class="fa fa-users"></i>
                                         <span class="menu-text">Usuarios</span>
                                     </a>
@@ -232,7 +232,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <div class="article">
-                            <a href="Usuario-Administrador.php">
+                            <a href="Usuario-Administrador.php?pagina=1">
                                 <img src="img/user.svg" width="200" height="150" alt="">
                                 <p>Usuarios</p>
                             </a>

@@ -2,6 +2,12 @@
 include_once "base_de_datos.php";
 $sentencia = $base_de_datos->query("SELECT ventas.total, ventas.fecha, ventas.vendedor, ventas.id, GROUP_CONCAT(	productos.codigo, '..',  productos.descripcion,'..',  productos.precioVenta, '..', productos_vendidos.cantidad SEPARATOR '__') AS productos FROM ventas INNER JOIN productos_vendidos ON productos_vendidos.id_venta = ventas.id INNER JOIN productos ON productos.id = productos_vendidos.id_producto GROUP BY ventas.id ORDER BY ventas.id;");
 $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+
+$articulos_x_pagina =5;
+$total_articulos_bd = $sentencia->rowCount();
+$paginas = $total_articulos_bd/5;
+$paginas = ceil($paginas);
+
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +33,8 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
     <link rel="shortcut icon" type="image/png" href="img/icon.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
 </head>
 
 <body>
@@ -83,13 +91,13 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Inventario-Administrador.php">
+                                    <a href="Inventario-Administrador.php?pagina=1">
                                         <i class="fa fa-warehouse"></i>
                                         <span class="menu-text">Inventario</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="reportes.php">
+                                    <a href="reportes.php?pagina=1">
                                         <i class="fa fa-chart-line"></i>
                                         <span class="menu-text">Reportes</span>
                                     </a>
@@ -101,19 +109,19 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="devoluciones.php">
-                                        <i class="fa fa-sync-alt"></i>
-                                        <span class="menu-text">Devoluciones</span>
+                                    <a href="apartado.php">
+                                    <i class="fa fa-cart-plus"></i>
+                                        <span class="menu-text">Apartados</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Usuario-Administrador.php">
+                                    <a href="Usuario-Administrador.php?pagina=1">
                                         <i class="fa fa-users"></i>
                                         <span class="menu-text">Usuarios</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Proveedor-Administrador.php">
+                                    <a href="Proveedor-Administrador.php?pagina=1">
                                         <i class="fa fa-truck"></i>
                                         <span class="menu-text">Proveedores</span>
                                     </a>
@@ -181,6 +189,27 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                 <br>
 
                 <div class="col-xs-12">
+                           <?php
+             if(!$_GET){
+                header('Location:reportes.php?pagina=1');
+
+            }
+            if($_GET['pagina']>$paginas){
+                header('reportes.php?pagina=1');
+            }
+
+            $iniciar = ($_GET['pagina']-1)*$articulos_x_pagina;
+            //echo $iniciar;
+
+            $sql_articulos = "SELECT ventas.total, ventas.fecha, ventas.vendedor, ventas.id, GROUP_CONCAT(	productos.codigo, '..',  productos.descripcion,'..',  productos.precioVenta, '..', productos_vendidos.cantidad SEPARATOR '__') AS productos FROM ventas INNER JOIN productos_vendidos ON productos_vendidos.id_venta = ventas.id INNER JOIN productos ON productos.id = productos_vendidos.id_producto GROUP BY ventas.id ORDER BY ventas.id LIMIT :inicar,:narticulos";
+            $productosS=$base_de_datos->prepare($sql_articulos);
+            $productosS->bindParam(':inicar',$iniciar,PDO::PARAM_INT);
+            $productosS->bindParam(':narticulos',$articulos_x_pagina,PDO::PARAM_INT);
+            $productosS->execute();
+
+            $resultado_articulos = $productosS->fetchAll();
+            ?>
+
                     <br>
                     <div class="table-responsive margen-tabla">
                         <table class="table table-hover" id="tablee">
@@ -193,7 +222,7 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($ventas as $venta) { ?>
+                                <?php foreach ($resultado_articulos as $venta) { ?>
                                     <tr>
                                         <td><?php echo $venta->id ?></td>
                                         <td><?php echo $venta->fecha?><br>
@@ -226,8 +255,43 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                     </tr>
                                 <?php } ?>
                             </tbody>
+                            
                         </table>
+                         <div class="d-flex flex-row-reverse">
+                    <nav aria-label="Page navigation example">
+
+                    <ul class="pagination ">
+                        <li class="page-item
+                        <?php echo $_GET['pagina']<=1? 'disabled':''?>
+                        ">
+
+                        <a class="page-link" 
+                        href="reportes.php?pagina=<?php echo $_GET['pagina']-1 ?>">
+                        Anterior
+                        </a>
+                        </li>
+
+                    <?php for($i=0;$i<$paginas;$i++):?>
+
+                    <li class="page-item <?php echo $_GET['pagina']==$i+1 ?'active':'' ?>">
+                        <a class="page-link" 
+                        href="reportes.php?pagina=<?php echo $i+1 ?>">
+                        <?php echo $i+1 ?>
+                        </a>
+                    </li>
+                    <?php endfor ?>
+
+
+
+                    <li class="page-item
+                    <?php echo $_GET['pagina']>=$paginas? 'disabled':''?>
+                    "><a class="page-link"
+                    href="reportes.php?pagina=<?php echo $_GET['pagina']+1 ?>">Siguiente</a></li>
+                    </ul>
+                </nav>  
                     </div>
+                    </div>
+                    
                 </div>
             </div>
         </main>

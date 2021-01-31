@@ -77,7 +77,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="reportes.php">
+                            <a href="reportes.php?pagina=1">
                                 <i class="fa fa-chart-line"></i>
                                 <span class="menu-text">Reportes</span>
                             </a>
@@ -89,17 +89,17 @@
                             </a>
                         </li>
                         <li>
-                            <a href="apartados.php">
+                            <a href="apartado.php">
                                 <i class="fa fa-cart-plus"></i>
                                 <span class="menu-text">Apartados</span>
                             </a>
                         </li>
-                        <li>
+                        <!--<li>
                             <a href="devoluciones.php">
                                 <i class="fa fa-sync-alt"></i>
                                 <span class="menu-text">Devoluciones</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li>
                             <a href="Usuario-Administrador.php">
                                 <i class="fa fa-users"></i>
@@ -230,7 +230,7 @@
                             </div>
                             <br><br>
                             <input class="btn boton-actualiza" type="submit" value="Guardar">
-                            <a class="btn boton-cancelar" href="./Inventario-Administrador.php">Cancelar</a>
+                            <a class="btn boton-cancelar" href="./Inventario-Administrador.php?pagina=1.php">Cancelar</a>
                         </form>
                         <br>
                     </div>

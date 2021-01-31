@@ -77,7 +77,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="reportes.php">
+                            <a href="reportes.php?pagina=1">
                                 <i class="fa fa-chart-line"></i>
                                 <span class="menu-text">Reportes</span>
                             </a>
@@ -89,19 +89,19 @@
                             </a>
                         </li>
                         <li>
-                            <a href="apartados.php">
+                            <a href="apartado.php">
                                 <i class="fa fa-cart-plus"></i>
                                 <span class="menu-text">Apartados</span>
                             </a>
                         </li>
-                        <li>
+                        <!--<li>
                             <a href="devoluciones.php">
                                 <i class="fa fa-sync-alt"></i>
                                 <span class="menu-text">Devoluciones</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li>
-                            <a href="Usuario-Administrador.php">
+                            <a href="Usuario-Administrador.php?pagina=1">
                                 <i class="fa fa-users"></i>
                                 <span class="menu-text">Usuarios</span>
                             </a>
@@ -222,15 +222,15 @@
                                 <input value="<?php echo $usuario->nombre_com ?>"   id="nombre_com" name="nombre_com" cols="30" rows="5" class="form-control" >
                                 <input value="<?php echo $usuario->puesto ?>"  id="puesto" name="puesto" cols="30" rows="5" class="form-control" >
                                 <input value="<?php echo $usuario->id_caja ?>" class="form-control" name="id_caja"  type="text" id="id_caja" >
-                                <input value="<?php echo $usuario->genero ?>" class="form-control"   name="genero"  type="text" id="genero" >
-                                <input value="<?php echo $usuario->direccion ?>" class="form-control" name="direccion"  type="text" id="direccion" placeholder="Precio de venta">
-                                <input value="<?php echo $usuario->tel ?>" class="form-control" name="tel"  type="text" id="tel" placeholder="Precio de compra">
-                                <input value="<?php echo $usuario->usuario ?>" class="form-control" name="usuario"  type="text" id="usuario" placeholder="Cantidad o existencia">
-                                <input value="<?php echo $usuario->contra ?>" class="form-control"  name="contra"  type="text" id="contra" placeholder="Proveedor" >
+                                <input value="<?php echo $usuario->genero ?>" class="form-control"  readonly name="genero"  type="text" id="genero" >
+                                <input value="<?php echo $usuario->direccion ?>" class="form-control" name="direccion"  type="text" id="direccion" placeholder="Dirección">
+                                <input value="<?php echo $usuario->tel ?>" class="form-control" name="tel"  type="text" id="tel" placeholder="Número telefonico">
+                                <input value="<?php echo $usuario->usuario ?>" class="form-control" name="usuario"  type="text" id="usuario" placeholder="Nombre de usuario">
+                                <input value="<?php echo $usuario->contra ?>" class="form-control"  name="contra"  type="text" id="contra" placeholder="Contraseña" >
                             </div>
                             <br><br>
                             <input class="btn boton-actualiza" type="submit" value="Guardar">
-                            <a class="btn boton-cancelar" href="./Usuario-Administrador.php">Cancelar</a>
+                            <a class="btn boton-cancelar" href="./Usuario-Administrador.php?pagina=1.php">Cancelar</a>
                         </form>
                         <br>
                     </div>

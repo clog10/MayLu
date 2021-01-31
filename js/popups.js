@@ -46,3 +46,4 @@ btnCerrarPopup2.addEventListener('click', function(e2){
 		  document.getElementsByClassName("fondo_transparente")[0].style.display = "none";
 		});
 	  }
+

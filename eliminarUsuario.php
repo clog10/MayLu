@@ -5,7 +5,7 @@ include_once "base_de_datos.php";
 $sentencia = $base_de_datos->prepare("DELETE FROM usuario WHERE id_usuario = ?;");
 $resultado = $sentencia->execute([$id_usuario]);
 if($resultado === TRUE){
-	header("Location: ./Usuario-Administrador.php");
+	header("Location: ./Usuario-Administrador.php?pagina=1");
 	exit;
 }
 else echo "Algo salió mal";

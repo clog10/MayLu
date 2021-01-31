@@ -1,6 +1,8 @@
 <?php
-include_once "base_de_datos.php";
-$sentencia = $base_de_datos->query("SELECT * FROM productos;");
+//include_once "base_de_datos.php";
+//$sentencia = $base_de_datos->query("SELECT * FROM productos;");
+include("base.php");
+$datos="SELECT * FROM apartados";
 ?>
 
 <!DOCTYPE html>
@@ -34,43 +36,52 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
-
-<body>
-
+<from action="apartadoc.php" method="post">
     <div id="container">
         <div class="overlay" id="overlay">
             <div class="popup" id="popup">
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                 <h3>Apartar</h3>
                 <h4>Ingresa los datos</h4>
-                <form action="">
+               <form action="apartadoc.php" method="post">
                     <div class="contenedor-etiquetas">
                         <h4>Vencimiento</h4>
                         <h4>Modelo</h4>
                         <h4>Cliente</h4>
-                        <h4>Número</h4>
+                        <h4>Talla</h4>
                         <h4>Color</h4>
                         <h4>Precio</h4>
                         <h4>Abono</h4>
                         <h4>Saldo</h4>
                     </div>
+                     <?php 
+                    $vencimiento =(new datetime("+ 15 days"))->format("y/m/d");
+                    
+                    ?>
                     <div class="contenedor-inputs">
-                        <input type="date" id="fecha" onclick="">
+                         <input type="datetime" readonly name="fecha" value="<?=$vencimiento?>">
                         <input type="text" name="modelo" placeholder="Modelo">
-                        <input type="text" name="cliente" placeholder="Nombre del cliente">
-                        <input type="text" name="talla" placeholder="Numero">
-                        <input type="text" name="color" placeholder="Color">
-                        <input type="text" name="precio" placeholder="Precio">
-                        <input type="text" name="abono" placeholder="¿Cuanto abona el cliente?">
-                        <input type="text" name="saldo" placeholder="¿Cuanto resta el cliente?">
+                        <input type="text" name="cliente" placeholder="Nombre del cliente" onkeypress="return sololetras(event)">
+                        <select name="numero" class="select">
+                            <option selected value="0"> Elige una opción </option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                        </select>
+                        <input type="text" name="color" placeholder="Color" onkeypress="return sololetras(event)">
+                        <input type="text" name="precio" placeholder="Precio" onkeypress="return solonumeros(event)">
+                        <input type="text" name="abono" placeholder="¿Cuanto abona el cliente?" onkeypress="return solonumeros(event)">
+                        <input type="text" name="saldo" placeholder="¿Cuanto resta el cliente?" onkeypress="return solonumeros(event)">
                     </div>
-                    <br>
+                    
                     <input type="submit" class="btn-submit" name="guardar" value="Guardar">
                 </form>
+                
             </div>
         </div>
     </div>
-
+  
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
@@ -91,7 +102,7 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
                         <!-- sidebar-header  -->
                         <div class="sidebar-item sidebar-header d-flex flex-nowrap">
                             <div class="user-pic">
-                                <img class="img-responsive img-rounded" src="img/user.png" alt="User picture">
+                                <img lass="img-responsive img-rounded" src="img/user.png" alt="User picture">
                             </div>
                             <div class="user-info">
                                 <span class="user-name"><strong>Carlos
@@ -111,49 +122,49 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
                                     <span>General</span>
                                 </li>
                                 <li>
-                                    <a href="principal-admin.html">
+                                    <a href="principal-admin.php">
                                         <i class="fa fa-tachometer-alt"></i>
                                         <span class="menu-text">Dashboard</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Punto-Venta-Admin.html">
+                                    <a href="Punto-Venta-Admin.php">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span class="menu-text">Punto de Venta</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Inventario-Administrador.html">
+                                    <a href="Inventario-Administrador.php?pagina=1">
                                         <i class="fa fa-warehouse"></i>
                                         <span class="menu-text">Inventario</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="reportes.html">
+                                    <a href="reportes.php?pagina=1">
                                         <i class="fa fa-chart-line"></i>
                                         <span class="menu-text">Reportes</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="AdminCaja.html">
+                                    <a href="AdminCaja.php">
                                         <i class="fa fa-cash-register"></i>
                                         <span class="menu-text">Caja</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="devoluciones.html">
-                                        <i class="fa fa-sync-alt"></i>
-                                        <span class="menu-text">Devoluciones</span>
+                                    <a href="apartado.php">
+                                    <i class="fa fa-cart-plus"></i>
+                                        <span class="menu-text">Apartados</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Usuario-Administrador.html">
+                                    <a href="Usuario-Administrador.php?pagina=1">
                                         <i class="fa fa-users"></i>
                                         <span class="menu-text">Usuarios</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="Proveedor-Administrador.html">
+                                    <a href="Proveedor-Administrador.php?pagina=1">
                                         <i class="fa fa-truck"></i>
                                         <span class="menu-text">Proveedores</span>
                                     </a>
@@ -244,21 +255,27 @@ $sentencia = $base_de_datos->query("SELECT * FROM productos;");
                             </thead>
 
                             <tbody>
+                               <?php  $resultado=mysqli_query($conexion, $datos);
+                                while($row=mysqli_fetch_assoc($resultado)){
+                                ?>
                                 <tr>
-                                    <td>10/02/2021</td>
-                                    <td>4500MX</td>
-                                    <td>Alma Perez</td>
-                                    <td>22</td>
-                                    <td>Rojo</td>
-                                    <td>$200</td>
-                                    <td>$100</td>
-                                    <td>$100</td>
+                                    <td><?php echo $row['fecha'] ?></td>
+                                    <td><?php echo $row['modelo'] ?></td>
+                                    <td><?php echo $row['cliente'] ?></td>
+                                    <td><?php echo $row['numero'] ?></td>
+                                    <td><?php echo $row['color'] ?></td>
+                                    <td><?php echo $row['precio'] ?></td>
+                                    <td><?php echo $row['abono'] ?></td>
+                                    <td><?php echo $row['saldo'] ?></td>
                                     <td>
                                         <button id="completo" class=" completo btn">
                                             <i class="fas fa-clipboard-check"></i>
                                         </button>
                                     </td>
                                 </tr>
+                                <?php
+                                } mysqli_free_result($resultado);
+                                ?>
                             </tbody>
                         </table>
                         <br>

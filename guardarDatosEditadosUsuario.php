@@ -30,7 +30,7 @@ $sentencia = $base_de_datos->prepare("UPDATE usuario SET nombre_com = ?, puesto 
 $resultado = $sentencia->execute([$nombre_com, $puesto, $id_caja,$genero, $direccion, $tel, $usuario,$contra, $id_usuario]);
 
 if($resultado === TRUE){
-	header("Location: ./Usuario-Administrador.php");
+	header("Location: ./Usuario-Administrador.php?pagina=1.php" );
 	exit;
 }
 else echo "Algo salió mal. Por favor verifica que la tabla exista, así como el ID del producto";

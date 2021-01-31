@@ -6,6 +6,7 @@ session_start();
 $total = $_POST["total"];
 include_once "base_de_datos.php";
 
+$vendedor = "Nancy Yesenia";
 $ahora = date_default_timezone_set("America/Mexico_City");
 $ahora = date("Y-m-d H:i:s");
 
@@ -51,7 +52,7 @@ function file_get_contents_curl($url)
 	return $data;
 }
 
-$html = file_get_contents("http://localhost/MayLu/ticketpdf.php?idventa=" . $idVenta);
+$html = file_get_contents("http://localhost:8080/mal/MayLu/ticketpdf.php?idventa=" . $idVenta);
 
 $options = new Options();
 $options->set('isRemoteEnabled', TRUE);
@@ -75,3 +76,5 @@ $pdf->stream('Reporte-de-Venta.pdf');
 header("Location: ./Punto-Venta-Vendedor.php?status=1");
 
 ?>
+
+

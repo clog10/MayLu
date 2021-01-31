@@ -84,13 +84,13 @@ function redondear($valor, $decimales)
                             </a>
                         </li>
                         <li>
-                            <a href="Inventario-Administrador.php">
+                            <a href="Inventario-Administrador.php?pagina=1">
                                 <i class="fa fa-warehouse"></i>
                                 <span class="menu-text">Inventario</span>
                             </a>
                         </li>
                         <li>
-                            <a href="reportes.php">
+                            <a href="reportes.php?pagina=1">
                                 <i class="fa fa-chart-line"></i>
                                 <span class="menu-text">Reportes</span>
                             </a>
@@ -102,25 +102,19 @@ function redondear($valor, $decimales)
                             </a>
                         </li>
                         <li>
-                            <a href="apartados.html">
+                            <a href="apartado.php">
                                 <i class="fa fa-cart-plus"></i>
                                 <span class="menu-text">Apartados</span>
                             </a>
                         </li>
                         <li>
-                            <a href="devoluciones.html">
-                                <i class="fa fa-sync-alt"></i>
-                                <span class="menu-text">Devoluciones</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="Usuario-Administrador.php">
+                            <a href="Usuario-Administrador.php?pagina=1">
                                 <i class="fa fa-users"></i>
                                 <span class="menu-text">Usuarios</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Proveedor-Administrador.php">
+                            <a href="Proveedor-Administrador.php?pagina=1">
                                 <i class="fa fa-truck"></i>
                                 <span class="menu-text">Proveedores</span>
                             </a>
@@ -309,12 +303,12 @@ function redondear($valor, $decimales)
                                 </div>
 
                                 <h3>Vendedor: Carlos Loaeza</h3>
-                                <h3>Subtotal: $ <?php echo $subtotal; ?></h3>
-                                <h3>Iva: $ <?php echo $iva; ?></h3>
-                                <h3>Total: $<?php echo $granTotal; ?>.00</h3>
+                                <h2><strong> Total: $<?php echo $granTotal; ?>.00</strong></h2>
                                 <div class="cambio-div">
                                     <form class="formulario-cambio" name="datosrecibido">
                                         <h3>Recibido: <input type="text" class="recibidoinput" name="recibidoinput" maxlength="10" onchange="cal()" onkeyup="cal()" placeholder="Efectivo" /></h3>
+                                        <h3>Subtotal: $ <?php echo $subtotal; ?></h3>
+                                       <h3>Iva: $ <?php echo $iva; ?></h3>
                                         <h3>Cambio: <input class="cambio" type="text" name="cambio" value="$ 0.00" readonly="readonly"></h3>
                                     </form>
                                 </div>
@@ -353,6 +347,9 @@ function redondear($valor, $decimales)
 
     <script src="js/popups.js"></script>
     <script src="js/administrador/principal-admin.js"></script>
+    
+    <script src="js/almacen/AlertarEliminacion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </body>
 

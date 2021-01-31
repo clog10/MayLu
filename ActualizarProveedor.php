@@ -77,7 +77,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="reportes.php">
+                            <a href="reportes.php?pagina=1">
                                 <i class="fa fa-chart-line"></i>
                                 <span class="menu-text">Reportes</span>
                             </a>
@@ -89,17 +89,17 @@
                             </a>
                         </li>
                         <li>
-                            <a href="apartados.php">
+                            <a href="apartado.php">
                                 <i class="fa fa-cart-plus"></i>
                                 <span class="menu-text">Apartados</span>
                             </a>
                         </li>
-                        <li>
+                        <!--<li>
                             <a href="devoluciones.php">
                                 <i class="fa fa-sync-alt"></i>
                                 <span class="menu-text">Devoluciones</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li>
                             <a href="Usuario-Administrador.php">
                                 <i class="fa fa-users"></i>
@@ -107,7 +107,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="Proveedor-Administrador.php">
+                            <a href="Proveedor-Administrador.php?pagina=1">
                                 <i class="fa fa-truck"></i>
                                 <span class="menu-text">Proveedores</span>
                             </a>
@@ -216,15 +216,15 @@
                             </div>
                             <div class="contenedor-inputs-actualiza">                              
                                 <input type="text" class="form-control" name="id_proveedor" readonly value="<?php echo $proveedor->id_proveedor ?>">
-                                <input value="<?php echo $proveedor->nombre_empresa ?>"   id="nombre_empresa" name="nombre_empresa" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $proveedor->nombre_agente ?>"  id="nombre_agente" name="nombre_agente" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $proveedor->direccion ?>" class="form-control" name="direccion"  type="text" id="direccion" >
-                                <input value="<?php echo $proveedor->tel ?>" class="form-control"   name="tel"  type="text" id="tel" >
-                                <input value="<?php echo $proveedor->email ?>" class="form-control" name="email"  type="text" id="email" placeholder="Precio de venta">
+                                <input value="<?php echo $proveedor->nombre_empresa ?>"   id="nombre_empresa" name="nombre_empresa" cols="30" rows="5" class="form-control" placeholder="Nombre de la empresa"  >
+                                <input value="<?php echo $proveedor->nombre_agente ?>"  id="nombre_agente" name="nombre_agente" cols="30" rows="5" class="form-control" placeholder="Nombre del agente" >
+                                <input value="<?php echo $proveedor->direccion ?>" class="form-control" name="direccion"  type="text" id="direccion" placeholder="Dirección" >
+                                <input value="<?php echo $proveedor->tel ?>" class="form-control"   name="tel"  type="text" id="tel" placeholder="Número telefónico" >
+                                <input value="<?php echo $proveedor->email ?>" class="form-control" name="email"  type="text" id="email" placeholder="Correo electrónico">
                             </div>
                             <br><br>
                             <input class="btn boton-actualiza" type="submit" value="Guardar">
-                            <a class="btn boton-cancelar" href="./Proveedor-Administrador.php">Cancelar</a>
+                            <a class="btn boton-cancelar" href="./Proveedor-Administrador.php?pagina=1">Cancelar</a>
                         </form>
                         <br>
                     </div>

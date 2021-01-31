@@ -41,10 +41,10 @@
                                 <img class="img-responsive img-rounded" src="img/user.png" alt="User picture">
                             </div>
                             <div class="user-info">
-                                <span class="user-name"><strong>Carlos
-                                        Loaeza</strong>
+                                <span class="user-name"><strong>Nancy Yesenia
+                                        </strong>
                                 </span>
-                                <span class="user-role">Almacén</span>
+                                <span class="user-role">Vendedor</span>
                                 <span class="user-status">
                                     <i class="fa fa-circle"></i>
                                     <span>Online</span>
@@ -115,6 +115,19 @@
                 </nav>
             </div>
         </nav>
+        <div class="fondo_transparente">
+                <div class="modal">
+                    <div class="modal_titulo">ADVERTENCIA</div>
+                    <div class="modal_mensaje">
+                        <p>¿Seguro que desea salir?</p>
+                    </div>
+                    <div class="modal_botones">
+                        <a href="login.php" class="boton" id="btn-yes">SI</a>
+                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
+                    </div>
+                </div>
+            </div>
+
         <!-- contenido  -->
         <main class="page-content pt-2">
             <div id="overlay" class="overlay"></div>

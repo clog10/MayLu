@@ -24,7 +24,7 @@ $sentencia = $base_de_datos->prepare("UPDATE proveedor SET nombre_empresa = ?, n
 $resultado = $sentencia->execute([$nombre_empresa, $nombre_agente, $direccion,$tel, $email, $id_proveedor]);
 
 if($resultado === TRUE){
-	header("Location: ./Proveedor-Administrador.php");
+	header("Location: ./Proveedor-Administrador.php?pagina=1");
 	exit;
 }
 else echo "Algo salió mal. Por favor verifica que la tabla exista, así como el ID del producto";
