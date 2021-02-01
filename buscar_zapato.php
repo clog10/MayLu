@@ -42,6 +42,13 @@ $paginas = ceil($paginas);
 
         <div id="container">
             <div class="overlay" id="overlay">
+            <?php
+                $busqueda = strtolower ($_REQUEST['busqueda']);
+                if(empty($busqueda))
+                {
+                    header("location: Inventario-Administrador.php");
+                }
+            ?>
 
             <?php
                     if(!$_GET){
@@ -242,13 +249,7 @@ $paginas = ceil($paginas);
             </nav>
 
             <main class="page-content pt-2">
-            <?php
-                $busqueda = $_REQUEST['busqueda'];
-                if(empty($busqueda))
-                {
-                    header("Location:Inventario-Administrador.php");
-                }
-            ?>
+
                 <div class="fondo_transparente">
                     <div class="modal">
                         <div class="modal_titulo">ADVERTENCIA</div>
@@ -291,7 +292,7 @@ $paginas = ceil($paginas);
                 </div>
 
                 <form action="buscar_zapato.php" method="get" class="form_search">
-                    <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
+                    <input type="text" name="busqueda" id="busqueda" placeholder="Buscar" value="<?php echo $busqueda; ?>">
                     <input type="submit" value="Buscar" class="btn_search">
                 
                 </form>

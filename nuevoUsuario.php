@@ -18,7 +18,7 @@ $sentencia = $base_de_datos->prepare("INSERT INTO usuario(nombre_com, puesto, id
 $resultado = $sentencia->execute([$nombre_com, $puesto,$id_caja, $genero, $direccion, $tel, $usuario,$contra]);
 
 if($resultado === TRUE){
-	header("Location: ./Usuario-Administrador.php");
+	header("Location: ./Usuario-Administrador.php?pagina=1");
 	exit;
 }
 else echo "Algo salió mal. Por favor verifica que la tabla exista";

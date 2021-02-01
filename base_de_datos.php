@@ -1,14 +1,7 @@
 <?php
-/*
-	Pequeño, muy pequeño sistema de ventas en PHP con MySQL
-
-	@author parzibyte
-
-	No olvides visitar parzibyte.me/blog para más cosas como esta
-*/
 $contraseña = "";
 $usuario = "root";
-$nombre_base_de_datos = "ventas";
+$nombre_base_de_datos = "basemaylu";
 try{
 	$base_de_datos = new PDO('mysql:host=localhost;dbname=' . $nombre_base_de_datos, $usuario, $contraseña);
 	$base_de_datos->query("set names utf8;");

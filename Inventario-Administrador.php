@@ -284,12 +284,7 @@ $paginas = ceil($paginas);
 
                     ?>
                 </div>
-
-                <form action="buscar_zapato.php" method="get" class="form_search">
-                    <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
-                    <input type="submit" value="Buscar" class="btn_search">
                 
-                </form>
 
                 <div class=" table-responsive">
                     <br>
@@ -302,8 +297,8 @@ $paginas = ceil($paginas);
                                 <th>Descripción</th>
                                 <th>Talla</th>
                                 <th>Color</th>
-                                <th>Precio venta</th>
                                 <th>Precio compra</th>
+                                <th>Precio venta</th>
                                 <th>Existencia</th>
                                 <th>Proveedor</th>
                                 <th>Opciones</th>

@@ -1,6 +1,4 @@
 <?php
-//include_once "base_de_datos.php";
-//$sentencia = $base_de_datos->query("SELECT * FROM productos;");
 include("base.php");
 $datos="SELECT * FROM apartados";
 
@@ -64,16 +62,16 @@ $datos="SELECT * FROM apartados";
                   
                     ?>
                     <div class="contenedor-inputs">
-                         <input type="datetime" name="fecha" value="<?=$vencimiento?>">
+                         <input type="datetime" name="fecha" readonly value="<?=$vencimiento?>">
                          <select name="modelo" class="select">
                           <option selected value="0">Seleccione</option>
               <?php
-          $query = $conexion -> query ("SELECT  * FROM productos");
-          while ($valores = mysqli_fetch_array($query)) {
+                 $query = $conexion -> query ("SELECT  * FROM productos");
+                 while ($valores = mysqli_fetch_array($query)) {
             
-              echo '<option value="'.$valores['id'].'">'.$valores['codigo'].'</option>';
-          }
-        ?>
+                echo '<option value="'.$valores['id'].'">'.$valores['codigo'].'</option>';
+                 }
+            ?>
             </select>
                        
                        
@@ -169,7 +167,7 @@ $datos="SELECT * FROM apartados";
                                 </li>
                                 <li>
                                     <a href="apartado.php">
-                                        <i class="fa fa-cart-plus"></i>
+                                    <i class="fa fa-cart-plus"></i>
                                         <span class="menu-text">Apartados</span>
                                     </a>
                                 </li>
@@ -226,6 +224,8 @@ $datos="SELECT * FROM apartados";
             </div>
 
         </nav>
+
+
         <main class="page-content pt-2">
             <div id="overlay" class="overlay"></div>
             <section id="main-content">
@@ -258,6 +258,7 @@ $datos="SELECT * FROM apartados";
                         <table class="table table-hover" id="tablee">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Fecha Vencimiento</th>
                                     <th>Modelo</th>
                                     <th>Cliente</th>
@@ -265,9 +266,9 @@ $datos="SELECT * FROM apartados";
                                     <th>Color</th>
                                     <th>Precio</th>
                                     <th>Abonó</th>
-                                    <th>Saldo</th>
-                                    <th>Marcar como completado</th>
+                                    <th>Saldo</th>                                    
                                     <th>Dias restantes</th>
+                                    <th>Opciones</th>
                                 </tr>
                             </thead>
 
@@ -279,29 +280,40 @@ $datos="SELECT * FROM apartados";
                                     $fechavencido=new datetime($row['fecha']);
                                     $dias=$fecha_actual->diff($fechavencido)->format('%r%a');
                                     
+                                    
                                     if($dias<=0){
-                                        echo 'ha vencido';
-                                    }elseif($dias <=2){
-                                        echo 'Está a ' . $dias . ' días de vencer';
+                                        echo '<p class="alert alert-danger agileits" role="alert"> El apartado # ', $row['id_apartado'], ' ha vencido' ;
+                                        
+                                    }elseif($dias <=3){
+                                        echo '<p class="alert alert-warning agileits" role="alert"> El apartado # ', $row['id_apartado'], ' está a ' . $dias . ' días de vencer.' ;
+
+
                                     }
                                 ?>
                                 
                                 <tr>
+                                    <td><?php echo $row['id_apartado'] ?></td>
                                     <td><?php echo $row['fecha'] ?></td>
                                     <td><?php echo $row['modelo'] ?></td>
                                     <td><?php echo $row['cliente'] ?></td>
                                     <td><?php echo $row['numero'] ?></td>
                                     <td><?php echo $row['color'] ?></td>
-                                    <td><?php echo $row['precio'] ?></td>
-                                    <td><?php echo $row['abono'] ?></td>
-                                    <td><?php echo $row['saldo'] ?></td>
+                                    <td>$<?php echo $row['precio'] ?>.00</td>
+                                    <td>$<?php echo $row['abono'] ?>.00</td>
+                                    <td>$<?php echo $row['saldo'] ?>.00</td>
+                                    <td ><?php echo $dias ?> dias de vencimiento</td>
                                     <td>
-                                        <a id="completar" class="completo btn" href="Borra.php?id_apart=<?php echo $row["id_apartado"];?>">
-                                        	<i class="fas fa-clipboard-check"></i>
+                                        <a  class="btn btn-danger" title="Marcar como completado" id="completar" class="completo btn" href="Borra.php?id_apart=<?php echo $row["id_apartado"];?>">
+                                        	<i class="fas fa-clipboard-check"></i> Terminado
+                                        </a>
+                                        <br>
+                                        <br>
+                                        <a  class="btn btn-warning" title="Actualizar apartado" id="completar" class="completo btn" href="ActualizarApartado.php?id_apartado=<?php echo $row["id_apartado"];?>">
+                                        	<i class="fa fa-edit"></i> Abonar
                                         </a>
                                         
                                     </td>
-                                    <td><?php echo $dias ?> dias en vencer</td>
+                                    
                                     
                                 </tr>
                                 <?php

@@ -304,7 +304,7 @@ $paginas = ceil($paginas);
                                         <td><?php echo $proveedor->email ?></td>
                                         <td>
                                             <a class="btn btn-warning" href="<?php echo "ActualizarProveedor.php?id_proveedor=" . $proveedor->id_proveedor ?>"><i class="fa fa-edit"></i> Editar</a>
-                                            <a class="btn btn-danger" href="<?php echo "eliminarProveedor.php?id_proveedor=" . $proveedor->id_proveedor ?>"><i class="fas fa-trash"></i> Eliminar</a>
+                                            
                                         </td>
                                     </tr>
                                 <?php } ?>

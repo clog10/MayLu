@@ -89,12 +89,11 @@
                             </a>
                         </li>
                         <li>
-                            <a href="apartados.php">
+                            <a href="apartado.php">
                                 <i class="fa fa-cart-plus"></i>
                                 <span class="menu-text">Apartados</span>
                             </a>
                         </li>
-
                         <li>
                             <a href="Usuario-Administrador.php?pagina=1">
                                 <i class="fa fa-users"></i>
@@ -147,13 +146,13 @@
 
 
         <?php
-        if (!isset($_GET["id_caja"])) exit();
-        $id_caja = $_GET["id_caja"];
+        if (!isset($_GET["id_apartado"])) exit();
+        $id_apartado = $_GET["id_apartado"];
         include_once "base_de_datos.php";
-        $sentencia = $base_de_datos->prepare("SELECT * FROM caja WHERE id_caja = ?;");
-        $sentencia->execute([$id_caja]);
-        $caja = $sentencia->fetch(PDO::FETCH_OBJ);
-        if ($caja === FALSE) {
+        $sentencia = $base_de_datos->prepare("SELECT * FROM apartados WHERE id_apartado = ?;");
+        $sentencia->execute([$id_apartado]);
+        $apar = $sentencia->fetch(PDO::FETCH_OBJ);
+        if ($apar === FALSE) {
             echo "¡No existe algún producto con ese ID!";
             exit();
         }
@@ -189,31 +188,43 @@
                         </a>
                     </div>
                     <header id="encabezado">
-                        <img id="img-inventario" class="img-responsive img-rounded" src="img/caja.png" height="150" width="150" alt="Inventario picture">
+                        <img id="img-inventario" class="img-responsive img-rounded" src="img/car.png" height="150" width="150" alt="Inventario picture">
                         <br>
                         <br>
-                        <h1>Caja</h1>
+                        <h1>Apartados</h1>
                     </header>
 
                     <div class="actualiza">
                     <br>
-                        <h3>Actualizar Caja</h3>
+                        <h3>Actualizar Apartado</h3>
                         <h4>Ingresa los datos</h4>
                         <h5><label>*</label> Campo obligatorio </h5>
-                        <form method="post" action="guardarDatosEditadosCaja.php">
+                        <form method="post" action="guardarDatosEditadosApartado.php">
                             <div class="contenedor-etiquetas-actualiza">
-                                <h4> ID Caja</h4>
-                                <h4><label>*</label> Nombre o codigo</h4>
-                                <h4><label>*</label> Efectivo</h4>
+                                <h4> ID Apartado</h4>
+                                <h4><label></label> Fecha</h4>
+                                <h4><label></label> Modelo</h4>
+                                <h4><label></label> Cliente</h4>
+                                <h4><label></label> Talla</h4>
+                                <h4><label></label> Color</h4>
+                                <h4><label></label> Precio $</h4>
+                                <h4><label>*</label> Abono $</h4>
+                                <h4><label>*</label> Saldo $</h4>
                             </div>
                             <div class="contenedor-inputs-actualiza">                              
-                                <input type="text" class="form-control" name="id_caja" readonly value="<?php echo $caja->id_caja ?>">
-                                <input value="<?php echo $caja->nombre_codigo ?>"  id="nombre_codigo" name="nombre_codigo" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $caja->efectivo ?>"  id="efectivo" name="efectivo" cols="30" rows="5" class="form-control" >
+                                <input type="text" class="form-control" name="id_apartado" readonly value="<?php echo $apar->id_apartado ?>">
+                                <input value="<?php echo $apar->fecha ?>"  id="fecha" readonly name="fecha" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $apar->modelo?>"  id="modelo" readonly name="modelo" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $apar->cliente?>"  id="cliente" readonly name="cliente" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $apar->numero?>"  id="numero" readonly name="numero" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $apar->color?>"  id="color" readonly name="color" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $apar->precio?>"  id="precio" readonly name="precio" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $apar->abono?>"  id="abono"  name="abono" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $apar->saldo?>"  id="saldo"  name="saldo" cols="30" rows="5" class="form-control" >
                             </div>
                             <br><br>
                             <input class="btn boton-actualiza" type="submit" value="Guardar">
-                            <a class="btn boton-cancelar" href="./AdminCaja.php">Cancelar</a>
+                            <a class="btn boton-cancelar" href="./apartado.php">Cancelar</a>
                         </form>
                         <br>
                     </div>
