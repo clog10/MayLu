@@ -3,6 +3,7 @@
 //$sentencia = $base_de_datos->query("SELECT * FROM productos;");
 include("base.php");
 $datos="SELECT * FROM apartados";
+
 ?>
 
 <!DOCTYPE html>
@@ -36,33 +37,48 @@ $datos="SELECT * FROM apartados";
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
-<from action="apartadoc.php" method="post">
+
+<body>
+
     <div id="container">
         <div class="overlay" id="overlay">
             <div class="popup" id="popup">
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                 <h3>Apartar</h3>
                 <h4>Ingresa los datos</h4>
-               <form action="apartadoc.php" method="post">
+                <form action="apartadoc.php" method="post">
                     <div class="contenedor-etiquetas">
                         <h4>Vencimiento</h4>
                         <h4>Modelo</h4>
                         <h4>Cliente</h4>
-                        <h4>Talla</h4>
+                        <h4>Número</h4>
                         <h4>Color</h4>
                         <h4>Precio</h4>
                         <h4>Abono</h4>
                         <h4>Saldo</h4>
                     </div>
-<<<<<<< HEAD
                      <?php 
-                    $vencimiento =(new datetime("+ 15 days"))->format("y/m/d");
                     
+                    
+                    $vencimiento =(new datetime("+ 15 days"))->format("y/m/d");
+                  
                     ?>
                     <div class="contenedor-inputs">
-                         <input type="datetime" readonly name="fecha" value="<?=$vencimiento?>">
-                        <input type="text" name="modelo" placeholder="Modelo">
+                         <input type="datetime" name="fecha" value="<?=$vencimiento?>">
+                         <select name="modelo" class="select">
+                          <option selected value="0">Seleccione</option>
+              <?php
+          $query = $conexion -> query ("SELECT  * FROM productos");
+          while ($valores = mysqli_fetch_array($query)) {
+            
+              echo '<option value="'.$valores['id'].'">'.$valores['codigo'].'</option>';
+          }
+        ?>
+            </select>
+                       
+                       
                         <input type="text" name="cliente" placeholder="Nombre del cliente" onkeypress="return sololetras(event)">
+                        
                         <select name="numero" class="select">
                             <option selected value="0"> Elige una opción </option>
                             <option value="23">23</option>
@@ -70,31 +86,18 @@ $datos="SELECT * FROM apartados";
                             <option value="25">25</option>
                             <option value="26">26</option>
                         </select>
-=======
-                    <?php 
-                    $vencimiento =(new datetime("+ 15 days"))->format("d/m/y");
-                    echo ''.$vencimiento;
-                    ?>
-
-                    <div class="contenedor-inputs">
-                        
-                        <input type="text" name="modelo" placeholder="Modelo">
-                        <input type="text" name="cliente" placeholder="Nombre del cliente" onkeypress="return sololetras(event)">
-                        <input type="text" name="talla" placeholder="Numero" onkeypress="return solonumeros(event)">
->>>>>>> 9009a11bb1ec8ab9605cfd869e0bf575d9f5a884
                         <input type="text" name="color" placeholder="Color" onkeypress="return sololetras(event)">
                         <input type="text" name="precio" placeholder="Precio" onkeypress="return solonumeros(event)">
                         <input type="text" name="abono" placeholder="¿Cuanto abona el cliente?" onkeypress="return solonumeros(event)">
                         <input type="text" name="saldo" placeholder="¿Cuanto resta el cliente?" onkeypress="return solonumeros(event)">
                     </div>
                     
-                    <input type="submit" class="btn-submit" name="guardar" value="Guardar">
+                    <input type="submit" class="btn-submit" name="guardar" id="alerta" value="Guardar">
                 </form>
-                
             </div>
         </div>
     </div>
-  
+
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
@@ -115,7 +118,7 @@ $datos="SELECT * FROM apartados";
                         <!-- sidebar-header  -->
                         <div class="sidebar-item sidebar-header d-flex flex-nowrap">
                             <div class="user-pic">
-                                <img lass="img-responsive img-rounded" src="img/user.png" alt="User picture">
+                                <img class="img-responsive img-rounded" src="img/user.png" alt="User picture">
                             </div>
                             <div class="user-info">
                                 <span class="user-name"><strong>Carlos
@@ -166,7 +169,7 @@ $datos="SELECT * FROM apartados";
                                 </li>
                                 <li>
                                     <a href="apartado.php">
-                                    <i class="fa fa-cart-plus"></i>
+                                        <i class="fa fa-cart-plus"></i>
                                         <span class="menu-text">Apartados</span>
                                     </a>
                                 </li>
@@ -229,7 +232,7 @@ $datos="SELECT * FROM apartados";
 
                 <article>
                     <div id="divcerrar">
-                        <button class="btn-tiny btn-danger">
+                        <button id="" class="btn-tiny btn-danger" >
                             Cerrar Sesión <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -264,13 +267,25 @@ $datos="SELECT * FROM apartados";
                                     <th>Abonó</th>
                                     <th>Saldo</th>
                                     <th>Marcar como completado</th>
+                                    <th>Dias restantes</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                               <?php  $resultado=mysqli_query($conexion, $datos);
+                             <?php  $resultado=mysqli_query($conexion, $datos);
+                                    
                                 while($row=mysqli_fetch_assoc($resultado)){
+                                    $fecha_actual=new DateTime(date('Y-m-d'));
+                                    $fechavencido=new datetime($row['fecha']);
+                                    $dias=$fecha_actual->diff($fechavencido)->format('%r%a');
+                                    
+                                    if($dias<=0){
+                                        echo 'ha vencido';
+                                    }elseif($dias <=2){
+                                        echo 'Está a ' . $dias . ' días de vencer';
+                                    }
                                 ?>
+                                
                                 <tr>
                                     <td><?php echo $row['fecha'] ?></td>
                                     <td><?php echo $row['modelo'] ?></td>
@@ -281,13 +296,17 @@ $datos="SELECT * FROM apartados";
                                     <td><?php echo $row['abono'] ?></td>
                                     <td><?php echo $row['saldo'] ?></td>
                                     <td>
-                                        <button id="completo" class=" completo btn">
-                                            <i class="fas fa-clipboard-check"></i>
-                                        </button>
+                                        <a id="completar" class="completo btn" href="Borra.php?id_apart=<?php echo $row["id_apartado"];?>">
+                                        	<i class="fas fa-clipboard-check"></i>
+                                        </a>
+                                        
                                     </td>
+                                    <td><?php echo $dias ?> dias en vencer</td>
+                                    
                                 </tr>
                                 <?php
                                 } mysqli_free_result($resultado);
+                             
                                 ?>
                             </tbody>
                         </table>
@@ -302,6 +321,11 @@ $datos="SELECT * FROM apartados";
 
     </div>
 
+    <script>
+        $("#completar").click(function (){        				 			 
+			alertify.alert('Se hizo el apartado', 'Gracias!', function(){alertify.success('Ok');});
+    	});
+    </script>
     <!-- page-wrapper -->
 
     <!-- using online scripts -->
@@ -313,13 +337,14 @@ $datos="SELECT * FROM apartados";
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
         </script>
     <script src="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-
-    <!-- using local scripts -->
-    <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script> -->
-
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="JQuery/jquery-3.3.1.min.js"></script>	 
+	<!-- Popper.js-->  
+    <script src="Popper/popper.min.js"></script>
+    <!-- Plugin Sweet alert -->  
+    <script src="plugins/sweetalert/sweetalert.min.js"></script>  		  
+	<!-- Plugins Alertify -->  
+    <script src="plugins/alertifyjs/js/alertify.min.js"></script> 
     <script src="js/popups.js"></script>
     <script src="js/almacen/principal-almacen.js"></script>
     <script src="js/administrador/validacion.js"></script>
