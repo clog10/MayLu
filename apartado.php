@@ -54,6 +54,7 @@ $datos="SELECT * FROM apartados";
                         <h4>Abono</h4>
                         <h4>Saldo</h4>
                     </div>
+<<<<<<< HEAD
                      <?php 
                     $vencimiento =(new datetime("+ 15 days"))->format("y/m/d");
                     
@@ -69,6 +70,18 @@ $datos="SELECT * FROM apartados";
                             <option value="25">25</option>
                             <option value="26">26</option>
                         </select>
+=======
+                    <?php 
+                    $vencimiento =(new datetime("+ 15 days"))->format("d/m/y");
+                    echo ''.$vencimiento;
+                    ?>
+
+                    <div class="contenedor-inputs">
+                        
+                        <input type="text" name="modelo" placeholder="Modelo">
+                        <input type="text" name="cliente" placeholder="Nombre del cliente" onkeypress="return sololetras(event)">
+                        <input type="text" name="talla" placeholder="Numero" onkeypress="return solonumeros(event)">
+>>>>>>> 9009a11bb1ec8ab9605cfd869e0bf575d9f5a884
                         <input type="text" name="color" placeholder="Color" onkeypress="return sololetras(event)">
                         <input type="text" name="precio" placeholder="Precio" onkeypress="return solonumeros(event)">
                         <input type="text" name="abono" placeholder="¿Cuanto abona el cliente?" onkeypress="return solonumeros(event)">

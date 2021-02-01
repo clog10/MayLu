@@ -3,8 +3,6 @@ include_once "base_de_datos.php";
 $sentencia = $base_de_datos->query("SELECT * FROM productos;");
 
 
-
-
 $articulos_x_pagina =4;
 $total_articulos_bd = $sentencia->rowCount();
 $paginas = $total_articulos_bd/4;
@@ -244,6 +242,13 @@ $paginas = ceil($paginas);
             </nav>
 
             <main class="page-content pt-2">
+            <?php
+                $busqueda = $_REQUEST['busqueda'];
+                if(empty($busqueda))
+                {
+                    header("Location:Inventario-Administrador.php");
+                }
+            ?>
                 <div class="fondo_transparente">
                     <div class="modal">
                         <div class="modal_titulo">ADVERTENCIA</div>
