@@ -44,6 +44,7 @@ $datos="SELECT * FROM apartados";
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                 <h3>Apartar</h3>
                 <h4>Ingresa los datos</h4>
+                <h5><label>*</label> Campos obligatorios</h5>
                 <form action="apartadoc.php" method="post">
                     <div class="contenedor-etiquetas">
                         <h4>Vencimiento</h4>
@@ -244,14 +245,13 @@ $datos="SELECT * FROM apartados";
                     <header id="encabezado">
                         <img id="img-inventario" class="img-responsive img-rounded" src="img/car.png" height="150"
                             width="150" alt="Inventario picture">
-                        <br>
-                        <br>
+
                         <h1>Apartados</h1>
                     </header>
 
                     <div id="container1">
                         <div>
-                            <a href="#" id="btn-abrir-popup" class="btn btn-success" data-toggle="modal">Apartar</a>
+                            <button href="#" id="btn-abrir-popup"  style='width:200px; height:70px; FONT-SIZE: 20pt'class="btn btn-success" data-toggle="modal">Apartar</button>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -284,7 +284,7 @@ $datos="SELECT * FROM apartados";
                                     if($dias<=0){
                                         echo '<p class="alert alert-danger agileits" role="alert"> El apartado # ', $row['id_apartado'], ' ha vencido' ;
                                         
-                                    }elseif($dias <=3){
+                                    }elseif($dias <=5){
                                         echo '<p class="alert alert-warning agileits" role="alert"> El apartado # ', $row['id_apartado'], ' está a ' . $dias . ' días de vencer.' ;
 
 
