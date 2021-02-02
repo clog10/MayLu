@@ -211,7 +211,7 @@
                         <h3>Actualizar Apartado</h3>
                         <h4>Ingresa los datos</h4>
                         <h5><label>*</label> Campo obligatorio </h5>
-                        <form method="post" action="guardarDatosEditadosApartado.php">
+                        <form method="post" action="guardarDatosEditadosApartado.php" name="datosrecibido">
                             <div class="contenedor-etiquetas-actualiza">
                                 <h4> ID Apartado</h4>
                                 <h4><label></label> Fecha</h4>
@@ -220,7 +220,8 @@
                                 <h4><label></label> Talla</h4>
                                 <h4><label></label> Color</h4>
                                 <h4><label></label> Precio $</h4>
-                                <h4><label>*</label> Abono $</h4>
+                                <h4><label></label> Abonado $</h4>
+                                <h4><label>*</label> Abonar</h4>
                                 <h4><label>*</label> Saldo $</h4>
                             </div>
                             <div class="contenedor-inputs-actualiza">
@@ -231,13 +232,27 @@
                                 <input value="<?php echo $apar->numero ?>" id="numero" readonly name="numero" cols="30" rows="5" class="form-control">
                                 <input value="<?php echo $apar->color ?>" id="color" readonly name="color" cols="30" rows="5" class="form-control">
                                 <input value="<?php echo $apar->precio ?>" id="precio" readonly name="precio" cols="30" rows="5" class="form-control">
-                                <input value="<?php echo $apar->abono ?>" id="abono" name="abono" cols="30" rows="5" class="form-control">
-                                <input value="<?php echo $apar->saldo ?>" id="saldo" name="saldo" cols="30" rows="5" class="form-control">
+                                <input value="<?php echo $apar->abono ?>" id="abonado" readonly name="abonado" cols="30" rows="5" class="form-control">
+                                <input value="" id="abono" name="abono" cols="30" rows="5" class="form-control" onchange="cal()">
+                                <input value="<?php echo $apar->saldo ?>" id="saldo" name="saldo" cols="30" rows="5" class="form-control" readonly>
                             </div>
                             <br><br>
                             <input class="btn boton-actualiza" type="submit" value="Guardar">
                             <a class="btn boton-cancelar" href="./apartado.php">Cancelar</a>
                         </form>
+                        <script type="text/javascript">
+                            function cal() {
+                                try {
+                                    var a = parseInt(document.datosrecibido.precio.value),
+                                        b = parseInt(document.datosrecibido.abonado.value)
+                                        c = parseInt(document.datosrecibido.abono.value);
+                                        //resta
+                                        d = (a - b) - c;
+                                    //document.datosrecibido.saldo.value = "$ " + c + ".00";
+                                    document.datosrecibido.saldo.value = d;
+                                } catch (e) {}
+                            }
+                        </script>
                         <br>
                     </div>
                     <br>
