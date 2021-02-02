@@ -91,7 +91,7 @@ function redondear($valor, $decimales)
                         </li>
                         <li class="sidebar-dropdown">
                             <a href="#">
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-file-invoice-dollar"></i>
                                 <span class="menu-text">Reportes</span>
                                 <span class="badge badge-pill badge-warning">New</span>
                             </a>

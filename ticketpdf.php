@@ -27,7 +27,7 @@ function redondear($valor, $decimales)
 
     <div class="detalles" name="detalles">
         <?php foreach ($ventas as $venta) { ?>
-            <h3 align="center"><img src="http://localhost:8080/mal/MayLu/img/logito.jpg" width="250" height="150" alt="Img"><br>
+            <h3 align="center"><img src="http://localhost/MayLu/img/logito.jpg" width="250" height="150" alt="Img"><br>
                 Av. Juárez #49, Local 3, Centro <br>San Pablo Huixtepec, Oaxaca <br>
                 Facebook: Zapateria Ma y Lu <br>WhatsApp: 951 114 2171</h3>
             <h3 style="margin-left:60px;">Venta No. <?php echo $venta->id ?></h3>

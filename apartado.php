@@ -28,14 +28,10 @@ $datos = "SELECT * FROM apartados where saldo > '0'";
 </head>
 
 <body>
-
-
-
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <nav id="sidebar" class="sidebar-wrapper">
@@ -89,7 +85,7 @@ $datos = "SELECT * FROM apartados where saldo > '0'";
                                 </li>
                                 <li class="sidebar-dropdown">
                                     <a href="#">
-                                        <i class="fa fa-tachometer-alt"></i>
+                                        <i class="fa fa-file-invoice-dollar"></i>
                                         <span class="menu-text">Reportes</span>
                                         <span class="badge badge-pill badge-warning">New</span>
                                     </a>
@@ -169,11 +165,9 @@ $datos = "SELECT * FROM apartados where saldo > '0'";
             </div>
         </nav>
 
-
         <main class="page-content pt-2">
             <div id="overlay" class="overlay"></div>
             <section id="main-content">
-
                 <article>
                     <div id="divcerrar">
                         <button id="" class="btn-tiny btn-danger">
@@ -188,12 +182,8 @@ $datos = "SELECT * FROM apartados where saldo > '0'";
                         <br>
                         <h1>Apartados</h1>
                     </header>
-
-
                     <a href="AgregarApartado.php?modelos=1" style='width:260px; height:70px; FONT-SIZE: 20pt' id="btn-abrir-popup" class="btn btn-success">Apartar</a>
-
                     <br>
-
                     <div class="table-responsive ">
                         <table class="table table-hover" id="tablee">
                             <thead>
@@ -245,13 +235,8 @@ $datos = "SELECT * FROM apartados where saldo > '0'";
                                 <?php
                                 }
                                 mysqli_free_result($resultado);
-
                                 ?>
                             </tbody>
-
-
-
-
                             <style type="text/css">
                                 input:focus {
                                     background: green;
@@ -263,10 +248,7 @@ $datos = "SELECT * FROM apartados where saldo > '0'";
 
                 </article>
             </section>
-
-
         </main>
-
     </div>
 
     <script>
