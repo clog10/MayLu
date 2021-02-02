@@ -201,14 +201,14 @@ $modelo = $_GET["modelos"];
                     <script>
                     function buscar() {
                         var codigo = document.getElementById('modelos').value;
-                        window.location.href = ('http://localhost/MayLu/AgregarApartado.php?modelos='+codigo);
+                        window.location.href = ('AgregarApartado.php?modelos='+codigo);
                         
                     }
                     </script>
 
                     <div class="actualiza">
                         <br>
-                        <h3>Actualizar Usuario</h3>
+                        <h3>Agregar Apartado</h3>
                         <h4>Ingresa los datos</h4>
                         <h5><label>*</label> Campo obligatorio </h5>
 

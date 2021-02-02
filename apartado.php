@@ -178,7 +178,7 @@ $datos = "SELECT * FROM apartados";
                     </header>
 
                     
-                            <a href="AgregarApartado.php?modelos=1" id="btn-abrir-popup" class="btn btn-success" >Apartar</a>
+                            <a href="AgregarApartado.php?modelos=1" id="btn-abrir-popup" class="btn btn-success">Apartar</a>
                             <br>
                        
                     <div class="table-responsive">
