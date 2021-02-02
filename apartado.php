@@ -1,6 +1,6 @@
 <?php
 include("base.php");
-$datos = "SELECT * FROM apartados";
+$datos = "SELECT * FROM apartados where saldo > '0'";
 ?>
 
 <!DOCTYPE html>
@@ -237,16 +237,9 @@ $datos = "SELECT * FROM apartados";
                                         <td>$<?php echo $row['saldo'] ?>.00</td>
                                         <td><?php echo $dias ?> dias de vencimiento</td>
                                         <td>
-                                            <button class="btn btn-danger input" title="Marcar como completado" id="completar" class="completo btn">
-                                                <i class="fas fa-clipboard-check"></i> Terminado
-                                            </button>
-                                            <br>
-                                            <br>
                                             <a class="btn actualiza-tabla" title="Actualizar apartado" id="completar" class="completo btn" href="ActualizarApartado.php?id_apartado=<?php echo $row["id_apartado"]; ?>">
                                                 <i class="fa fa-edit"></i> Abonar
                                             </a>
-
-
                                         </td>
                                     </tr>
                                 <?php
