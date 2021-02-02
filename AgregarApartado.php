@@ -201,14 +201,14 @@ $modelo = $_GET["modelos"];
                     <script>
                     function buscar() {
                         var codigo = document.getElementById('modelos').value;
-                        window.location.href = ('http://localhost/MayLu/AgregarApartado.php?modelos='+codigo);
+                        window.location.href = ('AgregarApartado.php?modelos='+codigo);
                         
                     }
                     </script>
 
                     <div class="actualiza">
                         <br>
-                        <h3>Actualizar Usuario</h3>
+                        <h3>Agregar Apartado</h3>
                         <h4>Ingresa los datos</h4>
                         <h5><label>*</label> Campo obligatorio </h5>
 
@@ -219,9 +219,9 @@ $modelo = $_GET["modelos"];
                                 <h4><label>*</label> Cliente</h4>
                                 <h4><label>*</label> Número</h4>
                                 <h4><label>*</label> Color</h4>
-                                <h4><label>*</label> Precio</h4>
-                                <h4><label>*</label> Abono</h4>
-                                <h4><label>*</label> Saldo</h4>
+                                <h4><label>*</label> Precio ($)</h4>
+                                <h4><label>*</label> Abono ($)</h4>
+                                <h4><label>*</label> Saldo ($)</h4>
                             </div>
 
                             <?php
@@ -241,12 +241,7 @@ $modelo = $_GET["modelos"];
                                     echo '<option value="' . $valores['id'] . '">' . $valores['codigo'] . '</option>';
                                      }
                                 ?>
-                                    <option selected value=""><?php echo $modelo ?></option>
-
-                                </select>
-                                <input type="text" name="cliente" placeholder="Nombre del cliente"
-                                    onkeypress="return sololetras(event)" required>
-                                    <?php
+                                <?php
                                         if (!isset($_GET["modelos"])) exit();
                                         $modelos = $_GET["modelos"];
                                         include_once "base_de_datos.php";
@@ -259,14 +254,19 @@ $modelo = $_GET["modelos"];
                                          }
                                   
                                      ?>
-                                <select name="numero" class="select">
-                                    <option selected value="0"> Elige una opción </option>
-                                    <option value="<?php echo $code->talla ?>"><?php echo $code->talla ?></option>
+
+                                    <option selected value="<?php echo $code->id ?>"><?php echo $code->codigo ?></option>
 
                                 </select>
-                                <input type="text" name="color" placeholder="Color"
+                                <input type="text" name="cliente" placeholder="Nombre del cliente"
+                                    onkeypress="return sololetras(event)" required>
+                       
+                                <input type="text" readonly name="numero" placeholder="Talla"
+                                    onkeypress="return sololetras(event)" value="<?php echo $code->talla ?>">
+
+                                <input type="text" readonly name="color" placeholder="Color"
                                     onkeypress="return sololetras(event)" value="<?php echo $code->color ?>">
-                                <input type="text" name="precio" placeholder="Precio"
+                                <input type="text" readonly name="precio" placeholder="Precio"
                                     onkeypress="return solonumeros(event)" value="<?php echo $code->precioVenta ?>">
                                 <input type="text" name="abono" placeholder="¿Cuanto abona el cliente?"
                                     onkeypress="return solonumeros(event)" onchange="cal()">
@@ -278,13 +278,15 @@ $modelo = $_GET["modelos"];
                             <br><br>
                             <input type="submit" class="btn-submit" name="guardar" id="alerta" value="Apartar">
                         </form>
+  
                         <script type="text/javascript">
                         function cal() {
                             try {
                                 var a = parseInt(document.datosrecibido.precio.value),
                                     b = parseInt(document.datosrecibido.abono.value);
                                 c = b - a;
-                                document.datosrecibido.saldo.value = "$ " + c + ".00";
+                                //document.datosrecibido.saldo.value = "$ " + c + ".00";
+                                document.datosrecibido.saldo.value = c ;
                             } catch (e) {}
                         }
                         </script>
