@@ -701,3 +701,8 @@ p {
 .detalles .cambio-div form h3 >.cambio{
     border:none;
 }
+
+
+button:hover {
+    background: red;
+}

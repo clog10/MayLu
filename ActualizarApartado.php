@@ -218,14 +218,24 @@
                                 <input value="<?php echo $apar->cliente?>"  id="cliente" readonly name="cliente" cols="30" rows="5" class="form-control" >
                                 <input value="<?php echo $apar->numero?>"  id="numero" readonly name="numero" cols="30" rows="5" class="form-control" >
                                 <input value="<?php echo $apar->color?>"  id="color" readonly name="color" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $apar->precio?>"  id="precio" readonly name="precio" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $apar->abono?>"  id="abono"  name="abono" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $apar->saldo?>"  id="saldo"  name="saldo" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $apar->precio?>"  readonly name="precio" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $apar->abono?>"  name="abono" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $apar->saldo?>"  value="$ 0.00" name="saldo" cols="30" rows="5" class="form-control" >
                             </div>
                             <br><br>
                             <input class="btn boton-actualiza" type="submit" value="Guardar">
                             <a class="btn boton-cancelar" href="./apartado.php">Cancelar</a>
                         </form>
+                            <script type="text/javascript">
+                                function cal() {
+                                    try {
+                                        var a = parseInt(document.datosrecibido.precio.value),
+                                            b = parseInt(document.datosrecibido.abono.value);
+                                        c = b - a;
+                                        document.datosrecibido.saldo.value = "$ " + c + ".00";
+                                    } catch (e) {}
+                                }
+                            </script>
                         <br>
                     </div>
                     <br>

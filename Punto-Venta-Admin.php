@@ -172,167 +172,167 @@ function redondear($valor, $decimales)
                 </div>
             </div>
 
-                <div class="col-xs-12">
+            <div class="col-xs-12">
+                <?php
+                if (isset($_GET["status"])) {
+                    if ($_GET["status"] === "1") {
+                ?>
+                        <div class="alert alert-success">
+                            <strong>¡Hecho!</strong> Venta realizada correctamente
+                        </div>
                     <?php
-                    if (isset($_GET["status"])) {
-                        if ($_GET["status"] === "1") {
+                    } else if ($_GET["status"] === "2") {
                     ?>
-                            <div class="alert alert-success">
-                                <strong>¡Hecho!</strong> Venta realizada correctamente
-                            </div>
-                        <?php
-                        } else if ($_GET["status"] === "2") {
-                        ?>
-                            <div class="alert alert-info">
-                                <strong>Venta cancelada</strong>
-                            </div>
-                        <?php
-                        } else if ($_GET["status"] === "3") {
-                        ?>
-                            <div class="alert alert-info">
-                                <strong>Hecho</strong> Producto elminado de la lista
-                            </div>
-                        <?php
-                        } else if ($_GET["status"] === "4") {
-                        ?>
-                            <div class="alert alert-warning">
-                                <strong>Error:</strong> El producto que busca no existe
-                            </div>
-                        <?php
-                        } else if ($_GET["status"] === "5") {
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Error: </strong>El producto está agotado
-                            </div>
-                        <?php
-                        } else if ($_GET["status"] === "6") {
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Alerta: </strong>El producto esta por agotarse, quedan menos de 5 productos
-                            </div>
-                        <?php
-                        } else {
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Error:</strong> Algo salió mal mientras se realizaba la venta
-                            </div>
+                        <div class="alert alert-info">
+                            <strong>Venta cancelada</strong>
+                        </div>
                     <?php
-                        }
+                    } else if ($_GET["status"] === "3") {
+                    ?>
+                        <div class="alert alert-info">
+                            <strong>Hecho</strong> Producto elminado de la lista
+                        </div>
+                    <?php
+                    } else if ($_GET["status"] === "4") {
+                    ?>
+                        <div class="alert alert-warning">
+                            <strong>Error:</strong> El producto que busca no existe
+                        </div>
+                    <?php
+                    } else if ($_GET["status"] === "5") {
+                    ?>
+                        <div class="alert alert-danger">
+                            <strong>Error: </strong>El producto está agotado
+                        </div>
+                    <?php
+                    } else if ($_GET["status"] === "6") {
+                    ?>
+                        <div class="alert alert-danger">
+                            <strong>Alerta: </strong>El producto esta por agotarse, quedan menos de 5 productos
+                        </div>
+                    <?php
+                    } else {
+                    ?>
+                        <div class="alert alert-danger">
+                            <strong>Error:</strong> Algo salió mal mientras se realizaba la venta
+                        </div>
+                <?php
                     }
-                    ?>
-                    <br>
-                    <div class="row ventas">
-                        <div class="col-md-8">
-                            <header id="encabezado">
-                                <img id="img-inventario" class="img-responsive img-rounded" src="img/punto.png" height="150" width="150" alt="Inventario picture">
-                                <br>
-                                <br>
-                                <h1>Punto de Venta</h1>
-                                <br>
-                            </header>
+                }
+                ?>
+                <br>
+                <div class="row ventas">
+                    <div class="col-md-8">
+                        <header id="encabezado">
+                            <img id="img-inventario" class="img-responsive img-rounded" src="img/punto.png" height="150" width="150" alt="Inventario picture">
                             <br>
-                            <div id="container">
-                                <form method="post" action="agregarAlCarrito.php">
-                                    <label for="codigo" class="indicacion">Introduce el modelo y presiona enter:</label>
-                                    <div class="field-venta" id="searchform">
-                                        <input autocomplete="off" autofocus name="codigo" required type="text" id="codigo" placeholder="Escribe el modelo del zapato">
-                                    </div>
-                                </form>                                
-                                <div class="table-responsive">
-                                    <br>
-                                    <table class="table table-hover tabla-venta" id="tablee">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Modelo</th>
-                                                <th>Cantidad</th>
-                                                <th>Descrip.</th>
-                                                <th>Talla</th>
-                                                <th>Precio</th>
-                                                <th>Importe</th>
-                                                <th>Quitar</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($_SESSION["carrito"] as $indice => $producto) {
-                                                $granTotal += $producto->total;
-                                                $subtotal += $producto->total / 1.16;
-                                                $subtotal = redondear($subtotal, 2);
-                                                $iva += $producto->total - ($producto->total / 1.16);
-                                                $iva = redondear($iva, 2);
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $producto->id ?></td>
-                                                    <td><?php echo $producto->codigo ?></td>
-                                                    <td><?php echo $producto->cantidad ?></td>
-                                                    <td><?php echo $producto->descripcion ?></td>
-                                                    <td><?php echo $producto->talla ?></td>
-                                                    <td>$<?php echo $producto->precioVenta ?></td>
-                                                    <td>$<?php echo $producto->total ?></td>
-                                                    <td><a class="btn btn-danger" href="<?php echo "quitarDelCarrito.php?indice=" . $indice ?>"><i class="fa fa-trash"></i></a></td>
-                                                </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
-                                    <br>
+                            <br>
+                            <h1>Punto de Venta</h1>
+                            <br>
+                        </header>
+                        <br>
+                        <div id="container">
+                            <form method="post" action="agregarAlCarrito.php">
+                                <label for="codigo" class="indicacion">Introduce el modelo y presiona enter:</label>
+                                <div class="field-venta" id="searchform">
+                                    <input autocomplete="off" autofocus name="codigo" required type="text" id="codigo" placeholder="Escribe el modelo del zapato">
                                 </div>
+                            </form>
+                            <div class="table-responsive">
+                                <br>
+                                <table class="table table-hover tabla-venta" id="tablee">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Modelo</th>
+                                            <th>Cantidad</th>
+                                            <th>Descrip.</th>
+                                            <th>Talla</th>
+                                            <th>Precio</th>
+                                            <th>Importe</th>
+                                            <th>Quitar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($_SESSION["carrito"] as $indice => $producto) {
+                                            $granTotal += $producto->total;
+                                            $subtotal += $producto->total / 1.16;
+                                            $subtotal = redondear($subtotal, 2);
+                                            $iva += $producto->total - ($producto->total / 1.16);
+                                            $iva = redondear($iva, 2);
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $producto->id ?></td>
+                                                <td><?php echo $producto->codigo ?></td>
+                                                <td><?php echo $producto->cantidad ?></td>
+                                                <td><?php echo $producto->descripcion ?></td>
+                                                <td><?php echo $producto->talla ?></td>
+                                                <td>$<?php echo $producto->precioVenta ?></td>
+                                                <td>$<?php echo $producto->total ?></td>
+                                                <td><a class="btn btn-danger" href="<?php echo "quitarDelCarrito.php?indice=" . $indice ?>"><i class="fa fa-trash"></i></a></td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                                <br>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="detalles" name="detalles">
-                                <p align="center"><img src="img/logito.jpg" width="250" height="150" alt=""></p>
-                                <h1>Detalles</h1>
-                                <h3>Fecha y hora: </h3>
-                                <div class="wrap">
-                                    <div class="fecha">
-                                        <p id="diaSemana" class="diaSemana"></p>
-                                        <p id="dia" class="dia"></p>
-                                        <p>de </p>
-                                        <p id="mes" class="mes"></p>
-                                        <p>del </p>
-                                        <p id="year" class="year"></p>
-                                        <div class="reloj">
-                                            <p id="horas" class="horas"></p>
-                                            <p>:</p>
-                                            <p id="minutos" class="minutos"></p>
-                                            <p>:</p>
-                                            <p id="segundos" class="segundos"></p>
-                                            <p id="ampm" class="ampm"></p>
-                                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="detalles" name="detalles">
+                            <p align="center"><img src="img/logito.jpg" width="250" height="150" alt=""></p>
+                            <h1>Detalles</h1>
+                            <h3>Fecha y hora: </h3>
+                            <div class="wrap">
+                                <div class="fecha">
+                                    <p id="diaSemana" class="diaSemana"></p>
+                                    <p id="dia" class="dia"></p>
+                                    <p>de </p>
+                                    <p id="mes" class="mes"></p>
+                                    <p>del </p>
+                                    <p id="year" class="year"></p>
+                                    <div class="reloj">
+                                        <p id="horas" class="horas"></p>
+                                        <p>:</p>
+                                        <p id="minutos" class="minutos"></p>
+                                        <p>:</p>
+                                        <p id="segundos" class="segundos"></p>
+                                        <p id="ampm" class="ampm"></p>
                                     </div>
                                 </div>
+                            </div>
 
-                                <h3>Vendedor: Carlos Loaeza</h3>
-                                <h2><strong> Total: $<?php echo $granTotal; ?>.00</strong></h2>
-                                <div class="cambio-div">
-                                    <form class="formulario-cambio" name="datosrecibido">
-                                        <h3>Recibido: <input type="text" class="recibidoinput" name="recibidoinput" maxlength="10" onchange="cal()" onkeyup="cal()" placeholder="Efectivo" /></h3>
-                                        <h3>Subtotal: $ <?php echo $subtotal; ?></h3>
-                                       <h3>Iva: $ <?php echo $iva; ?></h3>
-                                        <h3>Cambio: <input class="cambio" type="text" name="cambio" value="$ 0.00" readonly="readonly"></h3>
-                                    </form>
-                                </div>
-                                <script type="text/javascript">
-                                    function cal() {
-                                        try {
-                                            var a = parseInt(<?php echo $granTotal; ?>),
-                                                b = parseInt(document.datosrecibido.recibidoinput.value);
-                                            c = b - a;
-                                            document.datosrecibido.cambio.value = "$ " + c + ".00";
-                                        } catch (e) {}
-                                    }
-                                </script>
-                                <div class="botones">
-                                    <form action="./terminarVenta.php" method="POST">
-                                        <input name="total" type="hidden" value="<?php echo $granTotal; ?>">
-                                        <button type="submit" class="btn btn-success">Terminar venta</button>
-                                        <a href="./cancelarVenta.php" class="btn btn-danger">Cancelar venta</a>
-                                    </form>
-                                </div>
+                            <h3>Vendedor: Carlos Loaeza</h3>
+                            <h2><strong> Total: $<?php echo $granTotal; ?>.00</strong></h2>
+                            <div class="cambio-div">
+                                <form class="formulario-cambio" name="datosrecibido">
+                                    <h3>Recibido: <input type="text" class="recibidoinput" name="recibidoinput" maxlength="10" onchange="cal()" onkeyup="cal()" placeholder="Efectivo" /></h3>
+                                    <h3>Subtotal: $ <?php echo $subtotal; ?></h3>
+                                    <h3>Iva: $ <?php echo $iva; ?></h3>
+                                    <h3>Cambio: <input class="cambio" type="text" name="cambio" value="$ 0.00" readonly="readonly"></h3>
+                                </form>
+                            </div>
+                            <script type="text/javascript">
+                                function cal() {
+                                    try {
+                                        var a = parseInt(<?php echo $granTotal; ?>),
+                                            b = parseInt(document.datosrecibido.recibidoinput.value);
+                                        c = b - a;
+                                        document.datosrecibido.cambio.value = "$ " + c + ".00";
+                                    } catch (e) {}
+                                }
+                            </script>
+                            <div class="botones">
+                                <form action="./terminarVenta.php" method="POST">
+                                    <input name="total" type="hidden" value="<?php echo $granTotal; ?>">
+                                    <button type="submit" class="btn btn-success">Terminar venta</button>
+                                    <a href="./cancelarVenta.php" class="btn btn-danger">Cancelar venta</a>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             </article>
         </main>
     </div>
@@ -347,7 +347,7 @@ function redondear($valor, $decimales)
 
     <script src="js/popups.js"></script>
     <script src="js/administrador/principal-admin.js"></script>
-    
+
     <script src="js/almacen/AlertarEliminacion.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
