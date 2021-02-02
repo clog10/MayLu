@@ -303,7 +303,7 @@ $paginas = ceil($paginas);
                                         <td><?php echo $proveedor->tel ?></td>
                                         <td><?php echo $proveedor->email ?></td>
                                         <td>
-                                            <a class="btn btn-warning" href="<?php echo "ActualizarProveedor.php?id_proveedor=" . $proveedor->id_proveedor ?>"><i class="fa fa-edit"></i> Editar</a>
+                                            <a class="btn actualiza-tabla" href="<?php echo "ActualizarProveedor.php?id_proveedor=" . $proveedor->id_proveedor ?>"><i class="fa fa-edit"></i> Editar</a>
                                             
                                         </td>
                                     </tr>

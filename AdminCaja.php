@@ -265,7 +265,7 @@ $cajas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                             <td><?php echo $caja->nombre_codigo ?></td>
                                             <td>$<?php echo $caja->efectivo ?>.00</td>
                                             <td>
-                                                <a class="btn btn-warning" href="<?php echo "ActualizarCaja.php?id_caja=" . $caja->id_caja ?>"><i class="fa fa-edit"></i> Editar</a>
+                                                <a class="btn actualiza-tabla" href="<?php echo "ActualizarCaja.php?id_caja=" . $caja->id_caja ?>"><i class="fa fa-edit"></i> Editar</a>
                                                 <a class="btn btn-danger" href="<?php echo "eliminarCaja.php?id_caja=" . $caja->id_caja?>"><i class="fas fa-trash"></i> Eliminar</a>
                                             </td>
                                         </tr>

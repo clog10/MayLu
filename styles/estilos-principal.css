@@ -460,7 +460,7 @@ body {
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
- 
+
 .fondo_transparente {
   top: 0;
   left: 0;
@@ -472,7 +472,7 @@ body {
 }
 
 .modal {
-  background: linear-gradient(0deg, white 70%,  rgb(164, 171, 255) 30%);
+  background: linear-gradient(0deg, white 70%, rgb(164, 171, 255) 30%);
   width: 200px;
   height: 180px;
   top: 40%;
@@ -487,19 +487,19 @@ body {
 }
 
 .modal_titulo {
-  color:  #030249;
+  color: #030249;
   font-size: 18px;
 }
 
-.modal_mensaje{
-    background-color: white;
+.modal_mensaje {
+  background-color: white;
 }
 
- .modal_mensaje > p{
+.modal_mensaje>p {
   padding: 0px 5px;
   text-align: center;
   color: #030249;
-} 
+}
 
 .modal_botones {
   width: 100%;
@@ -516,7 +516,7 @@ body {
   color: crimson;
   text-decoration: none;
   border-radius: 25px;
-  border: 1px solid  rgb(164, 171, 255);
+  border: 1px solid rgb(164, 171, 255);
 }
 
 #btn-yes:hover {
@@ -540,6 +540,7 @@ body {
     height: 40vh;
     width: 45%;
   }
+
   .modal .boton {
     width: 40%;
     padding: 5px 0px;
@@ -552,38 +553,46 @@ body {
 }
 
 input[type="date"]::-webkit-inner-spin-button,
-                  ::-webkit-calendar-picker-indicator,
-                  ::-webkit-datetime-edit{
-    display: none;
+::-webkit-calendar-picker-indicator,
+::-webkit-datetime-edit {
+  display: none;
 }
 
 /*======PAGINADOR=====*/
-.paginador ul{
-	padding: 15px;
-	list-style: none;
-	background: #FFF;
-	margin-top: 15px;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	justify-content: flex-end;
+.paginador ul {
+  padding: 15px;
+  list-style: none;
+  background: #FFF;
+  margin-top: 15px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: flex-end;
 }
-.paginador a, .pageSelected{
-	color: #428bca;
-	border: 1px solid #ddd;
-	padding: 5px;
-	display: inline-block;
-	font-size: 14px;
-	text-align: center;
-	width: 35px;
+
+.paginador a,
+.pageSelected {
+  color: #428bca;
+  border: 1px solid #ddd;
+  padding: 5px;
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  width: 35px;
 }
-.paginador a:hover{
-	background: #ddd;
+
+.paginador a:hover {
+  background: #ddd;
 }
-.pageSelected{
-	color: #FFF;
-	background: #428bca;
-	border: 1px solid #428bca;
-} 
+
+.pageSelected {
+  color: #FFF;
+  background: #428bca;
+  border: 1px solid #428bca;
+}
+
+.table-responsive .actualiza-tabla {
+  background: #428bca;
+}
