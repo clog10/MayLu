@@ -1,6 +1,6 @@
 <?php
 include("base.php");
-$datos = "SELECT * FROM apartados";
+$datos = "SELECT * FROM apartados where saldo = '0'";
 ?>
 
 <!DOCTYPE html>
@@ -157,46 +157,21 @@ $datos = "SELECT * FROM apartados";
             </div>
         </nav>
 
-
+        
         <main class="page-content pt-2">
-            <div id="overlay" class="overlay"></div>
-            <section id="main-content">
-
-                <article>
-                    <div id="divcerrar">
-                        <button id="" class="btn-tiny btn-danger">
-                            Cerrar Sesión <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                            </svg></button>
-                    </div>
-                    <header id="encabezado">
-                        <img id="img-inventario" class="img-responsive img-rounded" src="img/car.png" height="150" width="150" alt="Inventario picture">
-                        <br>
-                        <br>
-                        <h1>Apartados</h1>
-                    </header>
-
-                    
-                            <a href="AgregarApartado.php?modelos=1" style='width:260px; height:70px; FONT-SIZE: 20pt' id="btn-abrir-popup" class="btn btn-success">Apartar</a>
-
-                            <br>
+            <div class="pdf">
+                <h1>Reporte de apartados: </h1>
+                <br>
                        
                     <div class="table-responsive ">
                         <table class="table table-hover" id="tablee">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Fecha Vencimiento</th>
-                                    <th>Modelo</th>
+                                    <th>Fecha Vencimiento</th>                                    
                                     <th>Cliente</th>
-                                    <th>Número</th>
-                                    <th>Color</th>
-                                    <th>Precio</th>
-                                    <th>Abonó</th>
-                                    <th>Saldo</th>
-                                    <th>Dias restantes</th>
-                                    <th>Opciones</th>
+                                    <th>Productos vendidos</th>
+                                    <th>Total</th>
                                 </tr>
                             </thead>
 
@@ -215,27 +190,32 @@ $datos = "SELECT * FROM apartados";
                                 ?>
                                     <tr>
                                         <td><?php echo $row['id_apartado'] ?></td>
-                                        <td><?php echo $row['fecha'] ?></td>
-                                        <td><?php echo $row['modelo'] ?></td>
+                                        <td><?php echo $row['fecha'] ?></td>                                        
                                         <td><?php echo $row['cliente'] ?></td>
+                                        <td>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                    <th>Modelo</th>
+                                                    <th>Número</th>
+                                                    <th>Color</th>
+                                                    <th>Precio</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                        <tr>
+                                                        <td><?php echo $row['modelo'] ?></td>
                                         <td><?php echo $row['numero'] ?></td>
                                         <td><?php echo $row['color'] ?></td>
                                         <td>$<?php echo $row['precio'] ?>.00</td>
-                                        <td>$<?php echo $row['abono'] ?>.00</td>
-                                        <td>$<?php echo $row['saldo'] ?>.00</td>
-                                        <td><?php echo $dias ?> dias de vencimiento</td>
-                                        <td>
-                                            <button class="btn btn-danger input" title="Marcar como completado" id="completar" class="completo btn" >
-                                                <i class="fas fa-clipboard-check"></i> Terminado
-                                            </button>
-                                            <br>
-                                            <br>
-                                            <a class="btn actualiza-tabla" title="Actualizar apartado" id="completar" class="completo btn" href="ActualizarApartado.php?id_apartado=<?php echo $row["id_apartado"]; ?>">
-                                                <i class="fa fa-edit"></i> Abonar
-                                            </a>
-                                         
-
+                                                        </tr>
+                                                  
+                                                </tbody>
+                                            </table>
                                         </td>
+                                        <td>$<?php echo $row['precio'] ?>.00</td>
+      
                                     </tr>
                                 <?php
                                 }
@@ -244,13 +224,6 @@ $datos = "SELECT * FROM apartados";
                                 ?>
                             </tbody>
 
-
-                            
-                            
-                            <style type="text/css">
-                                input:focus {
-                                    background: green;
-                                }
                             </style>
                         </table>
                         <br>

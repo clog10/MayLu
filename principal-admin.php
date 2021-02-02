@@ -91,12 +91,24 @@
                                         <span class="menu-text">Inventario</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="reportes.php?pagina=1">
-                                        <i class="fa fa-chart-line"></i>
-                                        <span class="menu-text">Reportes</span>
-                                    </a>
-                                </li>
+  
+                     <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-chart-line"></i>
+                                <span class="menu-text">Reportes</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="reportes.php?pagina=1"><i class="fa fa-list"></i>Reportes de ventas/a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="apartado2.php"></i>Reportes de apartados</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                                 <li>
                                     <a href="AdminCaja.php">
                                         <i class="fa fa-cash-register"></i>
@@ -104,7 +116,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="apartado.php">
+                                    <a href="apartado2.php">
                                     <i class="fa fa-cart-plus"></i>
                                         <span class="menu-text">Apartados</span>
                                     </a>
