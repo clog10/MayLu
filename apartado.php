@@ -176,9 +176,15 @@ $datos = "SELECT * FROM apartados";
                         <br>
                         <h1>Apartados</h1>
                     </header>
+<<<<<<< HEAD
                
                                                
                             <a href="AgregarApartado.php?modelos=1" id="btn-abrir-popup" style='width:260px; height:70px; FONT-SIZE: 20pt'  class="btn btn-success" >Apartar</a>
+=======
+
+                    
+                            <a href="AgregarApartado.php?modelos=1" id="btn-abrir-popup" class="btn btn-success">Apartar</a>
+>>>>>>> 5ecb61775fc45bcd3b7cc7a2c40e94c394f4bbae
                             <br>
                        
                     <div class="table-responsive ">

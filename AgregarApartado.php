@@ -254,9 +254,24 @@ $modelo = $_GET["modelos"];
                                          }
                                   
                                      ?>
+<<<<<<< HEAD
+
+                                    <option selected value="<?php echo $code->id ?>"><?php echo $code->codigo ?></option>
+=======
+>>>>>>> 5ecb61775fc45bcd3b7cc7a2c40e94c394f4bbae
 
                                     <option selected value="<?php echo $code->id ?>"><?php echo $code->codigo ?></option>
 
+                                </select>
+                                <input type="text" name="cliente" placeholder="Nombre del cliente"
+                                    onkeypress="return sololetras(event)" required>
+                                    
+                                <select name="numero" class="select">
+                                    <option selected value="<?php echo $code->talla ?>"> <?php echo $code->talla ?> </option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
                                 </select>
                                 <input type="text" name="cliente" placeholder="Nombre del cliente"
                                     onkeypress="return sololetras(event)" required>
