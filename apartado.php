@@ -29,68 +29,7 @@ $datos = "SELECT * FROM apartados";
 
 <body>
 
-    <div id="container">
-        <div class="overlay" id="overlay">
-            <div class="popup" id="popup">
-                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-                <h3>Apartar</h3>
-                <h4>Ingresa los datos</h4>
-                <h5><label>*</label> Campos obligatorios</h5>
-                <form action="apartadoc.php" method="post" name="datosrecibido">
-                    <div class="contenedor-etiquetas">
-                        <h4><label>*</label> Vencimiento</h4>
-                        <h4><label>*</label> Modelo</h4>
-                        <h4><label>*</label> Cliente</h4>
-                        <h4><label>*</label> Número</h4>
-                        <h4><label>*</label> Color</h4>
-                        <h4><label>*</label> Precio</h4>
-                        <h4><label>*</label> Abono</h4>
-                        <h4><label>*</label> Saldo</h4>
-                    </div>
-                    <?php
-                    $vencimiento = (new datetime("+ 15 days"))->format("y/m/d");
-
-                    ?>
-                    <div class="contenedor-inputs">
-                        <input type="datetime" name="fecha" readonly value="<?= $vencimiento ?>">
-                        <select name="modelo" class="select">
-                            <option selected value="0">Seleccione</option>
-                            <?php
-                            $query = $conexion->query("SELECT  * FROM productos");
-                            while ($valores = mysqli_fetch_array($query)) {
-
-                                echo '<option value="' . $valores['id'] . '">' . $valores['codigo'] . '</option>';
-                            }
-                            ?>
-                        </select>
-                        <input type="text" name="cliente" placeholder="Nombre del cliente" onkeypress="return sololetras(event)" required>
-                        <select name="numero" class="select">
-                            <option selected value="0"> Elige una opción </option>
-                            <option value="23">23</option>
-                            <option value="24">24</option>
-                            <option value="25">25</option>
-                            <option value="26">26</option>
-                        </select>
-                        <input type="text" name="color" placeholder="Color" onkeypress="return sololetras(event)">
-                        <input type="text" name="precio" placeholder="Precio" onkeypress="return solonumeros(event)">
-                        <input type="text" name="abono" placeholder="¿Cuanto abona el cliente?" onkeypress="return solonumeros(event)" onchange="cal()">
-                        <input type="text" name="saldo" value="$ 0.00" onkeypress="return solonumeros(event)" readonly="readonly">
-                    </div>
-                    <input type="submit" class="btn-submit" name="guardar" id="alerta" value="Apartar">
-                </form>
-                <script type="text/javascript">
-                    function cal() {
-                        try {
-                            var a = parseInt(document.datosrecibido.precio.value),
-                                b = parseInt(document.datosrecibido.abono.value);
-                            c = b - a;
-                            document.datosrecibido.saldo.value = "$ " + c + ".00";
-                        } catch (e) {}
-                    }
-                </script>
-            </div>
-        </div>
-    </div>
+    
 
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -239,7 +178,7 @@ $datos = "SELECT * FROM apartados";
                     </header>
 
                     
-                            <a href="AgregarApartado.php?modelos=1" id="btn-abrir-popup" class="btn btn-success" data-toggle="modal" styles="font-size: 170%;">Apartar</a>
+                            <a href="AgregarApartado.php?modelos=1" id="btn-abrir-popup" class="btn btn-success" >Apartar</a>
                             <br>
                        
                     <div class="table-responsive">
