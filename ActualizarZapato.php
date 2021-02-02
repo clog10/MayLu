@@ -76,11 +76,23 @@
                                 <span class="menu-text">Inventario</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="reportes.php?pagina=1">
-                                <i class="fa fa-chart-line"></i>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-tachometer-alt"></i>
                                 <span class="menu-text">Reportes</span>
+                                <span class="badge badge-pill badge-warning">New</span>
                             </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="reportes.php?pagina=1"><i class="fa fa-list-ol"></i> Ventas
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="apartado2.php"><i class="fa fa-calendar-check"></i> Apartado <span class="badge badge-pill badge-warning">New</span></a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li>
                             <a href="AdminCaja.php">
@@ -201,7 +213,7 @@
                     </header>
 
                     <div class="actualiza">
-                    <br>
+                        <br>
                         <h3>Actualizar Zapato</h3>
                         <h4>Ingresa los datos</h4>
                         <h5><label>*</label> Campo obligatorio </h5>
@@ -217,16 +229,16 @@
                                 <h4><label>*</label> Existencias</h4>
                                 <h4><label>*</label> Proveedor</h4>
                             </div>
-                            <div class="contenedor-inputs-actualiza">                              
+                            <div class="contenedor-inputs-actualiza">
                                 <input type="text" class="form-control" name="id" readonly value="<?php echo $producto->id ?>">
-                                <input value="<?php echo $producto->codigo ?>" readonly  id="codigo" name="codigo" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $producto->descripcion ?>" readonly id="descripcion" name="descripcion" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $producto->talla ?>" class="form-control" readonly name="talla"  type="text" id="talla" >
-                                <input value="<?php echo $producto->color ?>" class="form-control"  readonly name="color"  type="text" id="color" >
+                                <input value="<?php echo $producto->codigo ?>" readonly id="codigo" name="codigo" cols="30" rows="5" class="form-control">
+                                <input value="<?php echo $producto->descripcion ?>" readonly id="descripcion" name="descripcion" cols="30" rows="5" class="form-control">
+                                <input value="<?php echo $producto->talla ?>" class="form-control" readonly name="talla" type="text" id="talla">
+                                <input value="<?php echo $producto->color ?>" class="form-control" readonly name="color" type="text" id="color">
                                 <input value="<?php echo $producto->precioVenta ?>" class="form-control" name="precioVenta" required type="text" id="precioVenta" placeholder="Precio de venta">
                                 <input value="<?php echo $producto->precioCompra ?>" class="form-control" name="precioCompra" required type="text" id="precioCompra" placeholder="Precio de compra">
                                 <input value="<?php echo $producto->existencia ?>" class="form-control" name="existencia" required type="text" id="existencia" placeholder="Cantidad o existencia">
-                                <input value="<?php echo $producto->proveedor ?>" class="form-control" readonly name="proveedor"  type="text" id="proveedor" placeholder="Proveedor" >
+                                <input value="<?php echo $producto->proveedor ?>" class="form-control" readonly name="proveedor" type="text" id="proveedor" placeholder="Proveedor">
                             </div>
                             <br><br>
                             <input class="btn boton-actualiza" type="submit" value="Guardar">

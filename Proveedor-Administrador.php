@@ -2,9 +2,9 @@
 include_once "base_de_datos.php";
 $sentencia = $base_de_datos->query("SELECT * FROM proveedor;");
 
-$articulos_x_pagina =3;
+$articulos_x_pagina = 3;
 $total_articulos_bd = $sentencia->rowCount();
-$paginas = $total_articulos_bd/3;
+$paginas = $total_articulos_bd / 3;
 $paginas = ceil($paginas);
 #echo $paginas;
 ?>
@@ -37,22 +37,21 @@ $paginas = ceil($paginas);
 
     <div id="container">
         <div class="overlay" id="overlay">
-        <?php
-            if(!$_GET){
-                header('Location:Proveedor-Administrador.php?pagina=1');
-
-            }
-            if($_GET['pagina']>$paginas){
+            <?php
+            if (!$_GET) {
                 header('Location:Proveedor-Administrador.php?pagina=1');
             }
+            if ($_GET['pagina'] > $paginas) {
+                header('Location:Proveedor-Administrador.php?pagina=1');
+            }
 
-            $iniciar = ($_GET['pagina']-1)*$articulos_x_pagina;
+            $iniciar = ($_GET['pagina'] - 1) * $articulos_x_pagina;
             //echo $iniciar;
 
             $sql_articulos = "SELECT * FROM proveedor LIMIT :inicar,:narticulos";
-            $productosS=$base_de_datos->prepare($sql_articulos);
-            $productosS->bindParam(':inicar',$iniciar,PDO::PARAM_INT);
-            $productosS->bindParam(':narticulos',$articulos_x_pagina,PDO::PARAM_INT);
+            $productosS = $base_de_datos->prepare($sql_articulos);
+            $productosS->bindParam(':inicar', $iniciar, PDO::PARAM_INT);
+            $productosS->bindParam(':narticulos', $articulos_x_pagina, PDO::PARAM_INT);
             $productosS->execute();
 
             $resultado_articulos = $productosS->fetchAll();
@@ -147,11 +146,23 @@ $paginas = ceil($paginas);
                                         <span class="menu-text">Inventario</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="reportes.php?pagina=1">
-                                        <i class="fa fa-chart-line"></i>
+                                <li class="sidebar-dropdown">
+                                    <a href="#">
+                                        <i class="fa fa-tachometer-alt"></i>
                                         <span class="menu-text">Reportes</span>
+                                        <span class="badge badge-pill badge-warning">New</span>
                                     </a>
+                                    <div class="sidebar-submenu">
+                                        <ul>
+                                            <li>
+                                                <a href="reportes.php?pagina=1"><i class="fa fa-list-ol"></i> Ventas
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="apartado2.php"><i class="fa fa-calendar-check"></i> Apartado <span class="badge badge-pill badge-warning">New</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                                 <li>
                                     <a href="AdminCaja.php">
@@ -161,7 +172,7 @@ $paginas = ceil($paginas);
                                 </li>
                                 <li>
                                     <a href="apartado.php">
-                                    <i class="fa fa-cart-plus"></i>
+                                        <i class="fa fa-cart-plus"></i>
                                         <span class="menu-text">Apartados</span>
                                     </a>
                                 </li>
@@ -273,12 +284,11 @@ $paginas = ceil($paginas);
                             </div>
                         </form>
                         <?php
-                            if(isset($_GET['introducemodelo'])){
-                                $sentencia = $base_de_datos->query("SELECT * FROM proveedor where nombre_empresa = '" .$_GET['introducemodelo']. "';");
-                        
-                             } 
-                             $proveedores = $sentencia->fetchAll(PDO::FETCH_OBJ);
-                             ?>
+                        if (isset($_GET['introducemodelo'])) {
+                            $sentencia = $base_de_datos->query("SELECT * FROM proveedor where nombre_empresa = '" . $_GET['introducemodelo'] . "';");
+                        }
+                        $proveedores = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                        ?>
                     </div>
                     <div class="table-responsive">
                         <br>
@@ -304,46 +314,43 @@ $paginas = ceil($paginas);
                                         <td><?php echo $proveedor->email ?></td>
                                         <td>
                                             <a class="btn actualiza-tabla" href="<?php echo "ActualizarProveedor.php?id_proveedor=" . $proveedor->id_proveedor ?>"><i class="fa fa-edit"></i> Editar</a>
-                                            
+
                                         </td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
 
-                 <div class="d-flex flex-row-reverse"> 
-                    <nav aria-label="Page navigation example">
+                        <div class="d-flex flex-row-reverse">
+                            <nav aria-label="Page navigation example">
 
-                    <ul class="pagination ">
-                        <li class="page-item
-                        <?php echo $_GET['pagina']<=1? 'disabled':''?>
+                                <ul class="pagination ">
+                                    <li class="page-item
+                        <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>
                         ">
 
-                        <a class="page-link" 
-                        href="Proveedor-Administrador.php?pagina=<?php echo $_GET['pagina']-1 ?>">
-                        Anterior
-                        </a>
-                        </li>
+                                        <a class="page-link" href="Proveedor-Administrador.php?pagina=<?php echo $_GET['pagina'] - 1 ?>">
+                                            Anterior
+                                        </a>
+                                    </li>
 
-                    <?php for($i=0;$i<$paginas;$i++):?>
+                                    <?php for ($i = 0; $i < $paginas; $i++) : ?>
 
-                    <li class="page-item <?php echo $_GET['pagina']==$i+1 ?'active':'' ?>">
-                        <a class="page-link" 
-                        href="Proveedor-Administrador.php?pagina=<?php echo $i+1 ?>">
-                        <?php echo $i+1 ?>
-                        </a>
-                    </li>
-                    <?php endfor ?>
+                                        <li class="page-item <?php echo $_GET['pagina'] == $i + 1 ? 'active' : '' ?>">
+                                            <a class="page-link" href="Proveedor-Administrador.php?pagina=<?php echo $i + 1 ?>">
+                                                <?php echo $i + 1 ?>
+                                            </a>
+                                        </li>
+                                    <?php endfor ?>
 
 
 
-                    <li class="page-item
-                    <?php echo $_GET['pagina']>=$paginas? 'disabled':''?>
-                    "><a class="page-link"
-                    href="Proveedor-Administrador.php?pagina=<?php echo $_GET['pagina']+1 ?>">Siguiente</a></li>
-                    </ul>
-                </nav>  
-                    </div>
+                                    <li class="page-item
+                    <?php echo $_GET['pagina'] >= $paginas ? 'disabled' : '' ?>
+                    "><a class="page-link" href="Proveedor-Administrador.php?pagina=<?php echo $_GET['pagina'] + 1 ?>">Siguiente</a></li>
+                                </ul>
+                            </nav>
+                        </div>
                         <br>
                     </div>
 

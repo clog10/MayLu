@@ -76,11 +76,23 @@
                                 <span class="menu-text">Inventario</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="reportes.php?pagina=1">
-                                <i class="fa fa-chart-line"></i>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-tachometer-alt"></i>
                                 <span class="menu-text">Reportes</span>
+                                <span class="badge badge-pill badge-warning">New</span>
                             </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="reportes.php?pagina=1"><i class="fa fa-list-ol"></i> Ventas
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="apartado2.php"><i class="fa fa-calendar-check"></i> Apartado <span class="badge badge-pill badge-warning">New</span></a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li>
                             <a href="AdminCaja.php">
@@ -196,7 +208,7 @@
                     </header>
 
                     <div class="actualiza">
-                    <br>
+                        <br>
                         <h3>Actualizar Caja</h3>
                         <h4>Ingresa los datos</h4>
                         <h5><label>*</label> Campo obligatorio </h5>
@@ -206,10 +218,10 @@
                                 <h4><label>*</label> Nombre o codigo</h4>
                                 <h4><label>*</label> Efectivo</h4>
                             </div>
-                            <div class="contenedor-inputs-actualiza">                              
+                            <div class="contenedor-inputs-actualiza">
                                 <input type="text" class="form-control" name="id_caja" readonly value="<?php echo $caja->id_caja ?>">
-                                <input value="<?php echo $caja->nombre_codigo ?>"  id="nombre_codigo" name="nombre_codigo" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $caja->efectivo ?>"  id="efectivo" name="efectivo" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $caja->nombre_codigo ?>" id="nombre_codigo" name="nombre_codigo" cols="30" rows="5" class="form-control">
+                                <input value="<?php echo $caja->efectivo ?>" id="efectivo" name="efectivo" cols="30" rows="5" class="form-control">
                             </div>
                             <br><br>
                             <input class="btn boton-actualiza" type="submit" value="Guardar">

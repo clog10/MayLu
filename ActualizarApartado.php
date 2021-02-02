@@ -76,11 +76,23 @@
                                 <span class="menu-text">Inventario</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="reportes.php?pagina=1">
-                                <i class="fa fa-chart-line"></i>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-tachometer-alt"></i>
                                 <span class="menu-text">Reportes</span>
+                                <span class="badge badge-pill badge-warning">New</span>
                             </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="reportes.php?pagina=1"><i class="fa fa-list-ol"></i> Ventas
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="apartado2.php"><i class="fa fa-calendar-check"></i> Apartado <span class="badge badge-pill badge-warning">New</span></a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li>
                             <a href="AdminCaja.php">
@@ -195,7 +207,7 @@
                     </header>
 
                     <div class="actualiza">
-                    <br>
+                        <br>
                         <h3>Actualizar Apartado</h3>
                         <h4>Ingresa los datos</h4>
                         <h5><label>*</label> Campo obligatorio </h5>
@@ -211,16 +223,16 @@
                                 <h4><label>*</label> Abono $</h4>
                                 <h4><label>*</label> Saldo $</h4>
                             </div>
-                            <div class="contenedor-inputs-actualiza">                              
+                            <div class="contenedor-inputs-actualiza">
                                 <input type="text" class="form-control" name="id_apartado" readonly value="<?php echo $apar->id_apartado ?>">
-                                <input value="<?php echo $apar->fecha ?>"  id="fecha" readonly name="fecha" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $apar->modelo?>"  id="modelo" readonly name="modelo" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $apar->cliente?>"  id="cliente" readonly name="cliente" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $apar->numero?>"  id="numero" readonly name="numero" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $apar->color?>"  id="color" readonly name="color" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $apar->precio?>"  id="precio" readonly name="precio" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $apar->abono?>"  id="abono"  name="abono" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $apar->saldo?>"  id="saldo"  name="saldo" cols="30" rows="5" class="form-control" >
+                                <input value="<?php echo $apar->fecha ?>" id="fecha" readonly name="fecha" cols="30" rows="5" class="form-control">
+                                <input value="<?php echo $apar->modelo ?>" id="modelo" readonly name="modelo" cols="30" rows="5" class="form-control">
+                                <input value="<?php echo $apar->cliente ?>" id="cliente" readonly name="cliente" cols="30" rows="5" class="form-control">
+                                <input value="<?php echo $apar->numero ?>" id="numero" readonly name="numero" cols="30" rows="5" class="form-control">
+                                <input value="<?php echo $apar->color ?>" id="color" readonly name="color" cols="30" rows="5" class="form-control">
+                                <input value="<?php echo $apar->precio ?>" id="precio" readonly name="precio" cols="30" rows="5" class="form-control">
+                                <input value="<?php echo $apar->abono ?>" id="abono" name="abono" cols="30" rows="5" class="form-control">
+                                <input value="<?php echo $apar->saldo ?>" id="saldo" name="saldo" cols="30" rows="5" class="form-control">
                             </div>
                             <br><br>
                             <input class="btn boton-actualiza" type="submit" value="Guardar">

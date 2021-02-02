@@ -76,11 +76,23 @@
                                 <span class="menu-text">Inventario</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="reportes.php?pagina=1">
-                                <i class="fa fa-chart-line"></i>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-tachometer-alt"></i>
                                 <span class="menu-text">Reportes</span>
+                                <span class="badge badge-pill badge-warning">New</span>
                             </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="reportes.php?pagina=1"><i class="fa fa-list-ol"></i> Ventas
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="apartado2.php"><i class="fa fa-calendar-check"></i> Apartado <span class="badge badge-pill badge-warning">New</span></a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li>
                             <a href="AdminCaja.php">
@@ -201,7 +213,7 @@
                     </header>
 
                     <div class="actualiza">
-                    <br>
+                        <br>
                         <h3>Actualizar Usuario</h3>
                         <h4>Ingresa los datos</h4>
                         <h5><label>*</label> Campo obligatorio </h5>
@@ -217,16 +229,16 @@
                                 <h4><label>*</label> Usuario</h4>
                                 <h4><label>*</label> Contraseña</h4>
                             </div>
-                            <div class="contenedor-inputs-actualiza">                              
+                            <div class="contenedor-inputs-actualiza">
                                 <input type="text" class="form-control" name="id_usuario" readonly value="<?php echo $usuario->id_usuario ?>">
-                                <input value="<?php echo $usuario->nombre_com ?>"   id="nombre_com" name="nombre_com" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $usuario->puesto ?>"  id="puesto" name="puesto" cols="30" rows="5" class="form-control" >
-                                <input value="<?php echo $usuario->id_caja ?>" class="form-control" name="id_caja"  type="text" id="id_caja" >
-                                <input value="<?php echo $usuario->genero ?>" class="form-control"  readonly name="genero"  type="text" id="genero" >
-                                <input value="<?php echo $usuario->direccion ?>" class="form-control" name="direccion"  type="text" id="direccion" placeholder="Dirección">
-                                <input value="<?php echo $usuario->tel ?>" class="form-control" name="tel"  type="text" id="tel" placeholder="Número telefonico">
-                                <input value="<?php echo $usuario->usuario ?>" class="form-control" name="usuario"  type="text" id="usuario" placeholder="Nombre de usuario">
-                                <input value="<?php echo $usuario->contra ?>" class="form-control"  name="contra"  type="text" id="contra" placeholder="Contraseña" >
+                                <input value="<?php echo $usuario->nombre_com ?>" id="nombre_com" name="nombre_com" cols="30" rows="5" class="form-control">
+                                <input value="<?php echo $usuario->puesto ?>" id="puesto" name="puesto" cols="30" rows="5" class="form-control">
+                                <input value="<?php echo $usuario->id_caja ?>" class="form-control" name="id_caja" type="text" id="id_caja">
+                                <input value="<?php echo $usuario->genero ?>" class="form-control" readonly name="genero" type="text" id="genero">
+                                <input value="<?php echo $usuario->direccion ?>" class="form-control" name="direccion" type="text" id="direccion" placeholder="Dirección">
+                                <input value="<?php echo $usuario->tel ?>" class="form-control" name="tel" type="text" id="tel" placeholder="Número telefonico">
+                                <input value="<?php echo $usuario->usuario ?>" class="form-control" name="usuario" type="text" id="usuario" placeholder="Nombre de usuario">
+                                <input value="<?php echo $usuario->contra ?>" class="form-control" name="contra" type="text" id="contra" placeholder="Contraseña">
                             </div>
                             <br><br>
                             <input class="btn boton-actualiza" type="submit" value="Guardar">
