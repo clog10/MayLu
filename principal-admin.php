@@ -116,7 +116,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="apartado2.php">
+                                    <a href="apartado.php">
                                     <i class="fa fa-cart-plus"></i>
                                         <span class="menu-text">Apartados</span>
                                     </a>
