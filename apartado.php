@@ -29,70 +29,7 @@ $datos = "SELECT * FROM apartados";
 
 <body>
 
-    <div id="container">
-        <div class="overlay" id="overlay">
-            <div class="popup" id="popup">
-                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-                <h3>Apartar</h3>
-                <h4>Ingresa los datos</h4>
-                <h5><label>*</label> Campos obligatorios</h5>
-                <form action="apartadoc.php" method="post" name="datosrecibido">
-                    <div class="contenedor-etiquetas">
-                        <h4><label>*</label> Vencimiento</h4>
-                        <h4><label>*</label> Modelo</h4>
-                        <h4><label>*</label> Cliente</h4>
-                        <h4><label>*</label> Número</h4>
-                        <h4><label>*</label> Color</h4>
-                        <h4><label>*</label> Precio</h4>
-                        <h4><label>*</label> Abono</h4>
-                        <h4><label>*</label> Saldo</h4>
-                    </div>
-                    <?php
-                    $vencimiento = (new datetime("+ 15 days"))->format("y/m/d");
-
-                    ?>
-                    <div class="contenedor-inputs">
-                        <input type="datetime" name="fecha" readonly value="<?= $vencimiento ?>">
-                        <select name="modelo" class="select">
-                            <option selected value="0">Seleccione</option>
-                            <?php
-                            $query = $conexion->query("SELECT  * FROM productos");
-                            while ($valores = mysqli_fetch_array($query)) {
-
-                                echo '<option value="' . $valores['id'] . '">' . $valores['codigo'] . '</option>';
-                            }
-                            ?>
-                            
-                        </select>
-                        <input type="text" name="cliente" placeholder="Nombre del cliente" onkeypress="return sololetras(event)" required>
-                        <select name="numero" class="select">
-                            <option selected value="0"> Elige una opción </option>
-                            <option value="23">23</option>
-                            <option value="24">24</option>
-                            <option value="25">25</option>
-                            <option value="26">26</option>
-                        </select>
-                        <input type="text" name="color" placeholder="Color" onkeypress="return sololetras(event)">
-                        
-                        <input type="text" name="precio" placeholder="Precio" onkeypress="return solonumeros(event)">
-                        <input type="text" name="abono" placeholder="¿Cuanto abona el cliente?" onkeypress="return solonumeros(event)" onchange="cal()">
-                        <input type="text" name="saldo" value="$ 0.00" onkeypress="return solonumeros(event)" readonly="readonly">
-                    </div>
-                    <input type="submit" class="btn-submit" name="guardar" id="alerta" value="Apartar">
-                </form>
-                <script type="text/javascript">
-                    function cal() {
-                        try {
-                            var a = parseInt(document.datosrecibido.precio.value),
-                                b = parseInt(document.datosrecibido.abono.value);
-                            c = b - a;
-                            document.datosrecibido.saldo.value = "$ " + c + ".00";
-                        } catch (e) {}
-                    }
-                </script>
-            </div>
-        </div>
-    </div>
+    
 
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -239,13 +176,12 @@ $datos = "SELECT * FROM apartados";
                         <br>
                         <h1>Apartados</h1>
                     </header>
-
-                    <div id="container1">
-                        <div>
-                            <button href="#" id="btn-abrir-popup"  style='width:260px; height:70px; FONT-SIZE: 20pt'  class="btn btn-success" data-toggle="modal">Apartar</button>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
+               
+                                               
+                            <a href="AgregarApartado.php?modelos=1" id="btn-abrir-popup" style='width:260px; height:70px; FONT-SIZE: 20pt'  class="btn btn-success" >Apartar</a>
+                            <br>
+                       
+                    <div class="table-responsive ">
                         <table class="table table-hover" id="tablee">
                             <thead>
                                 <tr>
@@ -257,7 +193,7 @@ $datos = "SELECT * FROM apartados";
                                     <th>Color</th>
                                     <th>Precio</th>
                                     <th>Abonó</th>
-                                    <th style=" width: 100px;">Saldo</th>
+                                    <th>Saldo</th>
                                     <th>Dias restantes</th>
                                     <th>Opciones</th>
                                 </tr>
@@ -285,17 +221,19 @@ $datos = "SELECT * FROM apartados";
                                         <td><?php echo $row['color'] ?></td>
                                         <td>$<?php echo $row['precio'] ?>.00</td>
                                         <td>$<?php echo $row['abono'] ?>.00</td>
-                                        <td><?php echo $row['saldo'] ?></td>
+                                        <td>$<?php echo $row['saldo'] ?>.00</td>
                                         <td><?php echo $dias ?> dias de vencimiento</td>
                                         <td>
-                                        <a href="#editar_<?php echo $row["id_apartado"]?>" class="btn btn-warning" data-toggle="modal"><i class="fas fa-pencil-alt"></i></a>
-                                            </a>
+                                            <button class="btn btn-danger input" title="Marcar como completado" id="completar" class="completo btn" >
+                                                <i class="fas fa-clipboard-check"></i> Terminado
+                                            </button>
                                             <br>
                                             <br>
                                             <a class="btn actualiza-tabla" title="Actualizar apartado" id="completar" class="completo btn" href="ActualizarApartado.php?id_apartado=<?php echo $row["id_apartado"]; ?>">
                                                 <i class="fa fa-edit"></i> Abonar
                                             </a>
-                                    
+                                         
+
                                         </td>
                                     </tr>
                                 <?php
@@ -304,6 +242,12 @@ $datos = "SELECT * FROM apartados";
 
                                 ?>
                             </tbody>
+                            
+                            <style type="text/css">
+                                input:focus {
+                                    background: green;
+                                }
+                            </style>
                         </table>
                         <br>
                     </div>

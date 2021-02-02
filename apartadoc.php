@@ -77,3 +77,8 @@ if ($resultado) {
 } else {
     echo "<script>('no se pudo apartar');window.histoyr.go(-1)</script>";
 }
+?>
+<?php
+header("Location: apartado.php");
+
+?>
