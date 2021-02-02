@@ -238,11 +238,10 @@ $datos = "SELECT * FROM apartados";
                         <h1>Apartados</h1>
                     </header>
 
-                    <div id="container1">
-                        <div>
-                            <a href="#" id="btn-abrir-popup" class="btn btn-success" data-toggle="modal">Apartar</a>
-                        </div>
-                    </div>
+                    
+                            <a href="AgregarApartado.php?modelos=1" id="btn-abrir-popup" class="btn btn-success" data-toggle="modal" styles="font-size: 170%;">Apartar</a>
+                            <br>
+                       
                     <div class="table-responsive">
                         <table class="table table-hover" id="tablee">
                             <thead>
