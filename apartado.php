@@ -1,6 +1,6 @@
 <?php
 include("base.php");
-$datos = "SELECT * FROM apartados";
+$datos = "SELECT * FROM apartados where saldo > '0'";
 ?>
 
 <!DOCTYPE html>
@@ -28,14 +28,10 @@ $datos = "SELECT * FROM apartados";
 </head>
 
 <body>
-
-    
-
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <nav id="sidebar" class="sidebar-wrapper">
@@ -87,11 +83,23 @@ $datos = "SELECT * FROM apartados";
                                         <span class="menu-text">Inventario</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="reportes.php?pagina=1">
-                                        <i class="fa fa-chart-line"></i>
+                                <li class="sidebar-dropdown">
+                                    <a href="#">
+                                        <i class="fa fa-file-invoice-dollar"></i>
                                         <span class="menu-text">Reportes</span>
+                                        <span class="badge badge-pill badge-warning">New</span>
                                     </a>
+                                    <div class="sidebar-submenu">
+                                        <ul>
+                                            <li>
+                                                <a href="reportes.php?pagina=1"><i class="fa fa-list-ol"></i> Ventas
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="apartado2.php"><i class="fa fa-calendar-check"></i> Apartado <span class="badge badge-pill badge-warning">New</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                                 <li>
                                     <a href="AdminCaja.php">
@@ -157,11 +165,9 @@ $datos = "SELECT * FROM apartados";
             </div>
         </nav>
 
-
         <main class="page-content pt-2">
             <div id="overlay" class="overlay"></div>
             <section id="main-content">
-
                 <article>
                     <div id="divcerrar">
                         <button id="" class="btn-tiny btn-danger">
@@ -176,12 +182,8 @@ $datos = "SELECT * FROM apartados";
                         <br>
                         <h1>Apartados</h1>
                     </header>
-
-                    
-                            <a href="AgregarApartado.php?modelos=1" style='width:260px; height:70px; FONT-SIZE: 20pt' id="btn-abrir-popup" class="btn btn-success">Apartar</a>
-
-                            <br>
-                       
+                    <a href="AgregarApartado.php?modelos=1" style='width:260px; height:70px; FONT-SIZE: 20pt' id="btn-abrir-popup" class="btn btn-success">Apartar</a>
+                    <br>
                     <div class="table-responsive ">
                         <table class="table table-hover" id="tablee">
                             <thead>
@@ -225,28 +227,16 @@ $datos = "SELECT * FROM apartados";
                                         <td>$<?php echo $row['saldo'] ?>.00</td>
                                         <td><?php echo $dias ?> dias de vencimiento</td>
                                         <td>
-                                            <button class="btn btn-danger input" title="Marcar como completado" id="completar" class="completo btn" >
-                                                <i class="fas fa-clipboard-check"></i> Terminado
-                                            </button>
-                                            <br>
-                                            <br>
                                             <a class="btn actualiza-tabla" title="Actualizar apartado" id="completar" class="completo btn" href="ActualizarApartado.php?id_apartado=<?php echo $row["id_apartado"]; ?>">
                                                 <i class="fa fa-edit"></i> Abonar
                                             </a>
-                                         
-
                                         </td>
                                     </tr>
                                 <?php
                                 }
                                 mysqli_free_result($resultado);
-
                                 ?>
                             </tbody>
-
-
-                            
-                            
                             <style type="text/css">
                                 input:focus {
                                     background: green;
@@ -258,10 +248,7 @@ $datos = "SELECT * FROM apartados";
 
                 </article>
             </section>
-
-
         </main>
-
     </div>
 
     <script>

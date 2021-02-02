@@ -29,8 +29,6 @@ $datos = "SELECT * FROM apartados where saldo = '0'";
 
 <body>
 
-    
-
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,11 +85,23 @@ $datos = "SELECT * FROM apartados where saldo = '0'";
                                         <span class="menu-text">Inventario</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="reportes.php?pagina=1">
-                                        <i class="fa fa-chart-line"></i>
+                                <li class="sidebar-dropdown">
+                                    <a href="#">
+                                        <i class="fa fa-file-invoice-dollar"></i>
                                         <span class="menu-text">Reportes</span>
+                                        <span class="badge badge-pill badge-warning">New</span>
                                     </a>
+                                    <div class="sidebar-submenu">
+                                        <ul>
+                                            <li>
+                                                <a href="reportes.php?pagina=1"><i class="fa fa-list-ol"></i> Ventas
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="apartado2.php"><i class="fa fa-calendar-check"></i> Apartado <span class="badge badge-pill badge-warning">New</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                                 <li>
                                     <a href="AdminCaja.php">
@@ -157,86 +167,82 @@ $datos = "SELECT * FROM apartados where saldo = '0'";
             </div>
         </nav>
 
-        
+
         <main class="page-content pt-2">
             <div class="pdf">
                 <h1>Reporte de apartados: </h1>
                 <br>
-                       
-                    <div class="table-responsive ">
-                        <table class="table table-hover" id="tablee">
-                            <thead>
+
+                <div class="table-responsive ">
+                    <table class="table table-hover" id="tablee">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Fecha Vencimiento</th>
+                                <th>Cliente</th>
+                                <th>Productos vendidos</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <?php $resultado = mysqli_query($conexion, $datos);
+
+                            while ($row = mysqli_fetch_assoc($resultado)) {
+                                $fecha_actual = new DateTime(date('Y-m-d'));
+                                $fechavencido = new datetime($row['fecha']);
+                                $dias = $fecha_actual->diff($fechavencido)->format('%r%a');
+                                if ($dias <= 0) {
+                                    echo '<p class="alert alert-danger agileits" role="alert"> El apartado # ', $row['id_apartado'], ' ha vencido';
+                                } elseif ($dias <= 3) {
+                                    echo '<p class="alert alert-warning agileits" role="alert"> El apartado # ', $row['id_apartado'], ' está a ' . $dias . ' días de vencer.';
+                                }
+                            ?>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Fecha Vencimiento</th>                                    
-                                    <th>Cliente</th>
-                                    <th>Productos vendidos</th>
-                                    <th>Total</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <?php $resultado = mysqli_query($conexion, $datos);
-
-                                while ($row = mysqli_fetch_assoc($resultado)) {
-                                    $fecha_actual = new DateTime(date('Y-m-d'));
-                                    $fechavencido = new datetime($row['fecha']);
-                                    $dias = $fecha_actual->diff($fechavencido)->format('%r%a');
-                                    if ($dias <= 0) {
-                                        echo '<p class="alert alert-danger agileits" role="alert"> El apartado # ', $row['id_apartado'], ' ha vencido';
-                                    } elseif ($dias <= 3) {
-                                        echo '<p class="alert alert-warning agileits" role="alert"> El apartado # ', $row['id_apartado'], ' está a ' . $dias . ' días de vencer.';
-                                    }
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['id_apartado'] ?></td>
-                                        <td><?php echo $row['fecha'] ?></td>                                        
-                                        <td><?php echo $row['cliente'] ?></td>
-                                        <td>
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
+                                    <td><?php echo $row['id_apartado'] ?></td>
+                                    <td><?php echo $row['fecha'] ?></td>
+                                    <td><?php echo $row['cliente'] ?></td>
+                                    <td>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
                                                     <th>Modelo</th>
                                                     <th>Número</th>
                                                     <th>Color</th>
                                                     <th>Precio</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                                        <tr>
-                                                        <td><?php echo $row['modelo'] ?></td>
-                                        <td><?php echo $row['numero'] ?></td>
-                                        <td><?php echo $row['color'] ?></td>
-                                        <td>$<?php echo $row['precio'] ?>.00</td>
-                                                        </tr>
-                                                  
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                        <td>$<?php echo $row['precio'] ?>.00</td>
-      
-                                    </tr>
-                                <?php
-                                }
-                                mysqli_free_result($resultado);
+                                                <tr>
+                                                    <td><?php echo $row['modelo'] ?></td>
+                                                    <td><?php echo $row['numero'] ?></td>
+                                                    <td><?php echo $row['color'] ?></td>
+                                                    <td>$<?php echo $row['precio'] ?>.00</td>
+                                                </tr>
 
-                                ?>
-                            </tbody>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>$<?php echo $row['precio'] ?>.00</td>
 
-                            </style>
-                        </table>
-                        <br>
-                    </div>
+                                </tr>
+                            <?php
+                            }
+                            mysqli_free_result($resultado);
+
+                            ?>
+                        </tbody>
+
+                        </style>
+                    </table>
+                    <br>
+                </div>
 
                 </article>
-            </section>
-
-
+                </section>
         </main>
-
     </div>
-
     <script>
         $("#completar").click(function() {
             alertify.alert('Se hizo el apartado', 'Gracias!', function() {

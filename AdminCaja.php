@@ -111,11 +111,23 @@ $cajas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                         <span class="menu-text">Inventario</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="reportes.php?pagina=1">
-                                        <i class="fa fa-chart-line"></i>
+                                <li class="sidebar-dropdown">
+                                    <a href="#">
+                                        <i class="fa fa-file-invoice-dollar"></i>
                                         <span class="menu-text">Reportes</span>
+                                        <span class="badge badge-pill badge-warning">New</span>
                                     </a>
+                                    <div class="sidebar-submenu">
+                                        <ul>
+                                            <li>
+                                                <a href="reportes.php?pagina=1"><i class="fa fa-list-ol"></i> Ventas
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="apartado2.php"><i class="fa fa-calendar-check"></i> Apartado <span class="badge badge-pill badge-warning">New</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                                 <li>
                                     <a href="AdminCaja.php">
@@ -125,7 +137,7 @@ $cajas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                 </li>
                                 <li>
                                     <a href="apartado.php">
-                                    <i class="fa fa-cart-plus"></i>
+                                        <i class="fa fa-cart-plus"></i>
                                         <span class="menu-text">Apartados</span>
                                     </a>
                                 </li>
@@ -181,21 +193,21 @@ $cajas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                 </nav>
             </div>
 
-  
 
-        <main class="page-content pt-2">
-            <div class="fondo_transparente">
-                <div class="modal">
-                    <div class="modal_titulo">ADVERTENCIA</div>
-                    <div class="modal_mensaje">
-                        <p>¿Seguro que desea salir?</p>
-                    </div>
-                    <div class="modal_botones">
-                        <a href="login.php" class="boton" id="btn-yes">SI</a>
-                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
+
+            <main class="page-content pt-2">
+                <div class="fondo_transparente">
+                    <div class="modal">
+                        <div class="modal_titulo">ADVERTENCIA</div>
+                        <div class="modal_mensaje">
+                            <p>¿Seguro que desea salir?</p>
+                        </div>
+                        <div class="modal_botones">
+                            <a href="login.php" class="boton" id="btn-yes">SI</a>
+                            <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
         </nav>
         <!-- contenido  -->
@@ -226,26 +238,25 @@ $cajas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                         <h1>Caja</h1>
                     </header>
 
-                        <div id="container1">
+                    <div id="container1">
 
-                            <form>
-                                <div class="field" id="searchform">
-                                    <input type="text" id="searchterm" name="introducemodelo" placeholder="Ingresar nombre o codigo de caja" />
-                                    <input class="btn btn" type="submit" id="search" value="Buscar"/>
-                                    <button type="button" id="btn-abrir-popup"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                                        </svg> Agregar</button>
-                                </div> 
-                            </form>
-                            <?php
-                            if(isset($_GET['introducemodelo'])){
-                            $sentencia = $base_de_datos->query("SELECT * FROM caja where id_caja = '" .$_GET['introducemodelo']. "';");
+                        <form>
+                            <div class="field" id="searchform">
+                                <input type="text" id="searchterm" name="introducemodelo" placeholder="Ingresar nombre o codigo de caja" />
+                                <input class="btn btn" type="submit" id="search" value="Buscar" />
+                                <button type="button" id="btn-abrir-popup"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg> Agregar</button>
+                            </div>
+                        </form>
+                        <?php
+                        if (isset($_GET['introducemodelo'])) {
+                            $sentencia = $base_de_datos->query("SELECT * FROM caja where id_caja = '" . $_GET['introducemodelo'] . "';");
+                        }
+                        $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                        ?>
 
-                            } 
-                            $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
-                            ?>
-  
-                        </div>
+                    </div>
 
 
                     <div class="table-responsive">
@@ -260,16 +271,16 @@ $cajas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                             </thead>
 
                             <tbody>
-                            <?php foreach ($cajas as $caja) { ?>
-                                        <tr>
-                                            <td><?php echo $caja->nombre_codigo ?></td>
-                                            <td>$<?php echo $caja->efectivo ?>.00</td>
-                                            <td>
-                                                <a class="btn actualiza-tabla" href="<?php echo "ActualizarCaja.php?id_caja=" . $caja->id_caja ?>"><i class="fa fa-edit"></i> Editar</a>
-                                                <a class="btn btn-danger" href="<?php echo "eliminarCaja.php?id_caja=" . $caja->id_caja?>"><i class="fas fa-trash"></i> Eliminar</a>
-                                            </td>
-                                        </tr>
-                             <?php } ?>
+                                <?php foreach ($cajas as $caja) { ?>
+                                    <tr>
+                                        <td><?php echo $caja->nombre_codigo ?></td>
+                                        <td>$<?php echo $caja->efectivo ?>.00</td>
+                                        <td>
+                                            <a class="btn actualiza-tabla" href="<?php echo "ActualizarCaja.php?id_caja=" . $caja->id_caja ?>"><i class="fa fa-edit"></i> Editar</a>
+                                            <a class="btn btn-danger" href="<?php echo "eliminarCaja.php?id_caja=" . $caja->id_caja ?>"><i class="fas fa-trash"></i> Eliminar</a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
 
                             </tbody>
                         </table>

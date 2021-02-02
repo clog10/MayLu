@@ -168,11 +168,23 @@ $paginas = ceil($paginas);
                                         <span class="menu-text">Inventario</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="reportes.php?pagina=1">
-                                        <i class="fa fa-chart-line"></i>
+                                <li class="sidebar-dropdown">
+                                    <a href="#">
+                                        <i class="fa fa-file-invoice-dollar"></i>
                                         <span class="menu-text">Reportes</span>
+                                        <span class="badge badge-pill badge-warning">New</span>
                                     </a>
+                                    <div class="sidebar-submenu">
+                                        <ul>
+                                            <li>
+                                                <a href="reportes.php?pagina=1"><i class="fa fa-list-ol"></i> Ventas
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="apartado2.php"><i class="fa fa-calendar-check"></i> Apartado <span class="badge badge-pill badge-warning">New</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                                 <li>
                                     <a href="AdminCaja.php">

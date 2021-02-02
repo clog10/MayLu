@@ -3,9 +3,9 @@ include_once "base_de_datos.php";
 $sentencia = $base_de_datos->query("SELECT ventas.total, ventas.fecha, ventas.vendedor, ventas.id, GROUP_CONCAT(	productos.codigo, '..',  productos.descripcion,'..',  productos.precioVenta, '..', productos_vendidos.cantidad SEPARATOR '__') AS productos FROM ventas INNER JOIN productos_vendidos ON productos_vendidos.id_venta = ventas.id INNER JOIN productos ON productos.id = productos_vendidos.id_producto GROUP BY ventas.id ORDER BY ventas.id;");
 $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
-$articulos_x_pagina =5;
+$articulos_x_pagina = 5;
 $total_articulos_bd = $sentencia->rowCount();
-$paginas = $total_articulos_bd/5;
+$paginas = $total_articulos_bd / 5;
 $paginas = ceil($paginas);
 
 ?>
@@ -96,11 +96,23 @@ $paginas = ceil($paginas);
                                         <span class="menu-text">Inventario</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="reportes.php?pagina=1">
-                                        <i class="fa fa-chart-line"></i>
+                                <li class="sidebar-dropdown">
+                                    <a href="#">
+                                        <i class="fa fa-file-invoice-dollar"></i>
                                         <span class="menu-text">Reportes</span>
+                                        <span class="badge badge-pill badge-warning">New</span>
                                     </a>
+                                    <div class="sidebar-submenu">
+                                        <ul>
+                                            <li>
+                                                <a href="reportes.php?pagina=1"><i class="fa fa-list-ol"></i> Ventas
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="apartado2.php"><i class="fa fa-calendar-check"></i> Apartado <span class="badge badge-pill badge-warning">New</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                                 <li>
                                     <a href="AdminCaja.php">
@@ -110,7 +122,7 @@ $paginas = ceil($paginas);
                                 </li>
                                 <li>
                                     <a href="apartado.php">
-                                    <i class="fa fa-cart-plus"></i>
+                                        <i class="fa fa-cart-plus"></i>
                                         <span class="menu-text">Apartados</span>
                                     </a>
                                 </li>
@@ -164,22 +176,22 @@ $paginas = ceil($paginas);
                     </div>
                 </nav>
             </div>
-            
-        
 
-        <main class="page-content pt-2">
-            <div class="fondo_transparente">
-                <div class="modal">
-                    <div class="modal_titulo">ADVERTENCIA</div>
-                    <div class="modal_mensaje">
-                        <p>¿Seguro que desea salir?</p>
-                    </div>
-                    <div class="modal_botones">
-                        <a href="login.php" class="boton" id="btn-yes">SI</a>
-                        <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
+
+
+            <main class="page-content pt-2">
+                <div class="fondo_transparente">
+                    <div class="modal">
+                        <div class="modal_titulo">ADVERTENCIA</div>
+                        <div class="modal_mensaje">
+                            <p>¿Seguro que desea salir?</p>
+                        </div>
+                        <div class="modal_botones">
+                            <a href="login.php" class="boton" id="btn-yes">SI</a>
+                            <a href="#" class="boton" id="btn-no" onclick="NO()">NO</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
         </nav>
 
@@ -189,26 +201,25 @@ $paginas = ceil($paginas);
                 <br>
 
                 <div class="col-xs-12">
-                           <?php
-             if(!$_GET){
-                header('Location:reportes.php?pagina=1');
+                    <?php
+                    if (!$_GET) {
+                        header('Location:reportes.php?pagina=1');
+                    }
+                    if ($_GET['pagina'] > $paginas) {
+                        header('reportes.php?pagina=1');
+                    }
 
-            }
-            if($_GET['pagina']>$paginas){
-                header('reportes.php?pagina=1');
-            }
+                    $iniciar = ($_GET['pagina'] - 1) * $articulos_x_pagina;
+                    //echo $iniciar;
 
-            $iniciar = ($_GET['pagina']-1)*$articulos_x_pagina;
-            //echo $iniciar;
+                    $sql_articulos = "SELECT ventas.total, ventas.fecha, ventas.vendedor, ventas.id, GROUP_CONCAT(	productos.codigo, '..',  productos.descripcion,'..',  productos.precioVenta, '..', productos_vendidos.cantidad SEPARATOR '__') AS productos FROM ventas INNER JOIN productos_vendidos ON productos_vendidos.id_venta = ventas.id INNER JOIN productos ON productos.id = productos_vendidos.id_producto GROUP BY ventas.id ORDER BY ventas.id LIMIT :inicar,:narticulos";
+                    $productosS = $base_de_datos->prepare($sql_articulos);
+                    $productosS->bindParam(':inicar', $iniciar, PDO::PARAM_INT);
+                    $productosS->bindParam(':narticulos', $articulos_x_pagina, PDO::PARAM_INT);
+                    $productosS->execute();
 
-            $sql_articulos = "SELECT ventas.total, ventas.fecha, ventas.vendedor, ventas.id, GROUP_CONCAT(	productos.codigo, '..',  productos.descripcion,'..',  productos.precioVenta, '..', productos_vendidos.cantidad SEPARATOR '__') AS productos FROM ventas INNER JOIN productos_vendidos ON productos_vendidos.id_venta = ventas.id INNER JOIN productos ON productos.id = productos_vendidos.id_producto GROUP BY ventas.id ORDER BY ventas.id LIMIT :inicar,:narticulos";
-            $productosS=$base_de_datos->prepare($sql_articulos);
-            $productosS->bindParam(':inicar',$iniciar,PDO::PARAM_INT);
-            $productosS->bindParam(':narticulos',$articulos_x_pagina,PDO::PARAM_INT);
-            $productosS->execute();
-
-            $resultado_articulos = $productosS->fetchAll();
-            ?>
+                    $resultado_articulos = $productosS->fetchAll();
+                    ?>
 
                     <br>
                     <div class="table-responsive margen-tabla">
@@ -225,8 +236,8 @@ $paginas = ceil($paginas);
                                 <?php foreach ($resultado_articulos as $venta) { ?>
                                     <tr>
                                         <td><?php echo $venta->id ?></td>
-                                        <td><?php echo $venta->fecha?><br>
-                                        <?php echo $venta->vendedor?></td>
+                                        <td><?php echo $venta->fecha ?><br>
+                                            <?php echo $venta->vendedor ?></td>
                                         <td>
                                             <table class="table">
                                                 <thead>
@@ -255,43 +266,40 @@ $paginas = ceil($paginas);
                                     </tr>
                                 <?php } ?>
                             </tbody>
-                            
-                        </table>
-                         <div class="d-flex flex-row-reverse">
-                    <nav aria-label="Page navigation example">
 
-                    <ul class="pagination ">
-                        <li class="page-item
-                        <?php echo $_GET['pagina']<=1? 'disabled':''?>
+                        </table>
+                        <div class="d-flex flex-row-reverse">
+                            <nav aria-label="Page navigation example">
+
+                                <ul class="pagination ">
+                                    <li class="page-item
+                        <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>
                         ">
 
-                        <a class="page-link" 
-                        href="reportes.php?pagina=<?php echo $_GET['pagina']-1 ?>">
-                        Anterior
-                        </a>
-                        </li>
+                                        <a class="page-link" href="reportes.php?pagina=<?php echo $_GET['pagina'] - 1 ?>">
+                                            Anterior
+                                        </a>
+                                    </li>
 
-                    <?php for($i=0;$i<$paginas;$i++):?>
+                                    <?php for ($i = 0; $i < $paginas; $i++) : ?>
 
-                    <li class="page-item <?php echo $_GET['pagina']==$i+1 ?'active':'' ?>">
-                        <a class="page-link" 
-                        href="reportes.php?pagina=<?php echo $i+1 ?>">
-                        <?php echo $i+1 ?>
-                        </a>
-                    </li>
-                    <?php endfor ?>
+                                        <li class="page-item <?php echo $_GET['pagina'] == $i + 1 ? 'active' : '' ?>">
+                                            <a class="page-link" href="reportes.php?pagina=<?php echo $i + 1 ?>">
+                                                <?php echo $i + 1 ?>
+                                            </a>
+                                        </li>
+                                    <?php endfor ?>
 
 
 
-                    <li class="page-item
-                    <?php echo $_GET['pagina']>=$paginas? 'disabled':''?>
-                    "><a class="page-link"
-                    href="reportes.php?pagina=<?php echo $_GET['pagina']+1 ?>">Siguiente</a></li>
-                    </ul>
-                </nav>  
+                                    <li class="page-item
+                    <?php echo $_GET['pagina'] >= $paginas ? 'disabled' : '' ?>
+                    "><a class="page-link" href="reportes.php?pagina=<?php echo $_GET['pagina'] + 1 ?>">Siguiente</a></li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
-                    </div>
-                    
+
                 </div>
             </div>
         </main>

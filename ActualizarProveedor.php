@@ -76,11 +76,23 @@
                                 <span class="menu-text">Inventario</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="reportes.php?pagina=1">
-                                <i class="fa fa-chart-line"></i>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-file-invoice-dollar"></i>
                                 <span class="menu-text">Reportes</span>
+                                <span class="badge badge-pill badge-warning">New</span>
                             </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="reportes.php?pagina=1"><i class="fa fa-list-ol"></i> Ventas
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="apartado2.php"><i class="fa fa-calendar-check"></i> Apartado <span class="badge badge-pill badge-warning">New</span></a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li>
                             <a href="AdminCaja.php">
@@ -201,7 +213,7 @@
                     </header>
 
                     <div class="actualiza">
-                    <br>
+                        <br>
                         <h3>Actualizar Usuario</h3>
                         <h4>Ingresa los datos</h4>
                         <h5><label>*</label> Campo obligatorio </h5>
@@ -214,13 +226,13 @@
                                 <h4><label>*</label> Telefono</h4>
                                 <h4><label>*</label> Correo</h4>
                             </div>
-                            <div class="contenedor-inputs-actualiza">                              
+                            <div class="contenedor-inputs-actualiza">
                                 <input type="text" class="form-control" name="id_proveedor" readonly value="<?php echo $proveedor->id_proveedor ?>">
-                                <input value="<?php echo $proveedor->nombre_empresa ?>"   id="nombre_empresa" name="nombre_empresa" cols="30" rows="5" class="form-control" placeholder="Nombre de la empresa"  >
-                                <input value="<?php echo $proveedor->nombre_agente ?>"  id="nombre_agente" name="nombre_agente" cols="30" rows="5" class="form-control" placeholder="Nombre del agente" >
-                                <input value="<?php echo $proveedor->direccion ?>" class="form-control" name="direccion"  type="text" id="direccion" placeholder="Dirección" >
-                                <input value="<?php echo $proveedor->tel ?>" class="form-control"   name="tel"  type="text" id="tel" placeholder="Número telefónico" >
-                                <input value="<?php echo $proveedor->email ?>" class="form-control" name="email"  type="text" id="email" placeholder="Correo electrónico">
+                                <input value="<?php echo $proveedor->nombre_empresa ?>" id="nombre_empresa" name="nombre_empresa" cols="30" rows="5" class="form-control" placeholder="Nombre de la empresa">
+                                <input value="<?php echo $proveedor->nombre_agente ?>" id="nombre_agente" name="nombre_agente" cols="30" rows="5" class="form-control" placeholder="Nombre del agente">
+                                <input value="<?php echo $proveedor->direccion ?>" class="form-control" name="direccion" type="text" id="direccion" placeholder="Dirección">
+                                <input value="<?php echo $proveedor->tel ?>" class="form-control" name="tel" type="text" id="tel" placeholder="Número telefónico">
+                                <input value="<?php echo $proveedor->email ?>" class="form-control" name="email" type="text" id="email" placeholder="Correo electrónico">
                             </div>
                             <br><br>
                             <input class="btn boton-actualiza" type="submit" value="Guardar">
