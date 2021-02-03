@@ -224,6 +224,7 @@
                                 <h4><label>*</label> Abonar</h4>
                                 <h4><label>*</label> Saldo $</h4>
                             </div>
+    
                             <div class="contenedor-inputs-actualiza">
                                 <input type="text" class="form-control" name="id_apartado" readonly value="<?php echo $apar->id_apartado ?>">
                                 <input value="<?php echo $apar->fecha ?>" id="fecha" readonly name="fecha" cols="30" rows="5" class="form-control">
@@ -232,8 +233,10 @@
                                 <input value="<?php echo $apar->numero ?>" id="numero" readonly name="numero" cols="30" rows="5" class="form-control">
                                 <input value="<?php echo $apar->color ?>" id="color" readonly name="color" cols="30" rows="5" class="form-control">
                                 <input value="<?php echo $apar->precio ?>" id="precio" readonly name="precio" cols="30" rows="5" class="form-control">
-                                <input value="<?php echo $apar->abono ?>" id="abonado" readonly name="abonado" cols="30" rows="5" class="form-control">
-                                <input value="" id="abono" name="abono" cols="30" rows="5" class="form-control" onchange="cal()">
+                                <input value="<?php echo $apar->abono ?>" id="abono"  name="abono" cols="30" rows="5" class="form-control" readonly >
+                                <input value="" id="abonado" name="abonado" cols="30" rows="5" class="form-control" onchange="cal();cal2()" >
+                                
+                               
                                 <input value="<?php echo $apar->saldo ?>" id="saldo" name="saldo" cols="30" rows="5" class="form-control" readonly>
                             </div>
                             <br><br>
@@ -244,12 +247,23 @@
                             function cal() {
                                 try {
                                     var a = parseInt(document.datosrecibido.precio.value),
-                                        b = parseInt(document.datosrecibido.abonado.value)
-                                        c = parseInt(document.datosrecibido.abono.value);
+                                        b = parseInt(document.datosrecibido.abono.value)
+                                        c = parseInt(document.datosrecibido.abonado.value);
                                         //resta
-                                        d = (a - b) - c;
+                                        d = (a)-(b + c);
                                     //document.datosrecibido.saldo.value = "$ " + c + ".00";
                                     document.datosrecibido.saldo.value = d;
+                                } catch (e) {}
+                            }
+                            function cal2() {
+                                try {
+                                    var 
+                                        b = parseInt(document.datosrecibido.abono.value)
+                                        c = parseInt(document.datosrecibido.abonado.value);
+                                        //resta
+                                        d = b + c;
+                                    //document.datosrecibido.saldo.value = "$ " + c + ".00";
+                                    document.datosrecibido.abono.value = d;
                                 } catch (e) {}
                             }
                         </script>

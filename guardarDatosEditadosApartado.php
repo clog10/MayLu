@@ -26,8 +26,8 @@ $precio = $_POST["precio"];
 $abono = $_POST["abono"];
 $saldo = $_POST["saldo"];
 
-$sentencia = $base_de_datos->prepare("UPDATE apartados SET fecha = ?, modelo = ?,cliente = ?, numero = ? ,color = ?, precio = ? ,abono = ?, saldo = ?  WHERE id_apartado = ?;");
-$resultado = $sentencia->execute([$fecha, $modelo,$cliente, $numero,$color, $precio,$abono, $saldo, $id_apartado]);
+$sentencia = $base_de_datos->prepare("UPDATE apartados SET fecha = ?, modelo = ?,cliente = ?, numero = ? ,color = ?, precio = ? , abono = ?, saldo = ?  WHERE id_apartado = ?;");
+$resultado = $sentencia->execute([$fecha, $modelo,$cliente, $numero,$color, $precio, $abono, $saldo, $id_apartado]);
 
 if($resultado === TRUE){
 	header("Location: ./apartado.php");

@@ -277,7 +277,7 @@ $modelo = $_GET["modelos"];
                                 try {
                                     var a = parseInt(document.datosrecibido.precio.value),
                                         b = parseInt(document.datosrecibido.abono.value);
-                                    c = b - a;
+                                    c = a-b;
                                     //document.datosrecibido.saldo.value = "$ " + c + ".00";
                                     document.datosrecibido.saldo.value = c;
                                 } catch (e) {}
